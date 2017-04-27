@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 15:27:58 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/27 19:33:18 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/04/27 19:54:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@
 
 int		main(void)
 {
-	int i;
+	// int i;
 
+	printf("%5.8sok", "bonjour");
 	// setlocale(LC_ALL,"");
-	i = 0;
-	char *str;
-
-	str = malloc(sizeof(char) * 8);
-	str = "bonjour";
-	*str = 'a';
-	ft_putstr(str);
+	// i = 0;
+	// char *str;
+	//
+	// str = malloc(sizeof(char) * 8);
+	// str = "bonjour";
+	// *str = 'a';
+	// ft_putstr(str);
 	// ft_putstr("\n");
 	// while (i < 2)
 	// 	i++;

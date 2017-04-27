@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/27 19:43:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/04/27 19:54:27 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,15 +162,15 @@ int		ft_parsing(char* format, va_list lst)
 			while (ft_is_in(*format, STR_CONVERSION) == 0)
 				format++;
 			conversion(format, option, lst);
-			printf("\n\n ---------- \n\n");
-			printf("plusspace = %c\n", option->pluspace);
-			printf("minuszero = %c\n", option->minuszero);
-			printf("zero_nb = %d\n", option->zero_nb);
-			printf("hash = %c\n", option->hash);
-			printf("modifier = %c\n", option->modifier);
-			printf("padding = %d\n", option->padding);
-			printf("precision = %d\n", option->precision);
-			printf("\n\n ---------- \n\n");
+			// printf("\n\n ---------- \n\n");
+			// printf("plusspace = %c\n", option->pluspace);
+			// printf("minuszero = %c\n", option->minuszero);
+			// printf("zero_nb = %d\n", option->zero_nb);
+			// printf("hash = %c\n", option->hash);
+			// printf("modifier = %c\n", option->modifier);
+			// printf("padding = %d\n", option->padding);
+			// printf("precision = %d\n", option->precision);
+			// printf("\n\n ---------- \n\n");
 		}
 		else
 			ft_putchar(*format);
@@ -194,6 +194,6 @@ int		ft_printf(const char *format, ...)
 int		main(void)
 {
 	char	*str = "bonjour";
-	ft_printf("format = %5.3s", str);
+	ft_printf("format = %5.8sok", str);
 	return 0;
 }
