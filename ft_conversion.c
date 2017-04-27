@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/27 18:28:06 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/04/27 19:35:55 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ int		ft_s(va_list lst, t_option *option)
 	int i;
 	int flag;
 
-	i = 0;
-	res = va_arg(lst, char *);
-	
-	// printf("RES = %s\n", res);
+	i = -1;
+	if (!(res = va_arg(lst, char *)))
+		res = "(null)";
+	printf("RES = %s\n", res);
 	if (option->precision == 0)
 		return (0);
 	else if (option->precision > 0 && option->padding > option->precision)
 		result = option->padding;
 	else if (option->precision > 0 && option->padding <= option->precision)
 		result = ft_strlen(res);
-	// if (option->precision > 0 && option->precision < ft_strlen(res))
-	// 	while (++i < option->precision)
-	// 		ft_putchar(res[i]);
-	// else
-	// ft_putstr(res);
+	if (option->precision > 0 && option->precision < ft_strlen(res))
+		while (++i < option->precision)
+			ft_putchar(res[i]);
+	else
+		ft_putstr(res);
 	return (result);
 }
 
