@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/27 19:55:28 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/04/29 23:36:53 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,26 @@ int		ft_s(va_list lst, t_option *option)
 	char *res;
 	int result;
 	int i;
-	int flag;
 
 	i = -1;
 	if (!(res = va_arg(lst, char *)))
 		res = "(null)";
-	printf("RES = %s\n", res);
-	if (option->precision == 0)
-		return (0);
-	else if (option->precision > 0 && option->padding > option->precision)
+	if (option->precision == 0 || (option->precision > 0
+	&& (option->padding > option->precision)))
 		result = option->padding;
-	else if (option->precision > 0 && option->padding <= option->precision)
+	else if ((option->precision > 0 && option->padding <= option->precision)
+	|| (option->precision == -1 && option->padding == -1))
 		result = ft_strlen(res);
-	if (option->padding > option->precision)
+	if (option->padding > option->precision && option->precision > -1)
 		while (++i < option->padding - option->precision)
 			ft_putchar(' ');
 	i = -1;
 	if (option->precision > 0 && option->precision < ft_strlen(res))
 		while (++i < option->precision)
 			ft_putchar(res[i]);
-	else
+	else if (option->precision != 0)
 		ft_putstr(res);
+	printf("\nVRAI PRINTF = format = %5.1sok", "bonjour");
 	return (result);
 }
 

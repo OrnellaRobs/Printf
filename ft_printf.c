@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/27 19:54:27 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/04/29 23:36:44 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,6 @@ int		ft_printf(const char *format, ...)
 int		main(void)
 {
 	char	*str = "bonjour";
-	ft_printf("format = %5.8sok", str);
+	ft_printf("format = %5.1sok", str);
 	return 0;
 }

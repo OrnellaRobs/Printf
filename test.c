@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 15:27:58 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/27 19:54:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/04/28 00:24:10 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(void)
 {
 	// int i;
 
-	printf("%5.8sok", "bonjour");
+printf("%2s", NULL);
 	// setlocale(LC_ALL,"");
 	// i = 0;
 	// char *str;
