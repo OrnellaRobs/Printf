@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/25 18:24:18 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:46:50 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ typedef struct	s_option
 
 int		main(void);
 int		conversion(char *format, t_option *option, va_list lst);
-
+int		ft_s(va_list lst, t_option *option);
 #endif

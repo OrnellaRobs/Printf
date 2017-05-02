@@ -6,57 +6,15 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 14:36:51 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:49:44 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void 	display_space(t_option *option, char *res)
+int		ft_d(va_list lst, t_option *option)
 {
-	int space;
 
-	space = 0;
-	while (space < option->padding - (int)ft_strlen(res))
-	{
-		ft_putchar(' ');
-		space++;
-	}
-}
-
-int		ft_s(va_list lst, t_option *option)
-{
-	char *res;
-	int result;
-	int i;
-
-	printf("padding = %d || precision = %d\n", option->padding, option->precision);
-	i = -1;
-	if (!(res = va_arg(lst, char *)))
-		res = "(null)";
-	if (option->precision == 0 || (option->precision > 0
-	&& (option->padding > option->precision)))
-		result = option->padding;
-	else if ((option->precision > 0 && option->padding <= option->precision)
-	|| (option->precision == -1 && option->padding == -1))
-		result = ft_strlen(res);
-	if (option->padding > option->precision)
-	{
-		if (option->precision < (int)ft_strlen(res))
-			while (++i < option->padding - option->precision)
-				ft_putchar(' ');
-		else
-			while (++i < option->padding - (int)ft_strlen(res))
-				ft_putchar(' ');
-	}
-	i = -1;
-	if (option->precision > 0 && option->precision < (int)ft_strlen(res))
-		while (++i < option->precision)
-			ft_putchar(res[i]);
-	else if (option->precision != 0)
-		ft_putstr(res);
-	printf("\nVRAI PRINTF = format = %sok", "bonjour");
-	return (result);
 }
 
 int		conversion(char *format, t_option *option, va_list lst)
