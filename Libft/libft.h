@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 23:37:26 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/21 18:45:07 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 17:17:24 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ int					ft_is_upper(char c);
 int					ft_is_lower(char c);
 void				ft_list_push_back(t_list **list, void *content);
 int					get_next_line(int fd, char **line);
+int					ft_putchar_int(char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 14:45:37 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 17:25:09 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	flag(char *format, t_option *flag)
 			flag->pluspace = 's';
 		else if (*format == '-')
 				flag->minuszero = '-';
-		else if (*format == '0' && flag->minuszero != '-' && !(flag->padding))
+		else if (*format == '0' && flag->minuszero != '-'
+		&& flag->padding == -1)
 		{
 			flag->minuszero = '0';
 			format++;
@@ -162,7 +163,6 @@ int		ft_parsing(char* format, va_list lst)
 			length_modifier(format, option);
 			while (ft_is_in(*format, STR_CONVERSION) == 0)
 				format++;
-			conversion(format, option, lst);
 			// printf("\n\n ---------- \n\n");
 			// printf("plusspace = %c\n", option->pluspace);
 			// printf("minuszero = %c\n", option->minuszero);
@@ -172,6 +172,7 @@ int		ft_parsing(char* format, va_list lst)
 			// printf("padding = %d\n", option->padding);
 			// printf("precision = %d\n", option->precision);
 			// printf("\n\n ---------- \n\n");
+			conversion(format, option, lst);
 		}
 		else
 			ft_putchar(*format);
@@ -195,6 +196,8 @@ int		ft_printf(const char *format, ...)
 int		main(void)
 {
 	char	*str = "bonjour";
-	ft_printf("%10.5sok", NULL);
+	int i = 18;
+	ft_printf("%08d", i);
+	printf("\n%08d", i);
 	return 0;
 }
