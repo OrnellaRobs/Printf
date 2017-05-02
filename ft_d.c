@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 17:23:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 17:24:05 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 17:34:41 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,12 @@ static int		display_padding_and_precision(int nb, t_option *option)
 			result += ft_putchar_int(' ');
 	else if (option->padding > option->precision && option->precision > 0)
 	{
-		while (++i < option->padding - option->precision)
-			result += ft_putchar_int(' ');
+		if (option->precision < ft_intlen(nb))
+			while (++i < option->padding - ft_intlen(nb))
+				result += ft_putchar_int(' ');
+		else
+			while (++i < option->padding - option->precision)
+				result += ft_putchar_int(' ');
 		i = -1;
 		while (++i < option->precision - ft_intlen(nb))
 		result += ft_putchar_int('0');
