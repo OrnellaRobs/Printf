@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/29 23:36:53 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:04:59 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void 	display_space(t_option *option, char *res)
 	int space;
 
 	space = 0;
-	while (space < option->padding - ft_strlen(res))
+	while (space < option->padding - (int)ft_strlen(res))
 	{
 		ft_putchar(' ');
 		space++;
@@ -30,6 +30,7 @@ int		ft_s(va_list lst, t_option *option)
 	int result;
 	int i;
 
+	printf("padding = %d || precision = %d\n", option->padding, option->precision);
 	i = -1;
 	if (!(res = va_arg(lst, char *)))
 		res = "(null)";
@@ -43,12 +44,12 @@ int		ft_s(va_list lst, t_option *option)
 		while (++i < option->padding - option->precision)
 			ft_putchar(' ');
 	i = -1;
-	if (option->precision > 0 && option->precision < ft_strlen(res))
+	if (option->precision > 0 && option->precision < (int)ft_strlen(res))
 		while (++i < option->precision)
 			ft_putchar(res[i]);
 	else if (option->precision != 0)
 		ft_putstr(res);
-	printf("\nVRAI PRINTF = format = %5.1sok", "bonjour");
+	printf("\nVRAI PRINTF = format = %16.5sok", "bonjour");
 	return (result);
 }
 
