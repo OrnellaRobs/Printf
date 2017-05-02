@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 22:01:20 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 22:01:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 23:21:46 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int		ft_percent(t_option *option)
 {
 	int result;
+	int i;
 
+	i = -1;
 	result = 0;
 	if (option->padding != -1)
 	{
