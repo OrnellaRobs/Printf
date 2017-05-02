@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 19:18:12 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 22:00:51 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,13 +158,6 @@ int 	ft_display_percent(int percent)
 	return (result);
 }
 
-int	move_forward(int percent, char *format)
-{
-	if (percent % 2 == 0)
-		return(percent + 1);
-	return (percent);
-}
-
 int		ft_parsing(char* format, va_list lst)
 {
 	t_option	*option;
@@ -182,13 +175,17 @@ int		ft_parsing(char* format, va_list lst)
 			percent = how_many_percent(format);
 			if (percent != 1)
 				result += ft_display_percent(percent);
-			if (percent % 2 == 0)
-				format = format + percent;
-			padding_and_precision(format, option);
-			flag(format, option);
-			length_modifier(format, option);
-			while (ft_is_in(*format, STR_CONVERSION) == 0)
+			while (*format == '%')
 				format++;
+			if (percent % 2 == 0)
+				format++;
+			else
+			{
+				padding_and_precision(format, option);
+				flag(format, option);
+				length_modifier(format, option);
+				while (ft_is_in(*format, STR_CONVERSION) == 0)
+					format++;
 			// printf("\n\n ---------- \n\n");
 			// printf("plusspace = %c\n", option->pluspace);
 			// printf("minuszero = %c\n", option->minuszero);
@@ -198,7 +195,8 @@ int		ft_parsing(char* format, va_list lst)
 			// printf("padding = %d\n", option->padding);
 			// printf("precision = %d\n", option->precision);
 			// printf("\n\n ---------- \n\n");
-			result = conversion(format, option, lst);
+				result = conversion(format, option, lst);
+			}
 		}
 		else
 			result += ft_putchar_int(*format);
@@ -222,7 +220,7 @@ int		main(void)
 {
 	char	*str = "bonjour";
 	int i = 18;
-	ft_printf("ok%%%%dap\n");
-	printf("(vrai)ok%%ap");
+	ft_printf("ok%-5%ap\n");
+	printf("ok%-5%ap");
 	return 0;
 }

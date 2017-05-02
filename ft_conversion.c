@@ -6,32 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 18:45:31 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 22:01:42 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int		ft_percent(t_option *option)
-{
-	int result;
-	int i;
-
-	i = -1;
-	result = 0;
-	if (option->padding != -1)
-	{
-		if (option->minuszero == '-')
-			result += ft_putchar_int('%');
-		while (++i < option->padding - 1)
-			result += ft_putchar_int(' ');
-		if (option->minuszero != '-')
-			result += ft_putchar_int('%');
-	}
-	else
-		result += ft_putchar_int('%');
-	return (result);
-}
 
 int		conversion(char *format, t_option *option, va_list lst)
 {
