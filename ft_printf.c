@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 17:34:03 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 19:03:49 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,18 +135,39 @@ void 	padding_and_precision(char *format, t_option *flag)
 
 void 	ft_display_percent(int percent)
 {
-	while (percent - 2 >= 0)
+	if (percent % 2 == 0)
 	{
-		ft_putchar('%');
-		percent = percent - 2;
+		while (percent - 2 >= 0)
+		{
+			ft_putchar('%');
+			percent = percent - 2;
+		}
 	}
+	else
+	{
+		percent = percent - 1;
+		while (percent - 2 >= 0)
+		{
+			ft_putchar('%');
+			percent = percent - 2;
+		}
+	}
+}
+
+int	move_forward(int percent, char *format)
+{
+	if (percent % 2 == 0)
+		return(percent + 1);
+	return (percent);
 }
 
 int		ft_parsing(char* format, va_list lst)
 {
 	t_option	*option;
 	int			percent;
+	int			result;
 
+	result = 0;
 	if (!(option = malloc(sizeof(t_option))))
 		return (-1);
 	while (*format)
@@ -156,8 +177,11 @@ int		ft_parsing(char* format, va_list lst)
 		{
 			percent = how_many_percent(format);
 			if (percent != 1)
-				ft_display_percent(percent - 1);
-			format = format + percent;
+				ft_display_percent(percent);
+			if (percent % 2 == 0)
+				format = format + (percent + 1);
+			// else
+			 	format = format + percent;
 			padding_and_precision(format, option);
 			flag(format, option);
 			length_modifier(format, option);
@@ -172,14 +196,13 @@ int		ft_parsing(char* format, va_list lst)
 			// printf("padding = %d\n", option->padding);
 			// printf("precision = %d\n", option->precision);
 			// printf("\n\n ---------- \n\n");
-			conversion(format, option, lst);
+			// result = conversion(format, option, lst);
 		}
 		else
-			ft_putchar(*format);
+			result += ft_putchar_int(*format);
 		format++;
 	}
-	// va_end(lst);
-	return (1);
+	return (result);
 }
 
 int		ft_printf(const char *format, ...)
@@ -197,7 +220,7 @@ int		main(void)
 {
 	char	*str = "bonjour";
 	int i = 18;
-	ft_printf("%8.1d", i);
-	printf("\n%8.1d", i);
+	ft_printf("ok%%%%%dap\n", i);
+	printf("(vrai)ok%%ap");
 	return 0;
 }
