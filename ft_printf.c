@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 19:03:49 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 19:18:12 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,13 +133,16 @@ void 	padding_and_precision(char *format, t_option *flag)
 	}
 }
 
-void 	ft_display_percent(int percent)
+int 	ft_display_percent(int percent)
 {
+	int result;
+
+	result = 0;
 	if (percent % 2 == 0)
 	{
 		while (percent - 2 >= 0)
 		{
-			ft_putchar('%');
+			result += ft_putchar_int('%');
 			percent = percent - 2;
 		}
 	}
@@ -148,10 +151,11 @@ void 	ft_display_percent(int percent)
 		percent = percent - 1;
 		while (percent - 2 >= 0)
 		{
-			ft_putchar('%');
+			result += ft_putchar_int('%');
 			percent = percent - 2;
 		}
 	}
+	return (result);
 }
 
 int	move_forward(int percent, char *format)
@@ -177,11 +181,9 @@ int		ft_parsing(char* format, va_list lst)
 		{
 			percent = how_many_percent(format);
 			if (percent != 1)
-				ft_display_percent(percent);
+				result += ft_display_percent(percent);
 			if (percent % 2 == 0)
-				format = format + (percent + 1);
-			// else
-			 	format = format + percent;
+				format = format + percent;
 			padding_and_precision(format, option);
 			flag(format, option);
 			length_modifier(format, option);
@@ -196,7 +198,7 @@ int		ft_parsing(char* format, va_list lst)
 			// printf("padding = %d\n", option->padding);
 			// printf("precision = %d\n", option->precision);
 			// printf("\n\n ---------- \n\n");
-			// result = conversion(format, option, lst);
+			result = conversion(format, option, lst);
 		}
 		else
 			result += ft_putchar_int(*format);
@@ -220,7 +222,7 @@ int		main(void)
 {
 	char	*str = "bonjour";
 	int i = 18;
-	ft_printf("ok%%%%%dap\n", i);
+	ft_printf("ok%%%%dap\n");
 	printf("(vrai)ok%%ap");
 	return 0;
 }
