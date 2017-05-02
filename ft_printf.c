@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 14:12:10 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:36:54 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int		get_number(char *str)
 	result = 0;
 	while (*str >= '0' && *str <= '9')
 	{
-		printf("\n*str = %c\n", *str);
 		result = result * 10 + (*str - '0');
-		printf("\nresult = %d", result);
 		str++;
 	}
 	return (result);
@@ -122,7 +120,8 @@ void 	padding_and_precision(char *format, t_option *flag)
 	{
 		if (*format == '0')
 			zero = 1;
-		else if (*format >= '1' && *format <= '9' && zero == 0)
+		else if (*format >= '1' && *format <= '9' && zero == 0
+		&& flag->padding == -1)
 			flag->padding = get_number(format);
 		else if (*format == '.')
 		{
@@ -163,17 +162,16 @@ int		ft_parsing(char* format, va_list lst)
 			length_modifier(format, option);
 			while (ft_is_in(*format, STR_CONVERSION) == 0)
 				format++;
-			// conversion(format, option, lst);
-			printf("\n\n ---------- \n\n");
-			printf("plusspace = %c\n", option->pluspace);
-			printf("minuszero = %c\n", option->minuszero);
-			printf("zero_nb = %d\n", option->zero_nb);
-			printf("hash = %c\n", option->hash);
-			printf("modifier = %c\n", option->modifier);
-			printf("padding = %d\n", option->padding);
-			printf("precision = %d\n", option->precision);
-			printf("\n\n ---------- \n\n");
-			va_arg(lst, int);
+			conversion(format, option, lst);
+			// printf("\n\n ---------- \n\n");
+			// printf("plusspace = %c\n", option->pluspace);
+			// printf("minuszero = %c\n", option->minuszero);
+			// printf("zero_nb = %d\n", option->zero_nb);
+			// printf("hash = %c\n", option->hash);
+			// printf("modifier = %c\n", option->modifier);
+			// printf("padding = %d\n", option->padding);
+			// printf("precision = %d\n", option->precision);
+			// printf("\n\n ---------- \n\n");
 		}
 		else
 			ft_putchar(*format);
@@ -197,6 +195,6 @@ int		ft_printf(const char *format, ...)
 int		main(void)
 {
 	char	*str = "bonjour";
-	ft_printf("format = %16.5sok", str);
+	ft_printf("%sok", str);
 	return 0;
 }

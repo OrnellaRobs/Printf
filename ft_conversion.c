@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 14:04:59 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:36:51 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,22 @@ int		ft_s(va_list lst, t_option *option)
 	else if ((option->precision > 0 && option->padding <= option->precision)
 	|| (option->precision == -1 && option->padding == -1))
 		result = ft_strlen(res);
-	if (option->padding > option->precision && option->precision > -1)
-		while (++i < option->padding - option->precision)
-			ft_putchar(' ');
+	if (option->padding > option->precision)
+	{
+		if (option->precision < (int)ft_strlen(res))
+			while (++i < option->padding - option->precision)
+				ft_putchar(' ');
+		else
+			while (++i < option->padding - (int)ft_strlen(res))
+				ft_putchar(' ');
+	}
 	i = -1;
 	if (option->precision > 0 && option->precision < (int)ft_strlen(res))
 		while (++i < option->precision)
 			ft_putchar(res[i]);
 	else if (option->precision != 0)
 		ft_putstr(res);
-	printf("\nVRAI PRINTF = format = %16.5sok", "bonjour");
+	printf("\nVRAI PRINTF = format = %sok", "bonjour");
 	return (result);
 }
 
