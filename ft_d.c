@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 17:23:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 23:40:52 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/03 16:01:20 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,20 @@ int				ft_convert_d(va_list lst, t_option *option)
 {
 	int nb;
 	int result;
+	int state;
 
+	state = 0;
 	result = 0;
 	nb = va_arg(lst, int);
 	result += display_flag(nb, option);
+	if (option->minuszero == '-' && option->padding != -1)
+	{
+		ft_putnbr(nb);
+		state = 1;
+	}
 	result += display_padding_and_precision(nb, option);
 	result += ft_intlen(nb);
-	ft_putnbr(nb);
+	if (state == 0)
+		ft_putnbr(nb);
 	return (result);
 }
