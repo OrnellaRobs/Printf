@@ -6,13 +6,53 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 23:34:17 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/03 20:23:54 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*reminder pour Mavrick : # define STR_CONVERSION "sSpdDi%oOuUxXcC" */
+/*reminder : # define STR_CONVERSION "sSpdDi%oOuUxXcC" */
+
+int		display_padding(t_option *option)
+{
+	int i;
+	int result;
+
+	i = 1;
+	result = 0;
+	while (i < option->padding)
+	{
+		result += ft_putchar_int(' ');
+		i++;
+	}
+	return (result);
+}
+
+int		ft_convert_char(t_option *option, long long nb)
+{
+	int		result;
+	char	c;
+	result = 0;
+	c = (char)nb;
+	if (option->minuszero != '-' && option->padding != -1)
+		result += display_padding(option);
+	result += ft_putchar_int(c);
+	if (option->padding != -1)
+		result += display_padding(option);
+	return (result);
+}
+
+int		ft_convert_int(t_option *option, char *format, long long nb)
+{
+	int result;
+
+	result = 0;
+	if (*format == 'c')
+		result += ft_convert_char(option, nb);
+	// else if (*format == '')
+	return (result);
+}
 
 int		conversion(char *format, t_option *option, va_list lst)
 {
@@ -24,8 +64,8 @@ int		conversion(char *format, t_option *option, va_list lst)
 	// convert[1] = &ft_convert_S;
 	// convert[2] = &ft_convert_p;
 	convert[3] = &ft_convert_d;
-	// convert[4] = &ft_convert_SD;
-	// convert[5] = &ft_convert_i;
+	// convert[4] = &ft_convert_D;
+	convert[5] = &ft_convert_s;
 	while (STR_CONVERSION[i])
 	{
 		if (i < 6 && STR_CONVERSION[i] == *format)
@@ -33,7 +73,7 @@ int		conversion(char *format, t_option *option, va_list lst)
 		else if (*format == '%')
 			return (ft_percent(option));
 		else if (i >= 6 && STR_CONVERSION[i] == *format)
-			return (1);
+			return (ft_convert_int(option, format, va_arg(lst, long long)));
 		i++;
 	}
 	return (0);

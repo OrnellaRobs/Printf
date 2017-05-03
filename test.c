@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 15:27:58 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/03 00:09:43 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/03 18:58:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int		main(void)
 	int i = 18;
 	int j = 0;
 
-	char *str = "bonjour";
-	printf("%-20d\n", 10);
-	printf("%-5d\n", 10);
+	char c = 'a';
+	printf("%04c\n", c);
+	// printf("%-5d\n", 10);
 	// printf("ok%-20i\n", 10);
 	// setlocale(LC_ALL,"");
 	// i = 0;

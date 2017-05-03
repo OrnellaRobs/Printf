@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/03 14:52:35 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/03 19:15:48 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,8 +219,8 @@ int		ft_printf(const char *format, ...)
 int		main(void)
 {
 	char	*str = "bonjour";
-	int i = 18;
-	ft_printf("%20d\n", i);
-	printf("%20d", i);
+	char i = 'a';
+	ft_printf("%-5c\n", i);
+	printf("%-5c", i);
 	return 0;
 }
