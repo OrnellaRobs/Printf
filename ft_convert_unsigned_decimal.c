@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:51:07 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 16:50:50 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 16:53:13 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,8 @@ int				ft_convert_unsigned_decimal(t_option *option, long long nb)
 		ft_putnbr_unsigned_int(decimal);
 	}
 	result += display_padding_and_precision(decimal, option, state);
-	result += ft_intlen(nb);
+	result += ft_unsigned_intlen(nb);
 	if (state == 0)
-		ft_putnbr(decimal);
+		ft_putnbr_unsigned_int(decimal);
 	return (result);
 }
