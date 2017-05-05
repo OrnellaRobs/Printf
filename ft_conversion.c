@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/03 20:23:54 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 11:49:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_convert_char(t_option *option, long long nb)
 {
 	int		result;
 	char	c;
+
 	result = 0;
 	c = (char)nb;
 	if (option->minuszero != '-' && option->padding != -1)
@@ -43,6 +44,28 @@ int		ft_convert_char(t_option *option, long long nb)
 	return (result);
 }
 
+int		ft_convert_unsigned_decimal(t_option *option, long long nb)
+{
+	unsigned int n;
+	int result;
+	int state;
+
+	n = (unsigned int)nb;
+	state = 0;
+	result = 0;
+	result += display_flag_zero((int)n, option);
+	if (option->minuszero == '-' && option->padding != -1)
+	{
+		ft_putnbr((int)n);
+		state = 1;
+	}
+	result += display_padding_and_precision((int)n, option);
+	result += ft_intlen((int)n);
+	if (state == 0)
+		ft_putnbr((int)n);
+	return (result);
+}
+
 int		ft_convert_int(t_option *option, char *format, long long nb)
 {
 	int result;
@@ -50,7 +73,8 @@ int		ft_convert_int(t_option *option, char *format, long long nb)
 	result = 0;
 	if (*format == 'c')
 		result += ft_convert_char(option, nb);
-	// else if (*format == '')
+	else if (*format == 'u')
+		result += ft_convert_unsigned_decimal(option, nb);
 	return (result);
 }
 
