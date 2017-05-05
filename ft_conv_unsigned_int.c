@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:51:07 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 00:34:08 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/06 00:42:22 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static int		display_precision(t_option *option, unsigned int nb)
 	return (result);
 }
 
-static int		precision_greater_than_zero(t_option *option, unsigned int nb,
-	int state)
+static int		padding_greater_than_precision(t_option *option,
+	unsigned int nb, int state)
 {
 	int result;
 	int i;
@@ -91,7 +91,7 @@ static int		display_padding_and_precision(unsigned int nb, t_option
 	i = -1;
 	result = 0;
 	if (option->padding > option->precision)
-		result += precision_greater_than_zero(option, nb, state);
+		result += padding_greater_than_precision(option, nb, state);
 	else if (option->padding <= option->precision)
 		while (++i < option->precision - ft_unsigned_intlen(nb))
 			result += ft_putchar_int('0');
