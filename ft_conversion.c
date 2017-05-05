@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 17:04:56 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/06 00:35:38 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		display_padding(t_option *option)
 	return (result);
 }
 
-int		ft_convert_char(t_option *option, long long nb)
+int		ft_conv_char(t_option *option, long long nb)
 {
 	int		result;
 	char	c;
@@ -50,9 +50,9 @@ int		ft_convert_int(t_option *option, char *format, long long nb)
 
 	result = 0;
 	if (*format == 'c')
-		result += ft_convert_char(option, nb);
+		result += ft_conv_char(option, nb);
 	else if (*format == 'u')
-		result += ft_convert_unsigned_decimal(option, nb);
+		result += ft_conv_unsigned_int(option, nb);
 	// else if (*format == 'x')
 	// 	result += ft_convert_lower_case_hexa(option, nb);
 	return (result);
@@ -64,12 +64,12 @@ int		conversion(char *format, t_option *option, va_list lst)
 	int	(*convert[6])(va_list, t_option *);
 
 	i = 0;
-	convert[0] = &ft_convert_s;
+	convert[0] = &ft_conv_string;
 	// convert[1] = &ft_convert_S;
 	// convert[2] = &ft_convert_p;
-	convert[3] = &ft_convert_d;
+	convert[3] = &ft_conv_int;
 	// convert[4] = &ft_convert_D;
-	convert[5] = &ft_convert_s;
+	convert[5] = &ft_conv_int;
 	while (STR_CONVERSION[i])
 	{
 		if (i < 6 && STR_CONVERSION[i] == *format)

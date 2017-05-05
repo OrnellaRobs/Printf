@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 00:29:24 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/06 00:35:48 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static int		display_flag_plusspace(t_option *option)
 	return (result);
 }
 
-int				ft_convert_d(va_list lst, t_option *option)
+int				ft_conv_int(va_list lst, t_option *option)
 {
 	int nb;
 	int result;

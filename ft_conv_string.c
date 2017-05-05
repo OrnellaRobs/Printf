@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_s.c                                             :+:      :+:    :+:   */
+/*   ft_conv_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/02 23:34:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/06 00:36:06 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void 	display_space(t_option *option, char *res)
 			ft_putchar(' ');
 }
 
-int				ft_convert_s(va_list lst, t_option *option)
+int				ft_conv_string(va_list lst, t_option *option)
 {
 	char *res;
 	int result;

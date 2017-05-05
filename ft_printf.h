@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 16:44:33 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/06 00:36:21 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct	s_option
 
 int		main(void);
 int		conversion(char *format, t_option *option, va_list lst);
-int		ft_convert_s(va_list lst, t_option *option);
-int		ft_convert_d(va_list lst, t_option *option);
+int		ft_conv_string(va_list lst, t_option *option);
+int		ft_conv_int(va_list lst, t_option *option);
 int		ft_percent(t_option *option);
-int		ft_convert_unsigned_decimal(t_option *option, long long nb);
+int		ft_conv_unsigned_int(t_option *option, long long nb);
 #endif

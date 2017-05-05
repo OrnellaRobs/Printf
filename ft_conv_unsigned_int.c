@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:51:07 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 00:30:50 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/06 00:34:08 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static int		display_padding_and_precision(unsigned int nb, t_option
 	return (result);
 }
 
-int				ft_convert_unsigned_decimal(t_option *option, long long nb)
+int				ft_conv_unsigned_int(t_option *option, long long nb)
 {
 	unsigned int	decimal;
 	int				result;
