@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 15:27:58 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 12:12:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 16:00:20 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+
 int		main(void)
 {
 	// int i;
@@ -22,8 +23,9 @@ int		main(void)
 	int j = 0;
 
 
-	int nb = -2;
-	printf("%u\n", (unsigned int)nb);
+	int nb = -1;
+	printf("avant%5%apres");
+	// printf("%15.12u", -6);
 	// printf("%-5d\n", 10);
 	// printf("ok%-20i\n", 10);
 	// setlocale(LC_ALL,"");

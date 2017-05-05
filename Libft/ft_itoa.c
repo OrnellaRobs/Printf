@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 23:38:48 by orazafin          #+#    #+#             */
-/*   Updated: 2017/04/21 18:41:22 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 14:48:16 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ char			*ft_itoa(int n)
 	int		negatif;
 
 	negatif = 0;
+	total_number = 0;
 	if (n < 0)
+	{
 		negatif = 1;
-	total_number = ft_intlen(n);
+		total_number = 1;
+	}
+	total_number += ft_intlen(n);
 	if (!(tab = (char*)malloc(sizeof(char) * (total_number + 1))))
 		return (NULL);
 	tab[total_number] = '\0';

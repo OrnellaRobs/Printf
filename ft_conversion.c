@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 11:49:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 14:24:45 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,6 @@ int		ft_convert_char(t_option *option, long long nb)
 	result += ft_putchar_int(c);
 	if (option->padding != -1)
 		result += display_padding(option);
-	return (result);
-}
-
-int		ft_convert_unsigned_decimal(t_option *option, long long nb)
-{
-	unsigned int n;
-	int result;
-	int state;
-
-	n = (unsigned int)nb;
-	state = 0;
-	result = 0;
-	result += display_flag_zero((int)n, option);
-	if (option->minuszero == '-' && option->padding != -1)
-	{
-		ft_putnbr((int)n);
-		state = 1;
-	}
-	result += display_padding_and_precision((int)n, option);
-	result += ft_intlen((int)n);
-	if (state == 0)
-		ft_putnbr((int)n);
 	return (result);
 }
 

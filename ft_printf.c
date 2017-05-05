@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 11:54:04 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 16:33:02 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ int		main(void)
 {
 	char	*str = "bonjour";
 	// char i = 'a';
-	ft_printf("%+u\n", -6);
-	printf("%+u", -6);
+	ft_printf("%10.4d\n", -15555);
+	printf("%10.4d", -15555);
 	return 0;
 }

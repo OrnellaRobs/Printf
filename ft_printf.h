@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 11:53:04 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 14:21:27 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ int		conversion(char *format, t_option *option, va_list lst);
 int		ft_convert_s(va_list lst, t_option *option);
 int		ft_convert_d(va_list lst, t_option *option);
 int		ft_percent(t_option *option);
-int		display_padding_and_precision(int nb, t_option *option);
-int		precision_greater_than_zero(t_option *option, int nb);
-int		display_flag_zero(int nb, t_option *option);
+int		ft_convert_unsigned_decimal(t_option *option, long long nb);
 #endif
