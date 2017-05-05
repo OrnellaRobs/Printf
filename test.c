@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 15:27:58 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 23:18:18 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 23:59:15 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-#include 	<stdlib.h>
 
-int		ft_intlen(int n int base)
+int		ft_intlen(int n, int base)
 {
 	int i;
 
@@ -26,13 +25,13 @@ int		ft_intlen(int n int base)
 		i++;
 	return (i);
 }
-
-int		get_last_number(int n)
-{
-	if (n < 0)
-		return (0 - n);
-	return (n);
-}
+//
+// int		get_last_number(int n)
+// {
+// 	if (n < 0)
+// 		return (0 - n);
+// 	return (n);
+// }
 
 char	*ft_itoa_base(int n, int base)
 {
@@ -41,24 +40,24 @@ char	*ft_itoa_base(int n, int base)
 	int		negatif;
 	char	alpha[] = "0123456789ABCDEF";
 
-	total_number = 0;
+	negatif = 0;
 	if (base < 2 || base > 16)
 		return (NULL);
-	if (nb < 0)
+	if (base == 10 && n < 0)
 	{
+		n *= -1;
 		negatif = 1;
-		total_number += 1;
 	}
-	total_number += ft_intlen(n, base);
+	if (n < 0)
+		n *= -1;
+	total_number = ft_intlen(n, base) + negatif;
 	if (!(tab = malloc(sizeof(char) * total_number + 1)))
 		return (NULL);
 	tab[total_number] = '\0';
-	total_number--;
-	while (total_number >= negatif)
+	while (--total_number >= negatif)
 	{
-		tab[total_number] = (char)(alpha[get_last_number(n % base)]);
+		tab[total_number] = (char)(alpha[n % base]);
 		n = n / base;
-		total_number--;
 	}
 	if (negatif == 1)
 		tab[total_number] = '-';
@@ -69,9 +68,8 @@ char	*ft_itoa_base(int n, int base)
 
 int main(void)
 {
-	printf("%s\n", ft_itoa_base(-2,16));
-	printf("%x\n", -2);
-
+	printf("MON ITOA = %s\n", ft_itoa_base(245,8));
+	return 0;
 }
 /*
 int		main(void)
@@ -109,3 +107,4 @@ int		main(void)
 	// printf("%s\n", ft_itoa_base(-20,16));
 	return (0);
 }
+*/
