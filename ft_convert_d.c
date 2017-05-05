@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 17:23:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 16:44:51 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 17:12:02 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ static int		display_flag_zero(int nb, t_option *option)
 	return (result);
 }
 
-
-int				display_precision(t_option *option, int nb)
+static int		display_precision(t_option *option, int nb)
 {
 	int i;
 	int result;
@@ -49,7 +48,7 @@ int				display_precision(t_option *option, int nb)
 	return (result);
 }
 
-int				precision_greater_than_zero(t_option *option, int nb, int state)
+static int		precision_greater_than_zero(t_option *option, int nb, int state)
 {
 	int result;
 	int i;
@@ -69,7 +68,7 @@ int				precision_greater_than_zero(t_option *option, int nb, int state)
 	return (result);
 }
 
-int		precision_lower_than_one(t_option *option, int nb)
+static int		precision_lower_than_one(t_option *option, int nb)
 {
 	int result;
 	int i;
@@ -85,7 +84,8 @@ int		precision_lower_than_one(t_option *option, int nb)
 	return (result);
 }
 
-int		display_padding_and_precision(int nb, t_option *option, int state)
+static int		display_padding_and_precision(int nb, t_option *option,
+	int state)
 {
 	int result;
 	int	i;
@@ -136,7 +136,7 @@ int				ft_convert_d(va_list lst, t_option *option)
 	}
 	result += display_padding_and_precision(nb, option, state);
 	result += ft_intlen(nb);
-	if (nb < 0 && state == 0 )
+	if (nb < 0 && state == 0)
 		ft_putnbr(nb * -1);
 	else
 		ft_putnbr(nb);

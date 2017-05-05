@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:51:07 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 17:02:13 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 17:09:53 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_unsigned_intlen(unsigned int n)
+static int		ft_unsigned_intlen(unsigned int n)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int		ft_unsigned_intlen(unsigned int n)
 	return (i);
 }
 
-void	ft_putnbr_unsigned_int(unsigned int n)
+static void		ft_putnbr_unsigned_int(unsigned int n)
 {
 	if (n > 9)
 	{
@@ -51,8 +51,7 @@ static int		display_flag_zero(unsigned int nb, t_option *option)
 	return (result);
 }
 
-
-static int				display_precision(t_option *option, unsigned int nb)
+static int		display_precision(t_option *option, unsigned int nb)
 {
 	int i;
 	int result;
@@ -64,7 +63,8 @@ static int				display_precision(t_option *option, unsigned int nb)
 	return (result);
 }
 
-static int				precision_greater_than_zero(t_option *option, unsigned int nb, int state)
+static int		precision_greater_than_zero(t_option *option, unsigned int nb,
+	int state)
 {
 	int result;
 	int i;
@@ -94,7 +94,8 @@ static int		precision_lower_than_one(t_option *option, unsigned int nb)
 	return (result);
 }
 
-static int		display_padding_and_precision(unsigned int nb, t_option *option, int state)
+static int		display_padding_and_precision(unsigned int nb, t_option
+	*option, int state)
 {
 	int result;
 	int	i;
@@ -113,9 +114,9 @@ static int		display_padding_and_precision(unsigned int nb, t_option *option, int
 
 int				ft_convert_unsigned_decimal(t_option *option, long long nb)
 {
-	unsigned int decimal;
-	int result;
-	int state;
+	unsigned int	decimal;
+	int				result;
+	int				state;
 
 	state = 0;
 	result = 0;
