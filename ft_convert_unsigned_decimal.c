@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:51:07 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 16:53:13 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 16:56:55 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int		display_flag_zero(unsigned int nb, t_option *option)
 	result = 0;
 	if (option->minuszero == '0')
 	{
-		while (i < option->zero_nb - ft_intlen(nb))
+		while (i < option->zero_nb - ft_unsigned_intlen(nb))
 		{
 			result += ft_putchar_int('0');
 			i++;
@@ -59,7 +59,7 @@ static int				display_precision(t_option *option, unsigned int nb)
 
 	result = 0;
 	i = -1;
-	while (++i < option->precision - ft_intlen(nb))
+	while (++i < option->precision - ft_unsigned_intlen(nb))
 		result += ft_putchar_int('0');
 	return (result);
 }
@@ -71,8 +71,8 @@ static int				precision_greater_than_zero(t_option *option, unsigned int nb, int
 
 	i = -1;
 	result = 0;
-	if (option->precision < ft_intlen(nb))
-		while (++i < option->padding - ft_intlen(nb))
+	if (option->precision < ft_unsigned_intlen(nb))
+		while (++i < option->padding - ft_unsigned_intlen(nb))
 			result += ft_putchar_int(' ');
 	else
 		while (++i < option->padding - option->precision)
@@ -89,7 +89,7 @@ static int		precision_lower_than_one(t_option *option, unsigned int nb)
 
 	result = 0;
 	i = -1;
-	while (++i < option->padding - ft_intlen(nb))
+	while (++i < option->padding - ft_unsigned_intlen(nb))
 		result += ft_putchar_int(' ');
 	return (result);
 }
@@ -106,7 +106,7 @@ static int		display_padding_and_precision(unsigned int nb, t_option *option, int
 	else if (option->padding > option->precision && option->precision > 0)
 		result += precision_greater_than_zero(option, nb, state);
 	else if (option->padding <= option->precision)
-		while (++i < option->precision - ft_intlen(nb))
+		while (++i < option->precision - ft_unsigned_intlen(nb))
 			result += ft_putchar_int('0');
 	return (result);
 }
