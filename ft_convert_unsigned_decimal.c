@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 11:51:07 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 14:26:07 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 16:50:50 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_putnbr_unsigned_int(unsigned int n)
 		ft_putchar(n + '0');
 }
 
-
 static int		display_flag_zero(unsigned int nb, t_option *option)
 {
 	int result;
@@ -43,7 +42,7 @@ static int		display_flag_zero(unsigned int nb, t_option *option)
 	result = 0;
 	if (option->minuszero == '0')
 	{
-		while (i < option->zero_nb - ft_unsigned_intlen(nb))
+		while (i < option->zero_nb - ft_intlen(nb))
 		{
 			result += ft_putchar_int('0');
 			i++;
@@ -52,7 +51,20 @@ static int		display_flag_zero(unsigned int nb, t_option *option)
 	return (result);
 }
 
-static int		precision_greater_than_zero(t_option *option, unsigned int nb)
+
+static int				display_precision(t_option *option, unsigned int nb)
+{
+	int i;
+	int result;
+
+	result = 0;
+	i = -1;
+	while (++i < option->precision - ft_intlen(nb))
+		result += ft_putchar_int('0');
+	return (result);
+}
+
+static int				precision_greater_than_zero(t_option *option, unsigned int nb, int state)
 {
 	int result;
 	int i;
@@ -60,53 +72,64 @@ static int		precision_greater_than_zero(t_option *option, unsigned int nb)
 	i = -1;
 	result = 0;
 	if (option->precision < ft_intlen(nb))
-		while (++i < option->padding - ft_unsigned_intlen(nb))
+		while (++i < option->padding - ft_intlen(nb))
 			result += ft_putchar_int(' ');
 	else
 		while (++i < option->padding - option->precision)
 			result += ft_putchar_int(' ');
-	i = -1;
-	while (++i < option->precision - ft_unsigned_intlen(nb))
-		result += ft_putchar_int('0');
+	if (state == 0)
+		result += display_precision(option, nb);
 	return (result);
 }
 
-static int		display_padding_and_precision(int nb, t_option *option)
+static int		precision_lower_than_one(t_option *option, unsigned int nb)
 {
 	int result;
 	int i;
 
 	result = 0;
 	i = -1;
+	while (++i < option->padding - ft_intlen(nb))
+		result += ft_putchar_int(' ');
+	return (result);
+}
+
+static int		display_padding_and_precision(unsigned int nb, t_option *option, int state)
+{
+	int result;
+	int	i;
+
+	i = -1;
+	result = 0;
 	if (option->padding > option->precision && option->precision < 1)
-		while (++i < option->padding - ft_unsigned_intlen(nb))
-			result += ft_putchar_int(' ');
+		result += precision_lower_than_one(option, nb);
 	else if (option->padding > option->precision && option->precision > 0)
-		result += precision_greater_than_zero(option, nb);
+		result += precision_greater_than_zero(option, nb, state);
 	else if (option->padding <= option->precision)
-		while (++i < option->precision - ft_unsigned_intlen(nb))
+		while (++i < option->precision - ft_intlen(nb))
 			result += ft_putchar_int('0');
 	return (result);
 }
 
-int		ft_convert_unsigned_decimal(t_option *option, long long nb)
+int				ft_convert_unsigned_decimal(t_option *option, long long nb)
 {
-	unsigned int n;
+	unsigned int decimal;
 	int result;
 	int state;
 
-	n = (unsigned int)nb;
 	state = 0;
 	result = 0;
-	result += display_flag_zero(n, option);
+	decimal = (unsigned int)nb;
+	result += display_flag_zero(decimal, option);
 	if (option->minuszero == '-' && option->padding != -1)
 	{
-		ft_putnbr_unsigned_int(nb);
 		state = 1;
+		result += display_precision(option, decimal);
+		ft_putnbr_unsigned_int(decimal);
 	}
-	result += display_padding_and_precision(n, option);
-	result += ft_unsigned_intlen(n);
+	result += display_padding_and_precision(decimal, option, state);
+	result += ft_intlen(nb);
 	if (state == 0)
-		ft_putnbr_unsigned_int(n);
+		ft_putnbr(decimal);
 	return (result);
 }

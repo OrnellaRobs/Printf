@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_d.c                                     :+:      :+:    :+:   */
+/*   ft_convert_d_padding_precision.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/02 17:23:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 16:44:51 by orazafin         ###   ########.fr       */
+/*   Created: 2017/05/05 16:40:48 by orazafin          #+#    #+#             */
+/*   Updated: 2017/05/05 16:43:45 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* il manque la gestion de MODIFIER */
-
-static int		display_flag_zero(int nb, t_option *option)
-{
-	int result;
-	int i;
-	int negatif;
-
-	i = 0;
-	result = 0;
-	negatif = (nb < 0) ? 1 : 0;
-	if (option->minuszero == '0')
-	{
-		while (i < option->zero_nb - (ft_intlen(nb) + negatif))
-		{
-			result += ft_putchar_int('0');
-			i++;
-		}
-	}
-	return (result);
-}
-
-
-int				display_precision(t_option *option, int nb)
+int					display_precision(t_option *option, int nb)
 {
 	int i;
 	int result;
@@ -69,7 +46,7 @@ int				precision_greater_than_zero(t_option *option, int nb, int state)
 	return (result);
 }
 
-int		precision_lower_than_one(t_option *option, int nb)
+int				precision_lower_than_one(t_option *option, int nb)
 {
 	int result;
 	int i;
@@ -99,46 +76,5 @@ int		display_padding_and_precision(int nb, t_option *option, int state)
 	else if (option->padding <= option->precision)
 		while (++i < option->precision - ft_intlen(nb))
 			result += ft_putchar_int('0');
-	return (result);
-}
-
-static int		display_flag_plusspace(t_option *option)
-{
-	int result;
-
-	result = 0;
-	if (option->pluspace == '+')
-		result += ft_putchar_int('+');
-	else if (option->pluspace == 's')
-		result += ft_putchar_int(' ');
-	return (result);
-}
-
-int				ft_convert_d(va_list lst, t_option *option)
-{
-	int nb;
-	int result;
-	int state;
-
-	state = 0;
-	result = 0;
-	nb = va_arg(lst, int);
-	result += display_flag_plusspace(option);
-	if ((nb < 0) &&
-	(option->padding == -1 || option->padding <= option->precision))
-		result += ft_putchar_int('-');
-	result += display_flag_zero(nb, option);
-	if (option->minuszero == '-' && option->padding != -1)
-	{
-		state = 1;
-		result += display_precision(option, nb);
-		ft_putnbr(nb * -1);
-	}
-	result += display_padding_and_precision(nb, option, state);
-	result += ft_intlen(nb);
-	if (nb < 0 && state == 0 )
-		ft_putnbr(nb * -1);
-	else
-		ft_putnbr(nb);
 	return (result);
 }
