@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 14:24:45 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 17:04:56 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int		ft_convert_int(t_option *option, char *format, long long nb)
 		result += ft_convert_char(option, nb);
 	else if (*format == 'u')
 		result += ft_convert_unsigned_decimal(option, nb);
+	// else if (*format == 'x')
+	// 	result += ft_convert_lower_case_hexa(option, nb);
 	return (result);
 }
 
