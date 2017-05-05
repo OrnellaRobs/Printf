@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 17:23:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/05 17:12:02 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/05 23:28:14 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ int				ft_convert_d(va_list lst, t_option *option)
 	result += ft_intlen(nb);
 	if (nb < 0 && state == 0)
 		ft_putnbr(nb * -1);
-	else
+	else if (state == 0)
 		ft_putnbr(nb);
 	return (result);
 }
