@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 00:42:24 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/06 10:30:00 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ static int		display_flag_zero(int nb, t_option *option)
 			i++;
 		}
 	}
+	return (result);
+}
+
+static int		display_flag_plusspace(t_option *option)
+{
+	int result;
+
+	result = 0;
+	if (option->pluspace == '+')
+		result += ft_putchar_int('+');
+	else if (option->pluspace == 's')
+		result += ft_putchar_int(' ');
 	return (result);
 }
 
@@ -77,21 +89,9 @@ static int		display_padding_and_precision(int nb, t_option *option,
 	result = 0;
 	if (option->padding > option->precision)
 		result += padding_greater_than_precision(option, nb, state);
-	else if (option->padding <= option->precision && state == 0)
-		while (++i < option->precision - ft_intlen(nb))
-			result += ft_putchar_int('0');
-	return (result);
-}
-
-static int		display_flag_plusspace(t_option *option)
-{
-	int result;
-
-	result = 0;
-	if (option->pluspace == '+')
-		result += ft_putchar_int('+');
-	else if (option->pluspace == 's')
-		result += ft_putchar_int(' ');
+	else if (option->padding <= option->precision && state == 0
+		&& option->padding != -1)
+		result += display_precision(option, nb);
 	return (result);
 }
 
