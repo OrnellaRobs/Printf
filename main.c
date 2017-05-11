@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 14:52:14 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 16:09:38 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@ int		main(void)
 {
 	// char	*str = "bonjour";
 
-	printf("%s\n", ft_itoa_base_printf(25, 8));
-		printf("%o\n", 25));
+	// printf("%s\n", ft_itoa_base_printf(25, 8));
+		printf("%#o\n\n", 9);
+		ft_printf("%#o\n", 9);
+		// printf("%#x\n", -25);
+		// printf("%7.4x\n, -25");
+		// printf("%8.6x\n", -25);
+		// printf("%6.6x\n", -25);
+		// printf("%4.6x\n", -25);
 	// printf("--------- conversion c ---------\n\n");
 
 	// printf("%d\n", -2147483649);

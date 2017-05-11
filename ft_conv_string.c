@@ -6,29 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 20:48:53 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 15:38:38 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* FLAG 0 à gérer !!!*/
 
 #include "ft_printf.h"
-
-static int	ft_putstr_int(char const *s)
-{
-	int i;
-	int result;
-
-	i = 0;
-	result = 0;
-	while (s[i])
-	{
-		result += ft_putchar_int(s[i]);
-		i++;
-	}
-	return (result);
-}
-
 
 static int 	display_space(t_option *option, char *res)
 {

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 10:25:34 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 15:50:36 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,7 @@ int		ft_parsing(char* format, va_list lst)
 			// printf("padding = %d\n", option->padding);
 			// printf("precision = %d\n", option->precision);
 			// printf("\n\n ---------- \n\n");
-				result = conversion(format, option, lst);
+				result += conversion(format, option, lst);
 			}
 		}
 		else
