@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 16:09:38 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 16:33:16 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 int		main(void)
 {
-	// char	*str = "bonjour";
+	char	*str = "bonjour";
+	char 	*test2 = "tsst";
 
 	// printf("%s\n", ft_itoa_base_printf(25, 8));
-		printf("%#o\n\n", 9);
-		ft_printf("%#o\n", 9);
+		printf("%#x\n\n", str);
+			printf("%p\n\n", str);
+			printf("%25o\n\n", -2);
+				printf("%p\n\n", test2);
+		// ft_printf("%#o\n", 9);
 		// printf("%#x\n", -25);
 		// printf("%7.4x\n, -25");
 		// printf("%8.6x\n", -25);

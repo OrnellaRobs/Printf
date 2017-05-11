@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 16:09:46 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 16:33:25 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*reminder : # define STR_CONVERSION "sSpdDi%oOuUxXcC" */
 /* FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)*/
 /* FLAG space à gérer pour la conversion des HEXA (undefined behavior) */
+/* !!! PADDING ET PRECISION A GERER POUR X, x et o !!!*/
 int		display_padding(t_option *option)
 {
 	int i;
@@ -88,6 +89,11 @@ int		ft_convert_octal(t_option *option, unsigned int nb)
 	return (result);
 }
 
+int		ft_convert_pointer(t_option *option, unsigned int nb)
+{
+	return (1);
+}
+
 int		ft_convert_int(t_option *option, char *format, long long nb)
 {
 	int result;
@@ -103,6 +109,8 @@ int		ft_convert_int(t_option *option, char *format, long long nb)
 		result += ft_convert_upper_case_hexa(option, (unsigned int)nb);
 	else if (*format == 'o')
 		result += ft_convert_octal(option, (unsigned int)nb);
+	else if (*format == 'p')
+		result += ft_convert_pointer(option, (unsigned int)nb);
 	return (result);
 }
 
