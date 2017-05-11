@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 10:30:00 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 17:13:46 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,9 @@ int				ft_conv_int(va_list lst, t_option *option)
 	int nb;
 	int result;
 	int state;
+
+char res;
+
 
 	state = 0;
 	result = 0;

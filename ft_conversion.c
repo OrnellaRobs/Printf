@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 16:33:25 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 16:57:35 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int		ft_conv_char(t_option *option, long long nb)
 	return (result);
 }
 
-int		ft_convert_lower_case_hexa(t_option *option, unsigned int nb)
+int		ft_convert_lower_case_hexa(t_option *option, unsigned int nb,
+char *format)
 {
 	int upper_case;
 	int result;
@@ -55,8 +56,10 @@ int		ft_convert_lower_case_hexa(t_option *option, unsigned int nb)
 	result = 0;
 	upper_case = 0;
 	tab = ft_itoa_base_printf(nb, 16, upper_case);
-	if (option->hash == '#')
+	if (option->hash == '#' && *format == 'x')
 		result += ft_putstr_int("0x");
+	else if (*format == 'p')
+		result += ft_putstr_int("0x10");
 	result += ft_putstr_int(tab);
 	return (result);
 }
@@ -89,28 +92,24 @@ int		ft_convert_octal(t_option *option, unsigned int nb)
 	return (result);
 }
 
-int		ft_convert_pointer(t_option *option, unsigned int nb)
-{
-	return (1);
-}
-
 int		ft_convert_int(t_option *option, char *format, long long nb)
 {
 	int result;
 	char *tab;
+
 	result = 0;
 	if (*format == 'c')
 		result += ft_conv_char(option, nb);
 	else if (*format == 'u')
-		result += ft_conv_unsigned_int(option, nb);
+		result += ft_conv_unsigned_int(option, (unsigned int)nb);
 	else if (*format == 'x')
-		result += ft_convert_lower_case_hexa(option, (unsigned int)nb);
+		result += ft_convert_lower_case_hexa(option, (unsigned int)nb, format);
 	else if (*format == 'X')
 		result += ft_convert_upper_case_hexa(option, (unsigned int)nb);
 	else if (*format == 'o')
 		result += ft_convert_octal(option, (unsigned int)nb);
 	else if (*format == 'p')
-		result += ft_convert_pointer(option, (unsigned int)nb);
+		result += ft_convert_lower_case_hexa(option, (unsigned int)nb, format);
 	return (result);
 }
 
