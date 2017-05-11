@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 10:27:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 15:27:47 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,6 @@ int		ft_conv_string(va_list lst, t_option *option);
 int		ft_conv_int(va_list lst, t_option *option);
 int		ft_percent(t_option *option);
 int		ft_conv_unsigned_int(t_option *option, long long nb);
+char	*ft_itoa_base_printf(unsigned int value, int base, int upper_case);
+
 #endif

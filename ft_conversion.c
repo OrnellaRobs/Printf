@@ -6,14 +6,14 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/06 00:35:38 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/11 11:20:39 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*reminder : # define STR_CONVERSION "sSpdDi%oOuUxXcC" */
-
+/* FLAG 0 à gérer pour la conversion de CHAR !!!*/
 int		display_padding(t_option *option)
 {
 	int i;
