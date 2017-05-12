@@ -6,31 +6,47 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 16:52:51 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/13 00:51:44 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// if (option->minuszero == '-' && option->padding != -1)
-// {
-// 	state = 1;
-// 	result += display_precision(option, decimal);
-// 	ft_putnbr_unsigned_int(decimal);
-// }
-// result += display_padding_and_precision(decimal, option, state);
-// result += ft_unsigned_intlen(nb);
-// if (state == 0)
-// 	ft_putnbr_unsigned_int(decimal);
-
-int		ft_convert_pointer(t_option *option, unsigned int nb)
+static int		ft_display_pointer(t_option *option, char *tab)
 {
 	int result;
-	char *tab;
+	int i;
 
+	i = -1;
 	result = 0;
+	if (option->precision > (int)ft_strlen(tab))
+		while (++i < option->precision - (int)ft_strlen(tab))
+			result += ft_putchar_int('0');
+	result += ft_putstr_int(tab);
+	return (result);
+}
+
+int		ft_convert_pointer(va_list lst, t_option *option)
+{
+	int				result;
+	int				i;
+	char			*tab;
+	unsigned int	nb;
+
+	i = -1;
+	result = 0;
+	nb = va_arg(lst, int);
 	tab = ft_itoa_base_printf(nb, 16, 0);
-	tab = ft_strjoin("0x10", tab);
-	printf("\ntab = %s\n", tab);
+	tab = ft_strjoin("0x", tab);
+	if (option->minuszero == '-')
+		result += ft_display_pointer(option, tab);
+	if (option->padding != -1 && option->precision > (int)ft_strlen(tab))
+		while (++i < option->padding - option->precision)
+			result += ft_putchar_int(' ');
+	else if (option->padding != -1 && option->precision <= (int)ft_strlen(tab))
+		while (++i < option->padding - (int)ft_strlen(tab))
+			result += ft_putchar_int(' ');
+	if (option->minuszero != '-')
+		result += ft_display_pointer(option, tab);
 	return (result);
 }

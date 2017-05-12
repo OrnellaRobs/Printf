@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:29:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 22:13:54 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/13 00:50:48 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ int		ft_convert_hexa(t_option *option, unsigned int nb, char *format)
 			result += ft_putchar_int(' ');
 	if (option->minuszero != '-')
 		result += ft_display_hexa(option, tab, upper_case);
-	printf("\nresult = %d\n", result);
 	return (result);
 }
