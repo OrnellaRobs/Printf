@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 22:21:05 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/12 22:38:59 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@ int		main(void)
 {
 	char	*str = "bonjour";
 	char 	*test2 = "tsst";
+
+	int a;
+	int *b;
+	a = 1;
+	b = &a;
+
+	printf("vrai%p\n", test2);
+	printf("vrai chiffre %p\n", b);
+	printf("%x\n", b);
+	printf("%x", test2);
+	// ft_printf("mien%#o\n\n", -12);
 
 	// printf("vrai%#o\n", -12);
 	// ft_printf("mien%#o\n\n", -12);

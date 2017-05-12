@@ -6,11 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 15:38:38 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/13 00:00:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* FLAG 0 à gérer !!!*/
+/* FLAG 0 à gérer (undefined behavior)*/
 
 #include "ft_printf.h"
 

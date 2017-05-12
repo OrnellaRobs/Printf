@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 20:59:44 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/13 00:20:45 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*reminder : # define STR_CONVERSION "sSpdDi%oOuUxXcC" */
 /* FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)*/
 /* FLAG space à gérer pour la conversion des HEXA (undefined behavior) */
-/* !!! PADDING ET PRECISION A GERER POUR X, x et o !!!*/
+/* CE QU'IL RESTE A GÉRER : S , p, D, O, U, C*/
 int		display_padding(t_option *option)
 {
 	int i;
@@ -60,6 +60,8 @@ int		ft_convert_int(t_option *option, char *format, long long nb)
 		result += ft_convert_hexa(option, (unsigned int)nb, format);
 	else if (*format == 'o')
 		result += ft_convert_octal(option, (unsigned int)nb);
+	else if (*format == 'p')
+		result += ft_convert_pointer(option, (unsigned int)nb);
 	return (result);
 }
 
