@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 19:29:23 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/12 20:59:44 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,6 @@ int		ft_conv_char(t_option *option, long long nb)
 	result += ft_putchar_int(c);
 	if (option->padding != -1)
 		result += display_padding(option);
-	return (result);
-}
-
-int		ft_convert_octal(t_option *option, unsigned int nb)
-{
-	int result;
-	char *tab;
-
-	result = 0;
-	tab = ft_itoa_base_printf(nb, 8, 0);
-	if (option->hash == '#')
-		result += ft_putchar_int('0');
-	result += ft_putstr_int(tab);
 	return (result);
 }
 

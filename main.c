@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 19:38:01 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/12 22:21:05 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,29 @@ int		main(void)
 	char	*str = "bonjour";
 	char 	*test2 = "tsst";
 
+	// printf("vrai%#o\n", -12);
+	// ft_printf("mien%#o\n\n", -12);
 
-	printf("leur%#20.12X\n", -12);
-	ft_printf("%#20.12X\n\n", -12);
+	// printf("vrai%o\n", -12);
+	// ft_printf("mien%o\n\n", -12);
+	//
+	// printf("vrai%#15.9o\n", -12);
+	// ft_printf("mien%#15.9o\n\n", -12);
+	//
+	// printf("vrai%15.11o\n", -12);
+	// ft_printf("mien%15.11o\n\n", -12);
+	// //
+	// printf("vrai%#15.11o\n", -12);
+	// ft_printf("mien%#15.11o\n\n", -12);
+	//
+	// printf("vrai%#15.14o\n", -12);
+	// ft_printf("mien%#15.14o\n\n", -12);
+	//
+	// printf("vrai%15.14o\n", -12);
+	// ft_printf("mien%15.14o\n\n", -12);
+
+	// printf("vrai%15.18o\n", -12);
+	// ft_printf("mien%15.18o\n\n", -12);
 			// printf("%p\n\n", str);
 			// printf("%25o\n\n", -2);
 				// printf("%llp\n\n", str);
