@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 17:47:44 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/12 19:29:23 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,6 @@ int		ft_conv_char(t_option *option, long long nb)
 	result += ft_putchar_int(c);
 	if (option->padding != -1)
 		result += display_padding(option);
-	return (result);
-}
-
-int		ft_convert_hexa(t_option *option, unsigned int nb, char *format)
-{
-	int upper_case;
-	int result;
-	char *tab;
-
-	result = 0;
-	upper_case = (*format == 'x') ? 0 : 1;
-	tab = ft_itoa_base_printf(nb, 16, upper_case);
-	if (option->hash == '#')
-		tab = (upper_case == 0) ? ft_strjoin("0x", tab) : ft_strjoin("0X", tab);
-	result += ft_putstr_int(tab);
 	return (result);
 }
 

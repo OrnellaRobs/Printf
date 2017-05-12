@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 16:51:21 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/12 19:32:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int		ft_percent(t_option *option);
 int		ft_conv_unsigned_int(t_option *option, unsigned int nb);
 char	*ft_itoa_base_printf(unsigned int value, int base, int upper_case);
 int		ft_convert_pointer(t_option *option, unsigned int nb);
+int		ft_convert_hexa(t_option *option, unsigned int nb, char *format);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 17:48:20 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/12 19:38:01 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int		main(void)
 	char	*str = "bonjour";
 	char 	*test2 = "tsst";
 
-	printf("%#X\n", -12);
-	ft_printf("%#X\n\n", -12);
+
+	printf("leur%#20.12X\n", -12);
+	ft_printf("%#20.12X\n\n", -12);
 			// printf("%p\n\n", str);
 			// printf("%25o\n\n", -2);
 				// printf("%llp\n\n", str);
