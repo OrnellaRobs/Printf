@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/13 18:09:24 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/14 07:56:56 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int		main(void)
 	a = 1;
 	b = &a;
 
-	printf("vrai %-13p\n", test2);
-	printf("vrai %p\n", b);
-	ft_printf("mien %-13p\n", test2);
-	ft_printf("mien %p\n", b);
+	printf("vrai %lO\n", -21474);
+	// printf("vrai %p\n", b);
+	ft_printf("mien %lO\n", -21474);
+	// ft_printf("mien %p\n", b);
 	// printf("%x\n", b);
 	// printf("%x", test2);
 	// ft_printf("mien%#o\n\n", -12);

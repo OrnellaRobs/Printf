@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base_printf.c                              :+:      :+:    :+:   */
+/*   ft_lltoa_base_unsigned.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/11 11:25:03 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/14 01:09:08 by orazafin         ###   ########.fr       */
+/*   Created: 2017/05/13 19:28:49 by orazafin          #+#    #+#             */
+/*   Updated: 2017/05/14 07:54:27 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_get_size_for_malloc(unsigned int value, int base)
+static int		ft_get_size_for_malloc(unsigned long long value, int base)
 {
 	int total_number;
 
@@ -25,7 +25,7 @@ static int		ft_get_size_for_malloc(unsigned int value, int base)
 	return (total_number);
 }
 
-char			*ft_itoa_base_printf(unsigned int value, int base,
+char			*ft_lltoa_base_unsigned(unsigned long long value, int base,
 	int upper_case, int sign)
 {
 	char	*tab;
@@ -46,7 +46,10 @@ char			*ft_itoa_base_printf(unsigned int value, int base,
 	total_number--;
 	while (value > 0)
 	{
-		tab[total_number] = alpha[value % base];
+		if (base == 16 || base == 8)
+			tab[total_number] = alpha[value % base];
+		else
+			tab[total_number] = ((value % 10) + '0');
 		total_number--;
 		value = value / base;
 	}

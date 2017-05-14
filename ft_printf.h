@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/13 00:38:34 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/14 07:45:29 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define STR_CONVERSION "sSpdDi%oOuUxXcC"
+# define STR_CONVERSION "sSpcC%dDioOuUxX"
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -31,14 +31,17 @@ typedef struct	s_option
 
 int		main(void);
 int		ft_printf(const char *format, ...);
+int		ft_conv_int(t_option *option, char *tab);
 int		conversion(char *format, t_option *option, va_list lst);
 int		ft_conv_string(va_list lst, t_option *option);
-int		ft_conv_int(va_list lst, t_option *option);
 int		ft_percent(t_option *option);
-int		ft_conv_unsigned_int(t_option *option, unsigned int nb);
-char	*ft_itoa_base_printf(unsigned int value, int base, int upper_case);
-int		ft_convert_hexa(t_option *option, unsigned int nb, char *format);
-int		ft_convert_octal(t_option *option, unsigned int nb);
-int		ft_convert_pointer(va_list lst, t_option *option);
-
+char	*ft_itoa_base_printf(unsigned int value, int base, int upper_case,
+	int sign);
+int		ft_convert_hexa(t_option *option, char *tab, char *format);
+int		ft_convert_octal(t_option *option, char *tab);
+int		ft_conv_pointer(va_list lst, t_option *option);
+int		ft_conv_char(va_list lst, t_option *option);
+char	*ft_lltoa_base_sign(long long value, int base, int upper_case, int sign);
+char	*ft_lltoa_base_unsigned(unsigned long long value, int base, int upper_case, int sign);
+int				ft_conv_unsigned_int(t_option *option, char *tab);
 #endif

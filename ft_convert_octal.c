@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 20:58:53 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/12 22:18:21 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/13 18:56:07 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,14 @@ static int ft_display_octal(t_option *option, char *tab, int len_hash)
 	return (result);
 }
 
-int		ft_convert_octal(t_option *option, unsigned int nb)
+int		ft_convert_octal(t_option *option, char *tab)
 {
 	int result;
-	char *tab;
 	int len;
 	int i;
 
 	i = -1;
 	result = 0;
-	tab = ft_itoa_base_printf(nb, 8, 0);
 	len = (option->hash == '#') ? 1 : 0;
 	if (option->minuszero == '-')
 		result += ft_display_octal(option, tab, len);

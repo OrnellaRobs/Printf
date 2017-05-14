@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/13 18:09:17 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/13 19:23:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int		ft_display_pointer(t_option *option, char *tab)
 
 //void * car ca pointe directement sur la zone mémoire
 
-int		ft_convert_pointer(va_list lst, t_option *option)
+int		ft_conv_pointer(va_list lst, t_option *option)
 {
 	int				result;
 	int				i;
