@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/16 15:56:43 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/16 17:58:58 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ char	*ft_lltoa_base_sign(long long value, int base, int upper_case, int sign);
 char	*ft_lltoa_base_unsigned(unsigned long long value, int base, int upper_case, int sign);
 int		ft_conv_unsigned_int(t_option *option, char *tab);
 int		ft_convert_C(va_list lst, t_option *option);
+int		ft_count_bit(wchar_t str);
 #endif
