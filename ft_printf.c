@@ -6,10 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 15:50:36 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/16 15:56:02 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* PROBLEME AVEC %%d à gérer !!!*/
 #include "ft_printf.h"
 
 void 	initialize_option(t_option *option)

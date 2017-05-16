@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/14 08:03:32 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/16 15:56:43 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include "Libft/libft.h"
+# include <locale.h>
 
 typedef struct	s_option
 {
@@ -43,5 +44,6 @@ int		ft_conv_pointer(va_list lst, t_option *option);
 int		ft_conv_char(va_list lst, t_option *option);
 char	*ft_lltoa_base_sign(long long value, int base, int upper_case, int sign);
 char	*ft_lltoa_base_unsigned(unsigned long long value, int base, int upper_case, int sign);
-int				ft_conv_unsigned_int(t_option *option, char *tab);
+int		ft_conv_unsigned_int(t_option *option, char *tab);
+int		ft_convert_C(va_list lst, t_option *option);
 #endif

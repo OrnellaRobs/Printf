@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/14 08:01:13 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/16 17:12:14 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*reminder : # define STR_CONVERSION "sSpcC%dDioOuUxX" */
 /* FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)*/
 /* FLAG space à gérer pour la conversion des HEXA (undefined behavior) */
-/* CE QU'IL RESTE A GÉRER : S, D, O, U, C*/
+/* CE QU'IL RESTE A GÉRER : S, C*/
 
 char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb, char *tab)
 {
@@ -109,7 +109,7 @@ int		conversion(char *format, t_option *option, va_list lst)
 	// convert[1] = &ft_convert_S;
 	convert[2] = &ft_conv_pointer;
 	convert[3] = ft_conv_char;
-	// convert[5] = ft_convert_C;
+	// convert[4] = ft_convert_C;
 	while (STR_CONVERSION[i])
 	{
 		if (i < 5 && STR_CONVERSION[i] == *format)

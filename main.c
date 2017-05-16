@@ -6,14 +6,15 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/14 08:08:11 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/16 17:20:49 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 int		main(void)
 {
+	setlocale(P_ALL, "");
+
 	char	*str = "bonjour";
 	char 	*test2 = "tsst";
 
@@ -21,10 +22,12 @@ int		main(void)
 	int *b;
 	a = 1;
 	b = &a;
-
-	printf("vrai %s d'accard Nobila %20.19u\n", str, -12);
+	wchar_t c = L'°';
+	printf("vrai %C\n", c);
+	// ft_printf("mien %C\n, c");
+	// printf("vrai %s d'accard Nobila %20.19u\n", str, -12);
 	// printf("vrai %p\n", b);
-	ft_printf("mien %s d'accord Nobila %20.19u", str, -12);
+	// ft_printf("mien %s d'accord Nobila %20.19u", str, -12);
 	// ft_printf("mien %p\n", b);
 	// printf("%x\n", b);
 	// printf("%x", test2);
