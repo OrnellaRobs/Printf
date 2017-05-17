@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/17 20:00:50 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/17 20:21:55 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 void 	ft_fill_mask(char *ptr, char *str)
 {
+	int i;
 
+	i = ft_strlen(ptr);
+	while (i != 0)
+	{
+		if (*ptr == 'x')
+		{
+			*ptr = *str;
+			str--;
+			i--;
+		}
 }
 
 void 	ft_binairy_mask(char *str, int len)
