@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/16 17:58:24 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/17 18:31:46 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int		main(void)
 	a = 1;
 	b = &a;
 	wchar_t c = L'°';
-	printf("vrai %C\n", c);
-	ft_printf("mien %C\n, c");
+
+	// printf("%%%%C\n", °);
+	printf("%C", 945);
+	// ft_printf("%%%%d", 8);
 	// printf("vrai %s d'accard Nobila %20.19u\n", str, -12);
 	// printf("vrai %p\n", b);
 	// ft_printf("mien %s d'accord Nobila %20.19u", str, -12);

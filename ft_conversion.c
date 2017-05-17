@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/16 17:58:18 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/16 19:25:07 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int		conversion(char *format, t_option *option, va_list lst)
 	// convert[1] = &ft_convert_S;
 	convert[2] = &ft_conv_pointer;
 	convert[3] = ft_conv_char;
-	convert[4] = ft_convert_C;
+	// convert[4] = ft_convert_C;
 	while (STR_CONVERSION[i])
 	{
 		if (i < 5 && STR_CONVERSION[i] == *format)

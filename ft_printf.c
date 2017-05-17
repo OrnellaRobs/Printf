@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/16 15:56:02 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/16 19:20:16 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,9 +179,13 @@ int		ft_parsing(char* format, va_list lst)
 			while (*format == '%')
 				format++;
 			if (percent % 2 == 0)
+			{
 				format++;
+				ft_putstr("\nOK\n");
+			}
 			else
 			{
+				ft_putstr("\nOK 2\n");
 				padding_and_precision(format, option);
 				flag(format, option);
 				length_modifier(format, option);
