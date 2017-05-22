@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 23:37:26 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/11 15:40:31 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/22 18:31:50 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ int					get_next_line(int fd, char **line);
 int					ft_putchar_int(char c);
 int					ft_putnbr_int(int n);
 int					ft_putstr_int(char const *s);
+int					ft_atoi_base(const char *str, int base);
 #endif

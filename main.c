@@ -6,11 +6,12 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/17 18:31:46 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/22 18:08:35 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <locale.h>
 int		main(void)
 {
 	setlocale(P_ALL, "");
@@ -25,7 +26,8 @@ int		main(void)
 	wchar_t c = L'°';
 
 	// printf("%%%%C\n", °);
-	printf("%C", 945);
+	printf("vrai : %C\n", 945);
+	ft_printf("mien : %C\n", 945);
 	// ft_printf("%%%%d", 8);
 	// printf("vrai %s d'accard Nobila %20.19u\n", str, -12);
 	// printf("vrai %p\n", b);
