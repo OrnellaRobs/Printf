@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:28:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 17:54:47 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 21:24:20 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,11 @@ char			*ft_lltoa_base_unsigned(unsigned long long value, int base,
 	if (!(tab = malloc(sizeof(char) * (total_number + 1))))
 		return (NULL);
 	tab[total_number] = '\0';
-	total_number--;
-	while ((value = value / 10) > 0)
+	while (--total_number >= 0)
 	{
-		if (base == 16 || base == 8)
-			tab[total_number] = alpha[value % base];
-		else
-			tab[total_number] = ((value % 10) + '0');
-		total_number--;
+		tab[total_number] = alpha[value % base];
+		value = value / base;
 	}
+	tab[total_number] = alpha[value % base];
 	return (tab);
 }

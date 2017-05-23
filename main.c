@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 20:46:12 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 21:17:41 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ int		main(void)
 
 	int i;
 	int j;
+
+	// printf("vrai : %lx|\n", 17);
+	// ft_printf("mien : %lx|\n", 17);
 	// printf("%%%%C\n", °);
 
 	// printf("vrai : %20%20%20%d|\n", 10);
@@ -54,21 +57,36 @@ int		main(void)
 		// printf("%llp\n\n", str);
 		// printf("%p\n\n", str);
 		// ft_printf("%p\n\n", str);
-// ft_printf("%#o\n", 9);
-// printf("%#x\n", -25);
-// printf("%7.4x\n, -25");
-// printf("%8.6x\n", -25);
-// printf("%6.6x\n", -25);
-// printf("%4.6x\n", -25);
+
+		printf("--------- conversion x ---------\n\n");
+
+// printf("%#o\n", 9);
+// ft_printf("%#o\n\n", 9);
+
+printf("%#lx\n", -25);
+ft_printf("%#lx\n\n", -25);
+
+printf("|%7.4lx|\n", -25);
+ft_printf("|%7.4lx|\n\n", -25);
+
+printf("|%8.6lx\n", -25);
+ft_printf("|%8.6lx\n\n", -25);
+
+printf("%6.6lx\n", -25);
+ft_printf("%6.6lx\n\n", -25);
+
+printf("%4.6lx\n", -25);
+ft_printf("%4.6lx\n\n", -25);
 
 // printf("--------- conversion o ---------\n\n");
 
-
+	/* TEST BUG
 	printf("vrai%#.o\n", 0);
 	ft_printf("mien%#.o\n\n", 0);
 
 	printf("vrai%.o\n", 0);
 	ft_printf("mien%.o\n\n", 0);
+	FIN TEST BUG */
 
 	// printf("vrai%#o\n", -12);
 	// ft_printf("mien%#o\n\n", -12);

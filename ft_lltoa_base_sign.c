@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:29:01 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 17:53:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 21:14:17 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,6 @@ static int		ft_get_size_for_malloc(long long value, int base)
 		value = value / base;
 	}
 	return (total_number);
-}
-
-static int		ft_intlen_long(long long n)
-{
-	int i;
-
-	i = 1;
-	while ((n = n / 10))
-		i++;
-	return (i);
 }
 
 static int		get_last_number(int number)
