@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_mask.c                                     :+:      :+:    :+:   */
+/*   ft_initialize_option.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/23 14:20:48 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 17:52:58 by orazafin         ###   ########.fr       */
+/*   Created: 2017/05/23 17:56:40 by orazafin          #+#    #+#             */
+/*   Updated: 2017/05/23 17:57:00 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_fill_mask(char *ptr, char *str, int len_str)
+void 	initialize_option(t_option *option)
 {
-	int len_ptr;
-
-	len_str--;
-	len_ptr = ft_strlen(ptr) - 1;
-	while (len_ptr >= 0)
-	{
-		if (ptr[len_ptr] == 'x')
-		{
-			if (len_str >= 0)
-			{
-				ptr[len_ptr] = str[len_str];
-				len_str--;
-			}
-			else
-				ptr[len_ptr] = '0';
-		}
-		len_ptr--;
-	}
-	return (ptr);
+	option->pluspace = '\0';
+	option->minuszero = '\0';
+	option->zero_nb = 0;
+	option->hash = '\0';
+	option->modifier = '\0';
+	option->padding = -1;
+	option->precision = -1;
 }

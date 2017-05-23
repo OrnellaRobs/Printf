@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 16:02:19 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:47:25 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*ft_binairy_mask(char *str, int len)
+static char		*ft_binairy_mask(char *str, int len)
 {
 	char	*ptr;
 	int		len_ptr;
@@ -34,7 +34,7 @@ static char	*ft_binairy_mask(char *str, int len)
 	return (ptr);
 }
 
-char	*ft_convert(unsigned int value)
+static	char	*ft_convert_binairy_to_decimal(unsigned int value)
 {
 	char *str;
 	int len;
@@ -90,7 +90,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	nb = va_arg(lst, unsigned int *);
 	while (nb[i])
 	{
-		tab = ft_strjoin(tab, ft_convert(nb[i]));
+		tab = ft_strjoin(tab, ft_convert_binairy_to_decimal(nb[i]));
 		if (option->precision != -1 && ft_strlen(tab) <= option->precision)
 			str = ft_strdup(tab);
 		i++;

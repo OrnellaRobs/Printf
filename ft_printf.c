@@ -6,52 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 16:22:38 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 18:05:51 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* PROBLEME AVEC %%d à gérer !!!*/
 #include "ft_printf.h"
 
-void 	initialize_option(t_option *option)
-{
-	option->pluspace = '\0';
-	option->minuszero = '\0';
-	option->zero_nb = 0;
-	option->hash = '\0';
-	option->modifier = '\0';
-	option->padding = -1;
-	option->precision = -1;
-}
-
-int		get_number(char *str)
-{
-	int result;
-
-	result = 0;
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result);
-}
-
-int		ft_is_in(char elem, char *src)
-{
-	int i;
-
-	i = 0;
-	while(src[i])
-	{
-		if (src[i] == elem)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	flag(char *format, t_option *flag)
+static void		flag(char *format, t_option *flag)
 {
 	while (ft_is_in(*format, STR_CONVERSION) == 0)
 	{
@@ -60,7 +21,7 @@ void	flag(char *format, t_option *flag)
 		else if (*format == ' ' && flag->pluspace != '+')
 			flag->pluspace = 's';
 		else if (*format == '-')
-				flag->minuszero = '-';
+			flag->minuszero = '-';
 		else if (*format == '0' && flag->minuszero != '-'
 		&& flag->padding == -1)
 		{
@@ -74,7 +35,7 @@ void	flag(char *format, t_option *flag)
 	}
 }
 
-void  	length_modifier(char *format, t_option *flag)
+static void		length_modifier(char *format, t_option *flag)
 {
 	while (ft_is_in(*format, STR_CONVERSION) == 0)
 	{
@@ -100,7 +61,7 @@ void  	length_modifier(char *format, t_option *flag)
 	}
 }
 
-void 	padding_and_precision(char *format, t_option *flag)
+static void		padding_and_precision(char *format, t_option *flag)
 {
 	int		zero;
 
@@ -121,8 +82,7 @@ void 	padding_and_precision(char *format, t_option *flag)
 	}
 }
 
-
-int		ft_parsing(char* format, va_list lst)
+static int		ft_parsing(char *format, va_list lst)
 {
 	t_option	*option;
 	int			percent;
@@ -137,12 +97,12 @@ int		ft_parsing(char* format, va_list lst)
 		if (*format == '%')
 		{
 			format++;
-				padding_and_precision(format, option);
-				flag(format, option);
-				length_modifier(format, option);
-				while (ft_is_in(*format, STR_CONVERSION) == 0)
-					format++;
-				result += conversion(format, option, lst);
+			padding_and_precision(format, option);
+			flag(format, option);
+			length_modifier(format, option);
+			while (ft_is_in(*format, STR_CONVERSION) == 0)
+				format++;
+			result += conversion(format, option, lst);
 		}
 		else
 			result += ft_putchar_int(*format);
@@ -151,11 +111,11 @@ int		ft_parsing(char* format, va_list lst)
 	return (result);
 }
 
-int		ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
-	int value;
+	int		value;
+	va_list	lst;
 
-	va_list lst;
 	va_start(lst, format);
 	value = ft_parsing((char *)format, lst);
 	va_end(lst);

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:29:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/14 01:30:13 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:16:24 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static int		ft_display_hexa(t_option *option, char *tab, int upper_case)
 	return (result);
 }
 
-int		ft_convert_hexa(t_option *option, char *tab, char *format)
+int				ft_convert_hexa(t_option *option, char *tab, char *format)
 {
 	int		result;
 	int		i;
 	int		size_hash;
-	int 	upper_case;
+	int		upper_case;
 
 	i = -1;
 	result = 0;

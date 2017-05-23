@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 16:22:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:31:03 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		main(void)
 	int j;
 	// printf("%%%%C\n", °);
 
-	printf("vrai : %20%20%20%d|\n", 10);
-	ft_printf("mien : %20%20%20%d|\n", 10);
+	// printf("vrai : %20%20%20%d|\n", 10);
+	// ft_printf("mien : %20%20%20%d|\n", 10);
 /* 	flag 0 PAREIL */
 	// printf("vrai : %05.2C|\n", 10);
 	// ft_printf("mien : %05.2C|\n", 10);
@@ -83,28 +83,25 @@ int		main(void)
 		// printf("%8.6x\n", -25);
 		// printf("%6.6x\n", -25);
 		// printf("%4.6x\n", -25);
-	// printf("--------- conversion c ---------\n\n");
+	printf("--------- conversion c ---------\n\n");
 
-	// printf("%d\n", -2147483649);
-	// printf("%c\n\n", '\0');
+	ft_printf("mien %04c|\n", 'b');
+	printf("vrai %04c|\n", 'b');
 
-	// ft_printf("%04c\n", 'b');
-	// printf("%04c\n", 'b');
+	ft_printf("%7.5c|\n", 'b');
+	printf("%7.5c|\n\n", 'b');
 
-	// ft_printf("%7.5c\n", 'b');
-	// printf("%7.5c\n\n", 'b');
-	//
-	// ft_printf("%-7.5c\n", 'b');
-	// printf("%-7.5c\n\n", 'b');
-	//
-	// ft_printf("%5.5c\n", 'b');
-	// printf("%5.5c\n\n", 'b');
-	//
-	// ft_printf("%-1.5c\n", 'b');
-	// printf("%-1.5c\n\n", 'b');
-	//
-	// ft_printf("%1.5c\n", 'b');
-	// printf("%1.5c\n\n", 'b');
+	ft_printf("%-7.5c|\n", 'b');
+	printf("%-7.5c|\n\n", 'b');
+
+	ft_printf("%5.5c|\n", 'b');
+	printf("%5.5c|\n\n", 'b');
+
+	ft_printf("%-1.5c|\n", 'b');
+	printf("%-1.5c|\n\n", 'b');
+
+	ft_printf("vrai %1.0c|\n", 'b');
+	printf("mien %1.0c|\n\n", 'b');
 
 	// printf("--------- conversion s ---------\n\n");
 	//

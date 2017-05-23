@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:28:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/14 07:54:27 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:54:47 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,13 @@ char			*ft_lltoa_base_unsigned(unsigned long long value, int base,
 		return (NULL);
 	tab[total_number] = '\0';
 	total_number--;
-	while (value > 0)
+	while ((value = value / 10) > 0)
 	{
 		if (base == 16 || base == 8)
 			tab[total_number] = alpha[value % base];
 		else
 			tab[total_number] = ((value % 10) + '0');
 		total_number--;
-		value = value / base;
 	}
 	return (tab);
 }

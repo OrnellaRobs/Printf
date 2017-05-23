@@ -6,17 +6,17 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 16:01:06 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:44:02 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_display_octet(char *ptr)
+static int		ft_display_octet(char *ptr)
 {
-	char **tab;
-	int i;
-	int nb;
+	char	**tab;
+	int		i;
+	int		nb;
 
 	i = 0;
 	tab = ft_strsplit(ptr, ' ');
@@ -29,7 +29,7 @@ int		ft_display_octet(char *ptr)
 	return (i);
 }
 
-int		ft_display_padding(t_option *option, int len)
+static int		ft_display_padding(t_option *option, int len)
 {
 	int i;
 	int result;
@@ -44,11 +44,11 @@ int		ft_display_padding(t_option *option, int len)
 	return (result);
 }
 
-int		ft_binairy_mask(char *str, int len, t_option *option)
+static int		ft_binairy_mask(char *str, int len, t_option *option)
 {
 	char	*ptr;
 	int		len_ptr;
-	int result;
+	int		result;
 
 	result = 0;
 	ptr = NULL;
@@ -71,11 +71,11 @@ int		ft_binairy_mask(char *str, int len, t_option *option)
 	return (result);
 }
 
-int		ft_convert_long_char(va_list lst, t_option *option)
+int				ft_convert_long_char(va_list lst, t_option *option)
 {
-	int result;
-	char *str;
-	int len;
+	int		len;
+	int		result;
+	char	*str;
 
 	result = 0;
 	str = ft_itoa_base_printf(va_arg(lst, unsigned int), 2, 0, 0);

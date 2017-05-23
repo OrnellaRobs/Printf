@@ -6,13 +6,28 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:34:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 16:09:09 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:34:32 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		display_padding(t_option *option)
+static int		display_flag_zero(t_option *option)
+{
+	int result;
+	int i;
+
+	i = 0;
+	result = 0;
+	while (i < option->zero_nb - 1)
+	{
+		result += ft_putchar_int('0');
+		i++;
+	}
+	return (result);
+}
+
+static int		display_padding(t_option *option)
 {
 	int i;
 	int result;
@@ -27,7 +42,7 @@ int		display_padding(t_option *option)
 	return (result);
 }
 
-int		ft_conv_char(va_list lst, t_option *option)
+int				ft_conv_char(va_list lst, t_option *option)
 {
 	int		result;
 	char	c;
@@ -36,10 +51,10 @@ int		ft_conv_char(va_list lst, t_option *option)
 	c = (char)va_arg(lst, unsigned int);
 	if (option->minuszero != '-' && option->padding != -1)
 		result += display_padding(option);
-
+	if (option->zero_nb != 0)
+		result += display_flag_zero(option);
 	result += ft_putchar_int(c);
-	printf("result = %d\n", result);
-	if (option->padding != -1)
+	if (option->minuszero == '-' && option->padding != -1)
 		result += display_padding(option);
 	return (result);
 }

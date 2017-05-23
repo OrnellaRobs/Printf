@@ -6,20 +6,20 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 16:18:38 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:50:10 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*reminder : # define STR_CONVERSION "sSpcC%dDioOuUxX" */
-/* FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)*/
-/* FLAG space à gérer pour la conversion des HEXA (undefined behavior) */
+/*
+** FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)
+** FLAG space à gérer pour la conversion des HEXA (undefined behavior)
+*/
 
-char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb, char *tab)
+int		ft_select_base(char *format)
 {
-	int		base;
-	int		upper_case;
+	int base;
 
 	if (*format == 'o' || *format == 'O')
 		base = 8;
@@ -27,9 +27,20 @@ char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb, char *ta
 		base = 16;
 	else
 		base = 10;
+	return (base);
+}
+
+char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb,
+	char *tab)
+{
+	int		base;
+	int		upper_case;
+
+	base = ft_select_base(format);
 	upper_case = (*format == 'X') ? 1 : 0;
 	if (option->modifier == 'm')
-		tab = ft_lltoa_base_unsigned((unsigned long long)nb, base, upper_case, 1);
+		tab = ft_lltoa_base_unsigned((unsigned long long)nb, base, upper_case,
+		1);
 	else if (option->modifier == 'l')
 		tab = ft_lltoa_base_unsigned((unsigned long)nb, base, upper_case, 1);
 	else if (option->modifier == 'i')
@@ -39,7 +50,7 @@ char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb, char *ta
 	else if (option->modifier == 'z')
 		tab = ft_lltoa_base_unsigned((size_t)nb, base, upper_case, 1);
 	else if (option->modifier == 'j')
-		tab = ft_lltoa_base_unsigned((uintmax_t)nb, base,upper_case, 1);
+		tab = ft_lltoa_base_unsigned((uintmax_t)nb, base, upper_case, 1);
 	else if (*format == 'u' || *format == 'U')
 		tab = ft_itoa_base_printf((unsigned int)nb, 10, upper_case, 1);
 	else if (*format == 'x' || *format == 'X')
@@ -74,12 +85,11 @@ char	*ft_get_tab_int(t_option *option, char *format, long long nb, char *tab)
 		tab = ft_itoa_base_printf((unsigned int)nb, base, 0, 0);
 	return (tab);
 }
-/*sSpcC%dDioOuUxX*/
 
 int		ft_convert_all_int(t_option *option, char *format, long long nb)
 {
-	char *tab;
-	int result;
+	int		result;
+	char	*tab;
 
 	result = 0;
 	tab = NULL;
