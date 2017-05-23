@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 20:35:43 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 20:46:12 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,30 @@ int		main(void)
 	// printf("%x", test2);
 	// ft_printf("mien%#o\n\n", -12);
 
+	// printf("%p\n\n", str);
+	// printf("%25o\n\n", -2);
+		// printf("%llp\n\n", str);
+		// printf("%p\n\n", str);
+		// ft_printf("%p\n\n", str);
+// ft_printf("%#o\n", 9);
+// printf("%#x\n", -25);
+// printf("%7.4x\n, -25");
+// printf("%8.6x\n", -25);
+// printf("%6.6x\n", -25);
+// printf("%4.6x\n", -25);
+
+// printf("--------- conversion o ---------\n\n");
+
+
+	printf("vrai%#.o\n", 0);
+	ft_printf("mien%#.o\n\n", 0);
+
+	printf("vrai%.o\n", 0);
+	ft_printf("mien%.o\n\n", 0);
+
 	// printf("vrai%#o\n", -12);
 	// ft_printf("mien%#o\n\n", -12);
-
+	//
 	// printf("vrai%o\n", -12);
 	// ft_printf("mien%o\n\n", -12);
 	//
@@ -69,20 +90,10 @@ int		main(void)
 	//
 	// printf("vrai%15.14o\n", -12);
 	// ft_printf("mien%15.14o\n\n", -12);
-
+	//
 	// printf("vrai%15.18o\n", -12);
 	// ft_printf("mien%15.18o\n\n", -12);
-			// printf("%p\n\n", str);
-			// printf("%25o\n\n", -2);
-				// printf("%llp\n\n", str);
-				// printf("%p\n\n", str);
-				// ft_printf("%p\n\n", str);
-		// ft_printf("%#o\n", 9);
-		// printf("%#x\n", -25);
-		// printf("%7.4x\n, -25");
-		// printf("%8.6x\n", -25);
-		// printf("%6.6x\n", -25);
-		// printf("%4.6x\n", -25);
+
 	// printf("--------- conversion c ---------\n\n");
 	//
 	// ft_printf("mien %04c|\n", 'b');
@@ -110,6 +121,9 @@ int		main(void)
 
 	// ft_printf("mien %-s|\n", NULL);
 	// printf("vrai %-s|\n\n", NULL);
+	//
+	//  ft_printf("mien %-s|\n", "");
+	//  printf("vrai %-s|\n\n", "");
 	//
 	// ft_printf("mien %s|\n", NULL);
 	// printf("vrai %s|\n\n", NULL);
@@ -152,50 +166,50 @@ int		main(void)
 	// ft_printf("mien %d|\n", -12);
 	// printf("vrai %d|\n\n", -12);
 	//
-	ft_printf("mien %04d|\n", -12);
-	printf("vrai %04d|\n\n", -12);
-
-	ft_printf("mien %04d|\n", 12);
-	printf("vrai %04d|\n\n", 12);
-
-	ft_printf("mien %013d|\n", -12);
-	printf("vrai %013d|\n\n", -12);
-
-	ft_printf("mien %013d|\n", 12);
-	printf("vrai %013d|\n\n", 12);
-
-	ft_printf("mien%8.5d|\n", -12);
-	printf("vrai%8.5d|\n\n", -12);
-
-	ft_printf("mien %-7.5d|\n", -12);
-	printf("vrai %-7.5d|\n\n", -12);
-
-	ft_printf("mien %7.5d|\n", 12);
-	printf("vrai %7.5d|\n\n", 12);
-
-	ft_printf("mien %5.5d|\n", -12);
-	printf("vrai %5.5d|\n\n", -12);
-
-	ft_printf("mien %5.5d|\n", 12);
-	printf("vrai %5.5d|\n\n", 12);
-
-	ft_printf("mien %-5.5d|\n", 12);
-	printf("vrai %-5.5d|\n\n", 12);
+	// ft_printf("mien %04d|\n", -12);
+	// printf("vrai %04d|\n\n", -12);
 	//
-	ft_printf("mien %-5.5d|\n", -12);
-	printf("vrai %-5.5d|\n\n", -12);
-
-	ft_printf("mien %-1.5d|\n", -12);
-	printf("vrai %-1.5d|\n\n", -12);
-
-	ft_printf("mien %1.5d|\n", 12);
-	printf("vrai %1.5d|\n\n", 12);
-
-	ft_printf("mien %-1.5d|\n", 12);
-	printf("vrai %-1.5d|\n\n", 12);
-
-	ft_printf("mien %1.5d|\n", -12);
-	printf("vrai %1.5d|\n\n", -12);
+	// ft_printf("mien %04d|\n", 12);
+	// printf("vrai %04d|\n\n", 12);
+	//
+	// ft_printf("mien %013d|\n", -12);
+	// printf("vrai %013d|\n\n", -12);
+	//
+	// ft_printf("mien %013d|\n", 12);
+	// printf("vrai %013d|\n\n", 12);
+	//
+	// ft_printf("mien%8.5d|\n", -12);
+	// printf("vrai%8.5d|\n\n", -12);
+	//
+	// ft_printf("mien %-7.5d|\n", -12);
+	// printf("vrai %-7.5d|\n\n", -12);
+	//
+	// ft_printf("mien %7.5d|\n", 12);
+	// printf("vrai %7.5d|\n\n", 12);
+	//
+	// ft_printf("mien %5.5d|\n", -12);
+	// printf("vrai %5.5d|\n\n", -12);
+	//
+	// ft_printf("mien %5.5d|\n", 12);
+	// printf("vrai %5.5d|\n\n", 12);
+	//
+	// ft_printf("mien %-5.5d|\n", 12);
+	// printf("vrai %-5.5d|\n\n", 12);
+	// //
+	// ft_printf("mien %-5.5d|\n", -12);
+	// printf("vrai %-5.5d|\n\n", -12);
+	//
+	// ft_printf("mien %-1.5d|\n", -12);
+	// printf("vrai %-1.5d|\n\n", -12);
+	//
+	// ft_printf("mien %1.5d|\n", 12);
+	// printf("vrai %1.5d|\n\n", 12);
+	//
+	// ft_printf("mien %-1.5d|\n", 12);
+	// printf("vrai %-1.5d|\n\n", 12);
+	//
+	// ft_printf("mien %1.5d|\n", -12);
+	// printf("vrai %1.5d|\n\n", -12);
 
 	// printf("--------- conversion u ---------\n\n");
 	//
@@ -255,7 +269,6 @@ int		main(void)
 	//
 	// ft_printf("%1.5u\n", -12);
 	// printf("%1.5u\n\n", -12);
-
 
 	return 0;
 }
