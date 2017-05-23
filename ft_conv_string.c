@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/13 00:00:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 14:24:50 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,6 @@ static int 	display_space(t_option *option, char *res)
 	else
 		while (++i < option->padding - (int)ft_strlen(res))
 			result += ft_putchar_int(' ');
-	return (result);
-}
-
-static int		display_precision(t_option *option, char *str)
-{
-	int i;
-	int result;
-
-	result = 0;
-	i = -1;
-	while (++i < option->precision - (int)ft_strlen(str))
-		result += ft_putchar_int('0');
 	return (result);
 }
 

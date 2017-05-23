@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/22 18:08:35 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 14:54:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@ int		main(void)
 {
 	setlocale(P_ALL, "");
 
-	char	*str = "bonjour";
-	char 	*test2 = "tsst";
-
-	int a;
-	int *b;
-	a = 1;
-	b = &a;
-	wchar_t c = L'°';
-
 	// printf("%%%%C\n", °);
-	printf("vrai : %C\n", 945);
-	ft_printf("mien : %C\n", 945);
+/* 	flag 0 PAREIL */
+	// printf("vrai : %05.2C|\n", 10);
+	// ft_printf("mien : %05.2C|\n", 10);
+	// printf("vrai : %.5d|\n", 10);
+	// ft_printf("mien : %.5d|\n", 10);
+	// printf("vrai : %5.2C|\n", 'a');
+	// ft_printf("mien : %5.2C|\n", 'a');
+
+	printf("vrai = %16.11S|\n", L"°ασΠ");
+	ft_printf("mien = %16.11S|\n", L"°ασΠ");
+	//printf("vrai : %5.2C|\n", L"°°°°°");
+	//ft_printf("mien : %5.2C|\n", L"°°°°°");
+
 	// ft_printf("%%%%d", 8);
 	// printf("vrai %s d'accard Nobila %20.19u\n", str, -12);
 	// printf("vrai %p\n", b);

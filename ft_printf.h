@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/22 19:00:32 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 14:29:07 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,13 @@ int		ft_convert_hexa(t_option *option, char *tab, char *format);
 int		ft_convert_octal(t_option *option, char *tab);
 int		ft_conv_pointer(va_list lst, t_option *option);
 int		ft_conv_char(va_list lst, t_option *option);
-char	*ft_lltoa_base_sign(long long value, int base, int upper_case, int sign);
+char	*ft_lltoa_base_sign(long long value, int base, int sign);
 char	*ft_lltoa_base_unsigned(unsigned long long value, int base, int upper_case, int sign);
 int		ft_conv_unsigned_int(t_option *option, char *tab);
 int		ft_convert_long_char(va_list lst, t_option *option);
 int		ft_count_bit(wchar_t str);
 int		ft_atoi_base_printf(const char *str, int base);
+int		ft_convert_long_string(va_list lst, t_option *option);
+char 	*ft_fill_mask(char *ptr, char *str, int len_str);
+
 #endif

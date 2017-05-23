@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:29:01 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/14 07:51:19 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 14:28:56 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,10 @@ static int		get_last_number(int number)
 	return (number);
 }
 
-char			*ft_lltoa_base_sign(long long value, int base, int upper_case,
-int sign)
+char			*ft_lltoa_base_sign(long long value, int base, int sign)
 {
 	char	*tab;
 	int		total_number;
-	char	*alpha;
 	int		negatif;
 
 	if (base < 2 || base > 16)

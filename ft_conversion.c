@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/22 17:32:09 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 14:32:04 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*reminder : # define STR_CONVERSION "sSpcC%dDioOuUxX" */
 /* FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)*/
 /* FLAG space à gérer pour la conversion des HEXA (undefined behavior) */
-/* CE QU'IL RESTE A GÉRER : S, C*/
+/* CE QU'IL RESTE A GÉRER : S*/
 
 char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb, char *tab)
 {
@@ -60,17 +60,17 @@ char	*ft_get_tab_int(t_option *option, char *format, long long nb, char *tab)
 	if (*format != 'd' && *format != 'i' && *format != 'D')
 		return (ft_get_tab_unsigned(option, format, nb, tab));
 	if (option->modifier == 'm')
-		tab = ft_lltoa_base_sign((long long)nb, base, 0, 1);
+		tab = ft_lltoa_base_sign((long long)nb, base, 1);
 	else if (option->modifier == 'l')
-		tab = ft_lltoa_base_sign((long)nb, base, 0, 1);
+		tab = ft_lltoa_base_sign((long)nb, base, 1);
 	else if (option->modifier == 'i')
-		tab = ft_lltoa_base_sign((signed char)nb, base, 0, 1);
+		tab = ft_lltoa_base_sign((signed char)nb, base, 1);
 	else if (option->modifier == 'h')
-		tab = ft_lltoa_base_sign((short)nb, base, 0, 1);
+		tab = ft_lltoa_base_sign((short)nb, base, 1);
 	else if (option->modifier == 'z')
-		tab = ft_lltoa_base_sign((size_t)nb, base, 0, 1);
+		tab = ft_lltoa_base_sign((size_t)nb, base, 1);
 	else if (option->modifier == 'j')
-		tab = ft_lltoa_base_sign((intmax_t)nb, base, 0, 1);
+		tab = ft_lltoa_base_sign((intmax_t)nb, base, 1);
 	else
 		tab = ft_itoa_base_printf((unsigned int)nb, base, 0, 0);
 	return (tab);
@@ -83,6 +83,7 @@ int		ft_convert_all_int(t_option *option, char *format, long long nb)
 	int result;
 
 	result = 0;
+	tab = NULL;
 	tab = ft_get_tab_int(option, format, nb, tab);
 	if (*format == 'x' || *format == 'X')
 		result += ft_convert_hexa(option, tab, format);
@@ -99,13 +100,13 @@ int		conversion(char *format, t_option *option, va_list lst)
 {
 	int	i;
 	int	(*convert[5])(va_list, t_option *);
-	char *tab;
+
 	i = 0;
 	convert[0] = &ft_conv_string;
-	// convert[1] = &ft_convert_S;
+	convert[1] = &ft_convert_long_string;
 	convert[2] = &ft_conv_pointer;
-	convert[3] = ft_conv_char;
-	convert[4] = ft_convert_long_char;
+	convert[3] = &ft_conv_char;
+	convert[4] = &ft_convert_long_char;
 	while (STR_CONVERSION[i])
 	{
 		if (i < 5 && STR_CONVERSION[i] == *format)
