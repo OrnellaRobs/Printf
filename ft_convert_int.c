@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 17:42:45 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 20:35:29 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,28 +63,28 @@ int				display_precision(t_option *option, char *tab)
 int				ft_conv_int(t_option *option, char *tab)
 {
 	int result;
-	int state;
+	int sign;
 
-	state = 0;
+	sign = (*tab == '-') ? 1 : 0;
 	result = display_flag_plusspace(option);
 	if (*tab == '-' && option->padding == -1)
 		result += ft_putchar_int('-');
 	result += display_flag_zero(tab, option);
 	if (option->minuszero == '-' && option->padding != -1)
 	{
-		state = 1;
+		sign = 1;
 		result += display_precision(option, tab);
 		if (*tab == '-')
 			tab++;
-		ft_putstr_int(tab);
+		result += ft_putstr_int(tab);
 	}
-	result += display_padding_and_precision(tab, option, state);
-	if (*tab == '-' && state == 0)
+	result += display_padding_and_precision(tab, option, sign);
+	if (*tab == '-' && option->minuszero != '-')
 	{
 		tab++;
 		result += ft_putstr_int(tab);
 	}
-	else if (state == 0)
+	else if (option->minuszero != '-')
 		result += ft_putstr_int(tab);
 	return (result);
 }
@@ -92,19 +92,19 @@ int				ft_conv_int(t_option *option, char *tab)
 int				ft_conv_unsigned_int(t_option *option, char *tab)
 {
 	int result;
-	int state;
+	int sign;
 
-	state = 0;
+	sign = 0;
 	result = 0;
 	result += display_flag_zero(tab, option);
 	if (option->minuszero == '-' && option->padding != -1)
 	{
-		state = 1;
+		sign = 1;
 		result += display_precision(option, tab);
 		ft_putstr_int(tab);
 	}
-	result += display_padding_and_precision(tab, option, state);
-	if (state == 0)
+	result += display_padding_and_precision(tab, option, sign);
+	if (sign == 0)
 		result += ft_putstr_int(tab);
 	return (result);
 }
