@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:34:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/13 19:58:21 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:09:09 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ int		ft_conv_char(va_list lst, t_option *option)
 	c = (char)va_arg(lst, unsigned int);
 	if (option->minuszero != '-' && option->padding != -1)
 		result += display_padding(option);
+
 	result += ft_putchar_int(c);
+	printf("result = %d\n", result);
 	if (option->padding != -1)
 		result += display_padding(option);
 	return (result);

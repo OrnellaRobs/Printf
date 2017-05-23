@@ -6,13 +6,12 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 14:55:15 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:02:19 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* precision avec %S (undefined behavior)*/
 static char	*ft_binairy_mask(char *str, int len)
 {
 	char	*ptr;
@@ -79,10 +78,11 @@ static int		ft_display_padding(t_option *option, int len)
 int		ft_convert_long_string(va_list lst, t_option *option)
 {
 	unsigned int *nb;
-	int i;
-	char *tab;
-	int result;
-	int len;
+	int		i;
+	char 	*tab;
+	char	*str;
+	int		result;
+	int		len;
 
 	i = 0;
 	result = 0;
@@ -91,13 +91,23 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	while (nb[i])
 	{
 		tab = ft_strjoin(tab, ft_convert(nb[i]));
+		if (option->precision != -1 && ft_strlen(tab) <= option->precision)
+			str = ft_strdup(tab);
 		i++;
 	}
-	len = (int)ft_strlen(tab);
-	if (option->minuszero != '-' && option->padding != -1)
+	if (option->precision != -1 && ft_strlen(tab) < option->precision )
+		len = option->precision;
+	else
+	{
+		len = ft_strlen(tab);
+		str = ft_strdup(tab);
+	}
+	if (option->minuszero != '-' && option->padding != -1 &&
+	option->padding > len)
 		result += ft_display_padding(option, len);
-	result += ft_putstr_int(tab);
-	if (option->minuszero == '-' && option->padding != -1)
+	result += ft_putstr_int(str);
+	if (option->minuszero == '-' && option->padding != -1 &&
+	option->padding > len)
 		result += ft_display_padding(option, len);
 	return (result);
 }

@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 14:40:14 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:01:06 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void 	ft_display_octet(char *ptr)
+int		ft_display_octet(char *ptr)
 {
 	char **tab;
 	int i;
@@ -26,6 +26,7 @@ void 	ft_display_octet(char *ptr)
 		write(1, &nb, 1);
 		i++;
 	}
+	return (i);
 }
 
 int		ft_display_padding(t_option *option, int len)

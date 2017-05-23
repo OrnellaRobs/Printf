@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 14:32:04 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:18:38 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*reminder : # define STR_CONVERSION "sSpcC%dDioOuUxX" */
 /* FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)*/
 /* FLAG space à gérer pour la conversion des HEXA (undefined behavior) */
-/* CE QU'IL RESTE A GÉRER : S*/
 
 char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb, char *tab)
 {

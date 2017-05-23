@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/22 17:39:43 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:22:38 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,19 +100,6 @@ void  	length_modifier(char *format, t_option *flag)
 	}
 }
 
-int		how_many_percent(char *format)
-{
-	int count;
-
-	count = 0;
-	while (*format == '%')
-	{
-		format++;
-		count++;
-	}
-	 return (count);
-}
-
 void 	padding_and_precision(char *format, t_option *flag)
 {
 	int		zero;
@@ -134,30 +121,6 @@ void 	padding_and_precision(char *format, t_option *flag)
 	}
 }
 
-int 	ft_display_percent(int percent)
-{
-	int result;
-
-	result = 0;
-	if (percent % 2 == 0)
-	{
-		while (percent - 2 >= 0)
-		{
-			result += ft_putchar_int('%');
-			percent = percent - 2;
-		}
-	}
-	else
-	{
-		percent = percent - 1;
-		while (percent - 2 >= 0)
-		{
-			result += ft_putchar_int('%');
-			percent = percent - 2;
-		}
-	}
-	return (result);
-}
 
 int		ft_parsing(char* format, va_list lst)
 {
@@ -173,31 +136,13 @@ int		ft_parsing(char* format, va_list lst)
 		initialize_option(option);
 		if (*format == '%')
 		{
-			percent = how_many_percent(format);
-			if (percent != 1)
-				result += ft_display_percent(percent);
-			while (*format == '%')
-				format++;
-			if (percent % 2 == 0)
-				format++;
-			else
-			{
+			format++;
 				padding_and_precision(format, option);
 				flag(format, option);
 				length_modifier(format, option);
 				while (ft_is_in(*format, STR_CONVERSION) == 0)
 					format++;
-			// printf("\n\n ---------- \n\n");
-			// printf("plusspace = %c\n", option->pluspace);
-			// printf("minuszero = %c\n", option->minuszero);
-			// printf("zero_nb = %d\n", option->zero_nb);
-			// printf("hash = %c\n", option->hash);
-			// printf("modifier = %c\n", option->modifier);
-			// printf("padding = %d\n", option->padding);
-			// printf("precision = %d\n", option->precision);
-			// printf("\n\n ---------- \n\n");
 				result += conversion(format, option, lst);
-			}
 		}
 		else
 			result += ft_putchar_int(*format);
