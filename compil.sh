@@ -8,7 +8,6 @@ ft_convert_octal.c\
 ft_convert_pointer.c\
 main.c\
 Libft/libft.a\
-ft_count_bit.c\
 ft_itoa_base_printf.c\
 ft_lltoa_base_sign.c\
 ft_lltoa_base_unsigned.c\
