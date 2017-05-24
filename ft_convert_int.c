@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/24 17:49:18 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/24 20:38:21 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int				ft_conv_unsigned_int(t_option *option, char *tab)
 	{
 		sign = 1;
 		result += display_precision(option, tab);
-		ft_putstr_int(tab);
+		result += ft_putstr_int(tab);
 	}
 	result += display_padding_and_precision(tab, option, sign);
 	if (sign == 0)
