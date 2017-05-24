@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:29:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/24 18:40:43 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/24 19:20:59 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int len)
 	if (option->precision > len)
 		while (++i < option->precision - len)
 			result += ft_putchar_int('0');
-	if (*tab != '0' || option->zero_nb == 0 || (*tab == '0' && option->minuszero == '-' && option->padding == -1))
+	if (*tab != '0' || option->zero_nb == 0 || (*tab == '0' &&
+	option->minuszero == '-' && option->padding == -1 &&
+	option->precision == -1))
 		result += ft_putstr_int(tab);
 	return (result);
 }

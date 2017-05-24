@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/24 18:51:23 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/24 19:29:46 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,68 +57,82 @@ int		main(void)
 		// printf("%llp\n\n", str);
 		// printf("%p\n\n", str);
 		// ft_printf("%p\n\n", str);
-
+	//
 		printf("--------- conversion x et X ---------\n\n");
+	//
+	// i = printf("vrai%-.x|\n", 0);
+	// j = ft_printf("mien%-.x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %-#x|\n", -12);
+	// j = ft_printf("mien %-#x|\n", -12);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// printf("----> DEBUT BUG <----\n\n");
+	// i = printf("vrai %-0x|\n", 0);
+	// j = ft_printf("mien %-0x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i =	printf("vrai %#-0x|\n", 0);
+	// j = ft_printf("mien %#-0x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %-#.2X|\n", 0);
+	// j = ft_printf("mien %-#.2X|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// printf("----> FIN BUG <----\n\n");
+	// i = printf("vrai %-10.X|\n", 0);
+	// j = ft_printf("mien %-10.X|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %#10.4X|\n", 1);
+	// j = ft_printf("mien %#10.4X|\n", 1);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %0x|\n", 0);
+	// j = ft_printf("mien %0x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
-	i = printf("vrai%-.x|\n", 0);
-	j = ft_printf("mien%-.x|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %-#x|\n", -12);
-	j = ft_printf("mien %-#x|\n", -12);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %-#.4X|\n", 0);
-	j = ft_printf("mien %-#.4X|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %-10.X|\n", 0);
-	j = ft_printf("mien %-10.X|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %#10.4X|\n", 1);
-	j = ft_printf("mien %#10.4X|\n", 1);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %0x|\n", 0);
-	j = ft_printf("mien %0x|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %-0x|\n", 0);
-	j = ft_printf("mien %-0x|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %#-0x|\n", 0);
-	j = ft_printf("mien %#-0x|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %#-0x|\n", -12);
-	j = ft_printf("mien %#-0x|\n", -12);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai %-10.x|\n", 0);
-	j = ft_printf("mien %-10.x|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
+	// i = printf("vrai %-0x|\n", 0);
+	// j = ft_printf("mien %-0x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %#-0x|\n", 0);
+	// j = ft_printf("mien %#-0x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %#-0x|\n", -12);
+	// j = ft_printf("mien %#-0x|\n", -12);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %-10.x|\n", 0);
+	// j = ft_printf("mien %-10.x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 	//
 	// i = printf("vrai %#.x|\n", 0);
 	// j = ft_printf("mien %#.x|\n", 0);
@@ -162,68 +176,126 @@ int		main(void)
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
 
-// printf("--------- conversion o ---------\n\n");
-//
-// 	printf("vrai%#.o\n", 0);
-// 	ft_printf("mien%#.o\n\n", 0);
-//
-// 	printf("vrai%.o|\n", 0);
-// 	ft_printf("mien%.o|\n\n", 0);
-//
-// 	printf("vrai%o\n", 0);
-// 	ft_printf("mien%o\n\n", 0);
-//
-// 	printf("vrai %10.o|\n", 0);
-// 	ft_printf("mien %10.o|\n\n", 0);
-//
-// 	printf("vrai %#10.o|\n", 0);
-// 	ft_printf("mien %#10.o|\n\n", 0);
-//
-// 	printf("vrai %#10.o|\n", -12);
-// 	ft_printf("mien %#10.o|\n\n", -12);
-//
-// 	printf("vrai%#o\n", -12);
-// 	ft_printf("mien%#o\n\n", -12);
-//
-// 	printf("vrai%o\n", -12);
-// 	ft_printf("mien%o\n\n", -12);
-//
-// 	printf("vrai%#15.9o\n", -12);
-// 	ft_printf("mien%#15.9o\n\n", -12);
-//
-// 	printf("vrai%15.11o\n", -12);
-// 	ft_printf("mien%15.11o\n\n", -12);
-// 	//
-// 	printf("vrai%#15.11o\n", -12);
-// 	ft_printf("mien%#15.11o\n\n", -12);
-//
-// 	printf("vrai%#15.14o\n", -12);
-// 	ft_printf("mien%#15.14o\n\n", -12);
-//
-// 	printf("vrai%15.14o\n", -12);
-// 	ft_printf("mien%15.14o\n\n", -12);
-//
-// 	printf("vrai%15.18o\n", -12);
-// 	ft_printf("mien%15.18o\n\n", -12);
-//
-// 	printf("vrai %#.o|\n", 0);
-// 	ft_printf("mien %#.o|\n\n", 0);
-//
-// 	printf("vrai %o|\n", 0);
-// 	ft_printf("mien %o|\n\n", 0);
-//
-// 	printf("vrai %#o|\n", 0);
-// 	ft_printf("mien %#o|\n\n", 0);
-//
-// 	printf("%#o|\n", 9);
-// 	ft_printf("%#o|\n\n", 9);
-//
-// 	printf("%#lo|\n", -1);
-// 	ft_printf("%#lo|\n\n", -1);
+printf("--------- conversion o ---------\n\n");
 
+	i = printf("vrai%#.o\n", 0);
+	j = ft_printf("mien%#.o\n", 0);
 
-	// printf("--------- conversion c ---------\n\n");
-	//
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%.o|\n", 0);
+	j = ft_printf("mien%.o|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%o\n", 0);
+	j = ft_printf("mien%o\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	printf("----> BUG PROCHAIN <----\n\n");
+
+	i = printf("vrai %10.o|\n", 0);
+	j = ft_printf("mien %10.o|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %#10.o|\n", 0);
+	j = ft_printf("mien %#10.o|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %#10.o|\n", -12);
+	j = ft_printf("mien %#10.o|\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%#o\n", -12);
+	j = ft_printf("mien%#o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%o\n", -12);
+	j = ft_printf("mien%o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%#15.9o\n", -12);
+	j = ft_printf("mien%#15.9o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%15.11o\n", -12);
+	j = ft_printf("mien%15.11o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%#15.11o\n", -12);
+	j = ft_printf("mien%#15.11o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%#15.14o\n", -12);
+	j = ft_printf("mien%#15.14o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%15.14o\n", -12);
+	j = ft_printf("mien%15.14o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%15.18o\n", -12);
+	j = ft_printf("mien%15.18o\n", -12);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %#.o|\n", 0);
+	j = ft_printf("mien %#.o|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %o|\n", 0);
+	j = ft_printf("mien %o|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %#o|\n", 0);
+	j = ft_printf("mien %#o|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("%#o|\n", 9);
+	j = ft_printf("%#o|\n", 9);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("%#lo|\n", -1);
+	j = ft_printf("%#lo|\n", -1);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	printf("--------- conversion c ---------\n\n");
+
 	// ft_printf("mien %04c|\n", 'b');
 	// printf("vrai %04c|\n", 'b');
 	//
