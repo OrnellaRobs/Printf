@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 18:05:51 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/24 17:48:42 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		flag(char *format, t_option *flag)
 {
-	while (ft_is_in(*format, STR_CONVERSION) == 0)
+	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
 		if (*format == '+')
 			flag->pluspace = '+';

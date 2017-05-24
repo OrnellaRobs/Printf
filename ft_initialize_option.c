@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:56:40 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 17:57:00 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/24 17:25:50 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void 	initialize_option(t_option *option)
 {
 	option->pluspace = '\0';
 	option->minuszero = '\0';
-	option->zero_nb = 0;
+	option->zero_nb = -1;
 	option->hash = '\0';
 	option->modifier = '\0';
 	option->padding = -1;
