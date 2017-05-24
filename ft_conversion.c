@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/24 18:18:53 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/24 20:03:57 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,10 @@ char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb,
 	base = ft_select_base(format);
 	upper_case = (*format == 'X') ? 1 : 0;
 	if (option->modifier == 'm')
-		tab = ft_lltoa_base_unsigned((unsigned long long)nb, base, upper_case,
-		1);
+		tab = ft_lltoa_base_unsigned((unsigned long long)nb, base,
+	upper_case, 1);
 	else if (option->modifier == 'l')
-	{
 		tab = ft_lltoa_base_unsigned((unsigned long)nb, base, upper_case, 1);
-	}
 	else if (option->modifier == 'i')
 		tab = ft_lltoa_base_unsigned((unsigned char)nb, base, upper_case, 1);
 	else if (option->modifier == 'h')
@@ -99,7 +97,7 @@ int		ft_convert_all_int(t_option *option, char *format, long long nb)
 	if (option->precision == 0 && option->padding == -1 && *tab == '0'
 	&& *format != 'o')
 		return (0);
-	if (*format == 'o' && *tab == '0' && option->precision == 0 && option->hash != '#')
+	if (*format == 'o' && *tab == '0' && option->precision == 0 && option->hash != '#' && option->padding == -1)
 		return (0);
 	if (*format == 'x' || *format == 'X')
 		result += ft_convert_hexa(option, tab, format);
