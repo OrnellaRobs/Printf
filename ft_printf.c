@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/25 15:44:06 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 16:19:36 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ static void		padding_and_precision(char *format, t_option *flag)
 static int		ft_parsing(char *format, va_list lst)
 {
 	t_option	*option;
-	int			percent;
 	int			result;
 
 	result = 0;

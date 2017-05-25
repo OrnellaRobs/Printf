@@ -6,13 +6,13 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/21 11:58:30 by orazafin          #+#    #+#              #
-#    Updated: 2017/05/22 18:31:37 by orazafin         ###   ########.fr        #
+#    Updated: 2017/05/25 16:38:24 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 	libft.a
 
-HEADER = libft.h
+HEADER = ./includes/libft.h
 
 SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memcmp.c\
 	ft_memchr.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c\

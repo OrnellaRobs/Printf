@@ -6,18 +6,20 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/23 17:05:09 by orazafin          #+#    #+#              #
-#    Updated: 2017/05/25 13:28:35 by orazafin         ###   ########.fr        #
+#    Updated: 2017/05/25 16:56:50 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf
+NAME = libftprintf.a
 
-NAME_LIB = Libft/libft.a
+LIBFT_PATH = ./Libft/
+LIBFT_NAME = libft.a
 
-SRCS_FT_PRINTF = ft_convert_int.c\
+SRC	 = ft_convert_int.c\
 				ft_convert_hexa.c\
 				ft_convert_int.c\
 				ft_conversion.c\
+				ft_convert_char.c\
 				ft_convert_int_padd_prec.c\
 				ft_convert_long_char.c\
 				ft_convert_long_string.c\
@@ -34,27 +36,27 @@ SRCS_FT_PRINTF = ft_convert_int.c\
 				ft_percent.c\
 				ft_printf.c\
 
+OBJ = $(SRC:.c=.o)
+
+CC = gcc
+
 FLAGS += -Wall -Wextra -Werror
 
-OBJS_FT_PRINTF = (SRCS_FT_PRINTF:.c=.o)
+all: $(NAME)
 
-all : $(NAME)
+$(NAME):$(OBJ)
+		@echo "Compile $(NAME) with $(FLAGS)$";
+		@echo "ar rc $(NAME)"
+		@ar rc $(NAME) $(OBJ)
+		@echo "ranlib $(NAME)"
+		@ranlib $(NAME)
 
-$(NAME):
-	@echo "compiling ft_printf..."
-	@make -C Libft
-	@gcc $(FLAGS) $(SRCS_FT_PRINTF) -o $(NAME) Libft/libft.a  -I ft_printf.h
-	@echo "ft_printf done"
+clean:
+		@echo "delete OBJ files"
+		@rm -rf $(OBJ)
 
-clean :
-	@echo "deleting objects..."
-	@make -C libft clean
-	@echo "deleting done"
+fclean: clean
+		@echo "Delete $(NAME) file"
+		@rm -rf $(NAME)
 
-fclean : clean
-	@echo "deleting library and ft_printf..."
-	@make -C Libft fclean
-	@rm -f $(NAME)
-	@echo "deleting done"
-
-re : fclean all
+re: fclean all clean

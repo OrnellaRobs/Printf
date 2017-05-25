@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/25 15:44:22 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 16:19:16 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int				ft_printf(const char *format, ...);
 int				ft_conv_int(t_option *option, char *tab);
 int				conversion(char *format, t_option *option, va_list lst, ...);
 int				ft_conv_string(va_list lst, t_option *option);
-int				ft_percent(t_option *option, char *format);
+int				ft_percent(t_option *option);
 char			*ft_itoa_base_printf(unsigned int value, int base,
 	int upper_case, int sign);
 int				ft_convert_hexa(t_option *option, char *tab, char *format);

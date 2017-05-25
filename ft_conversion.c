@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/25 15:49:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 16:19:25 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int		conversion(char *format, t_option *option, va_list lst, ...)
 		if (i < 5 && STR_CONVERSION[i] == *format)
 			return (convert[i](lst, option));
 		else if (*format == '%')
-			return (ft_percent(option, format));
+			return (ft_percent(option));
 		else if (i >= 6 && STR_CONVERSION[i] == *format)
 			return (ft_convert_all_int(option, format, va_arg(lst, long long)));
 		i++;
