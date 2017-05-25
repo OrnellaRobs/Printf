@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/25 17:22:39 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 18:22:20 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include <limits.h>
 int		main(void)
 {
-	setlocale(P_ALL, "");
+	 setlocale(LC_ALL, "");
 
 	int i;
 	int j;
 
 
-	// printf("%%%%C\n", °);
+	// printf("%C\n", °);
 
 	// i = printf("vrai : %S|\n", 0);
 	// j = ft_printf("mien : %S|\n", 0);
@@ -39,11 +39,11 @@ int		main(void)
 	// i = printf("vrai = %10S|\n", L"°ασΠ");
 	// j = ft_printf("mien = %10S|\n", L"°ασΠ");
 
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
-	printf("vrai : %C\n", 945);
-	ft_printf("mien : %C\n", 945);
+	// printf("vrai : %C\n", 945);
+	// ft_printf("mien : %C\n", 945);
 	//ft_printf("mien = %10s|\n", "abcd");
  	//printf("vrai = %10s|\n", "abcd");
 
@@ -65,6 +65,20 @@ int		main(void)
 		// printf("%p\n\n", str);
 		// ft_printf("%p\n\n", str);
 	//
+	printf("--------- conversion C ---------\n\n");
+
+	i = printf("vrai : %C\n", 945);
+	j = ft_printf("mien : %C\n", 945);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai : %C\n", 0);
+	j = ft_printf("mien : %C\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
 	printf("--------- CAS %% ---------\n\n");
 	//
 	// i = printf("vrai : %20%20%20%d|\n", 10);
@@ -364,7 +378,7 @@ printf("--------- conversion o ---------\n\n");
 	// printf("j = %d\n\n", j);
 
 	printf("--------- conversion c ---------\n\n");
-
+	//
 	// i = printf("vrai %.c|\n", '\0');
 	// j = ft_printf("mien %.c|\n", '\0');
 	//
@@ -412,8 +426,8 @@ printf("--------- conversion o ---------\n\n");
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
-
-	printf("--------- conversion s ---------\n\n");
+	//
+	// printf("--------- conversion s ---------\n\n");
 	//
 	// i = printf("vrai %-s|\n", NULL);
 	// j = ft_printf("mien %-s|\n", NULL);

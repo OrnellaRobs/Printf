@@ -6,16 +6,18 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 18:11:41 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/25 16:21:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 17:57:26 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+#include <stdio.h>
+
 int		ft_atoi_base(const char *str, int base)
 {
 	int i;
-	int res;
+	long res;
 	int negatif;
 
 	i = 0;
@@ -28,7 +30,7 @@ int		ft_atoi_base(const char *str, int base)
 	while ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'a' && str[i] <= 'z')
 	|| (str[i] >= 'A' && str[i] <= 'Z'))
 	{
-		if (str[i] > 9)
+		if (str[i] > '9')
 			res = res * base + ((str[i] <= 'z') ? str[i] - 'a' + 10: str[i] - 'A' + 10);
 		else
 			res = res * base + str[i] - '0';
