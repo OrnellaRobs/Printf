@@ -6,13 +6,14 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/23 19:20:08 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:44:22 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # define STR_CONVERSION "sSpcC%dDioOuUxX"
+# define FLAG_CONVERSION "0123456789-+# .jzhl"
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -33,9 +34,9 @@ typedef struct	s_option
 int				main(void);
 int				ft_printf(const char *format, ...);
 int				ft_conv_int(t_option *option, char *tab);
-int				conversion(char *format, t_option *option, va_list lst);
+int				conversion(char *format, t_option *option, va_list lst, ...);
 int				ft_conv_string(va_list lst, t_option *option);
-int				ft_percent(t_option *option);
+int				ft_percent(t_option *option, char *format);
 char			*ft_itoa_base_printf(unsigned int value, int base,
 	int upper_case, int sign);
 int				ft_convert_hexa(t_option *option, char *tab, char *format);

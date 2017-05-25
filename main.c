@@ -6,12 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/24 20:46:04 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:56:18 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <locale.h>
+#include <limits.h>
 int		main(void)
 {
 	setlocale(P_ALL, "");
@@ -41,11 +42,22 @@ printf("--------- CAS %% ---------\n\n");
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
-	i = printf("vrai : %%%25|\n", 10);
-	j = ft_printf("mien : %%%25|\n", 10);
+	i = printf("vrai : |% #-1236Zoooo|\n", 10);
+	j = ft_printf("mien : |% #-1236Zoooo|\n", 10);
 
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
+	i = printf("vrai : %hhO", SHRT_MIN);
+	printf(" | i = %d\n", i);
+ 	j = ft_printf("mien : %hhO", SHRT_MIN);
+	printf(" | j = %d\n\n", j);
+
+//USHRT_MAX
+
+	i = printf("vrai : %hhO", SHRT_MAX);
+	printf(" | i = %d\n", i);
+ 	j = ft_printf("mien : %hhO", SHRT_MAX);
+	printf(" | j = %d\n\n", j);
+
+	// printf("\nk = %d\n", i);
 /* 	flag 0 PAREIL */
 	// printf("vrai : %05.2C|\n", 10);
 	// ft_printf("mien : %05.2C|\n", 10);

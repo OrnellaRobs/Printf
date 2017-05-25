@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/24 17:48:42 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/25 15:44:06 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		flag(char *format, t_option *flag)
 
 static void		length_modifier(char *format, t_option *flag)
 {
-	while (ft_is_in(*format, STR_CONVERSION) == 0)
+	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
 		if (*format == 'h' && *(format + 1) != 'h')
 			flag->modifier = 'h';
@@ -66,7 +66,7 @@ static void		padding_and_precision(char *format, t_option *flag)
 	int		zero;
 
 	zero = 0;
-	while (ft_is_in(*format, STR_CONVERSION) == 0)
+	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
 		if (*format == '0')
 			zero = 1;
@@ -100,13 +100,14 @@ static int		ft_parsing(char *format, va_list lst)
 			padding_and_precision(format, option);
 			flag(format, option);
 			length_modifier(format, option);
-			while (ft_is_in(*format, STR_CONVERSION) == 0)
+			while (*format && ft_is_in(*format, STR_CONVERSION) == 0 && ft_is_in(*format, FLAG_CONVERSION))
 				format++;
-			result += conversion(format, option, lst);
+			result += conversion(format, option, lst, *format);
 		}
 		else
 			result += ft_putchar_int(*format);
-		format++;
+		if (*format)
+			format++;
 	}
 	return (result);
 }
