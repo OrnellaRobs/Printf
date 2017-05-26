@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:36:07 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 18:30:55 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int			ft_conv_string(va_list lst, t_option *option)
 	i = -1;
 	if (!(res = va_arg(lst, char *)))
 		res = "(null)";
-	if (option->minuszero != '-')
+	if (option->minuszero == '0')
+		result += ft_display_flag_zero_str(option, res);
+	else if (option->minuszero != '-')
 		if (option->padding > option->precision)
 			result += display_space(option, res);
 	if (option->precision > 0 && option->precision < (int)ft_strlen(res))

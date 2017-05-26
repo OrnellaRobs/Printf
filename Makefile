@@ -6,7 +6,7 @@
 #    By: gcollett <gcollett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/15 13:56:15 by gcollett          #+#    #+#              #
-#    Updated: 2017/05/26 16:04:27 by orazafin         ###   ########.fr        #
+#    Updated: 2017/05/26 18:26:00 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = 	ft_convert_int.c\
 		ft_lltoa_base_unsigned.c\
 		ft_percent.c\
 		ft_printf.c\
+		ft_display_flag_zero_str.c\
 
 SRCDIR = ./srcs/
 

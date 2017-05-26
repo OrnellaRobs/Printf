@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:59:31 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 18:25:52 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int				display_padding_and_precision(char *tab, t_option *option,
 void			initialize_option(t_option *option);
 int				ft_is_in(char elem, char *src);
 int				get_number(char *str);
+int				ft_display_flag_zero_str(t_option *option, char *str);
 
 #endif

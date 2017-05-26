@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:36:46 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 18:37:56 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void		flag(char *format, t_option *flag)
 		{
 			flag->minuszero = '0';
 			format++;
-			flag->zero_nb = get_number(format);
+			if (flag->zero_nb == -1)
+				flag->zero_nb = get_number(format);
 		}
 		else if (*format == '#')
 			flag->hash = '#';
@@ -68,9 +69,11 @@ static void		padding_and_precision(char *format, t_option *flag)
 	zero = 0;
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
-		if (*format == '0')
+		if (*format == '0' && zero == 0)
 			zero = 1;
-		else if (*format >= '1' && *format <= '9' && zero == 0
+		else if (*format == '-')
+			zero = 2;
+		else if (*format >= '1' && *format <= '9' && (zero == 0 || zero == 2)
 		&& flag->padding == -1)
 			flag->padding = get_number(format);
 		else if (*format == '.')
