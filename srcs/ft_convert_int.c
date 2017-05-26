@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:35:46 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 19:10:48 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ int				ft_conv_int(t_option *option, char *tab)
 	int result;
 	int sign;
 
+	result = 0;
 	sign = (*tab == '-') ? 1 : 0;
-	result = display_flag_plusspace(option);
+	if (*tab != '-')
+		result += display_flag_plusspace(option);
 	if (*tab == '-' && option->padding == -1)
 		result += ft_putchar_int('-');
 	result += display_flag_zero(tab, option);
