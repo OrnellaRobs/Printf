@@ -6,11 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/25 18:22:20 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 19:47:03 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "./ft_printf/ft_printf.h"
 #include <locale.h>
 #include <limits.h>
 int		main(void)
@@ -67,17 +67,18 @@ int		main(void)
 	//
 	printf("--------- conversion C ---------\n\n");
 
-	i = printf("vrai : %C\n", 945);
-	j = ft_printf("mien : %C\n", 945);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai : %C\n", 0);
-	j = ft_printf("mien : %C\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
+	// printf("\n---> BUG POUR LES RESULT POUR TOUS LES PROCHAINS <----\n");
+	// i = printf("vrai : %C\n", 945);
+	// j = ft_printf("mien : %C\n", 945);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai : %C\n", 0);
+	// j = ft_printf("mien : %C\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
 	printf("--------- CAS %% ---------\n\n");
 	//
@@ -131,12 +132,24 @@ int		main(void)
 
 		printf("--------- conversion x et X ---------\n\n");
 
+	// i = printf("vrai %x|\n", 0);
+	// j = ft_printf("mien %x|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %013x|\n", -12);
+	// j = ft_printf("mien %013x|\n", -12);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
 	// i = printf("vrai%-.x|\n", 0);
 	// j = ft_printf("mien%-.x|\n", 0);
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
-	//
+
 	// i = printf("vrai %-#x|\n", -12);
 	// j = ft_printf("mien %-#x|\n", -12);
 	//
@@ -453,7 +466,6 @@ printf("--------- conversion o ---------\n\n");
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
 	//
-	// printf("----> BUG PROCHAIN (undefined behavior pas encore traité) <----\n\n");
 	// i = printf("vrai %-013s|\n", NULL);
 	// j = ft_printf("mien %-013s|\n", NULL);
 	//
@@ -501,6 +513,30 @@ printf("--------- conversion o ---------\n\n");
 
 
 	printf("--------- conversion d et i ---------\n\n");
+
+	i = printf("vrai %+d\n", -42);
+	j = ft_printf("mien %+d\n", -42);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %5d|\n", -42);
+	j = ft_printf("mien %5d|\n", -42);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %-5d|\n", -42);
+	j = ft_printf("mien %-5d|\n", -42);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %-05d|\n", -42);
+  	j = ft_printf("mien %-05d|\n", -42);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 
 	// i = printf("vrai %+d|\n", 0);
 	// j = ft_printf("mien %+d|\n", 0);
