@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/25 16:19:16 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 15:59:31 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 # define STR_CONVERSION "sSpcC%dDioOuUxX"
 # define FLAG_CONVERSION "0123456789-+# .jzhl"
 # include <stdarg.h>
-# include <stdio.h>
 # include <unistd.h>
 # include "Libft/libft.h"
-# include <locale.h>
 
 typedef struct	s_option
 {
