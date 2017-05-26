@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 18:37:56 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 23:16:25 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,15 @@ static void		flag(char *format, t_option *flag)
 		&& flag->padding == -1)
 		{
 			flag->minuszero = '0';
-			format++;
-			if (flag->zero_nb == -1)
+			if (ft_isdigit(*(format + 1)) && flag->zero_nb == -1)
+			{
+				format++;
 				flag->zero_nb = get_number(format);
+			}
 		}
+		else if (flag->minuszero == '0' && flag->zero_nb == -1 &&
+		ft_isdigit(*format))
+			flag->zero_nb = get_number(format);
 		else if (*format == '#')
 			flag->hash = '#';
 		format++;
@@ -102,7 +107,8 @@ static int		ft_parsing(char *format, va_list lst)
 			padding_and_precision(format, option);
 			flag(format, option);
 			length_modifier(format, option);
-			while (*format && ft_is_in(*format, STR_CONVERSION) == 0 && ft_is_in(*format, FLAG_CONVERSION))
+			while (*format && ft_is_in(*format, STR_CONVERSION) == 0 &&
+			ft_is_in(*format, FLAG_CONVERSION))
 				format++;
 			result += conversion(format, option, lst, *format);
 		}

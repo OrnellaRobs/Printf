@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 19:50:21 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 01:03:53 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ static int		display_flag_zero(char *tab, t_option *option)
 {
 	int result;
 	int i;
-	int negatif;
+	int plus;
 
 	i = 0;
 	result = 0;
-	negatif = (*tab == '-') ? 1 : 0;
+	plus = (option->pluspace == '+') ? 1 : 0;
+	plus = (*tab == '-') ? 0 : plus;
 	if (option->minuszero == '0')
 	{
-		while (i < option->zero_nb - ((int)ft_strlen(tab)))
+		while (i < option->zero_nb - ((int)ft_strlen(tab)) - plus)
 		{
 			result += ft_putchar_int('0');
 			i++;
@@ -39,7 +40,7 @@ static int		display_flag_plusspace(t_option *option)
 	result = 0;
 	if (option->pluspace == '+')
 		result += ft_putchar_int('+');
-	else if (option->pluspace == 's')
+	else if (option->pluspace == 's' && option->padding == -1)
 		result += ft_putchar_int(' ');
 	return (result);
 }
@@ -53,7 +54,7 @@ int				display_precision(t_option *option, char *tab)
 	negatif = (*tab == '-') ? 1 : 0;
 	result = 0;
 	i = -1;
-	if (*tab == '-')
+	if (*tab == '-' && option->padding != -1)
 		result += ft_putchar_int('-');
 	while (++i < option->precision - (int)ft_strlen(tab) + negatif)
 		result += ft_putchar_int('0');
@@ -65,7 +66,7 @@ int				ft_conv_int(t_option *option, char *tab)
 	int result;
 	int sign;
 
-	sign = 0;
+	sign = (*tab == '-') ? 1 : 0;
 	result = 0;
 	if (*tab != '-')
 		result += display_flag_plusspace(option);
@@ -74,7 +75,6 @@ int				ft_conv_int(t_option *option, char *tab)
 	result += display_flag_zero(tab, option);
 	if (option->minuszero == '-' && option->padding != -1)
 	{
-		sign = 1;
 		result += display_precision(option, tab);
 		if (*tab == '-')
 			tab++;
