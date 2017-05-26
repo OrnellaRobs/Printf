@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 18:11:41 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 16:01:42 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/26 18:53:51 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_atoi_base(const char *str, int base)
 {
-	int i;
-	long res;
-	int negatif;
+	int		i;
+	int		negatif;
+	long	res;
 
 	i = 0;
 	res = 0;
@@ -29,7 +29,8 @@ int		ft_atoi_base(const char *str, int base)
 	|| (str[i] >= 'A' && str[i] <= 'Z'))
 	{
 		if (str[i] > '9')
-			res = res * base + ((str[i] <= 'z') ? str[i] - 'a' + 10: str[i] - 'A' + 10);
+			res = res * base + ((str[i] <= 'z') ?
+			str[i] - 'a' + 10 : str[i] - 'A' + 10);
 		else
 			res = res * base + str[i] - '0';
 		i++;
