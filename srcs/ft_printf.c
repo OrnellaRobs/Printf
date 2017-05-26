@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 23:16:25 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 01:50:34 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,16 @@ static void		padding_and_precision(char *format, t_option *flag)
 	zero = 0;
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
-		if (*format == '0' && zero == 0)
+		if (*format == '0' && zero == 0 && flag->padding == -1)
 			zero = 1;
+		else if (zero == 1 && *format == '.')
+			flag->padding = flag->zero_nb;
 		else if (*format == '-')
 			zero = 2;
 		else if (*format >= '1' && *format <= '9' && (zero == 0 || zero == 2)
 		&& flag->padding == -1)
 			flag->padding = get_number(format);
-		else if (*format == '.')
+		if (*format == '.')
 		{
 			format++;
 			flag->precision = get_number(format);
@@ -104,8 +106,8 @@ static int		ft_parsing(char *format, va_list lst)
 		if (*format == '%')
 		{
 			format++;
-			padding_and_precision(format, option);
 			flag(format, option);
+			padding_and_precision(format, option);
 			length_modifier(format, option);
 			while (*format && ft_is_in(*format, STR_CONVERSION) == 0 &&
 			ft_is_in(*format, FLAG_CONVERSION))

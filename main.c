@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 00:56:04 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 01:57:57 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		main(void)
 		// printf("%p\n\n", str);
 		// ft_printf("%p\n\n", str);
 	//
-	printf("--------- conversion C ---------\n\n");
+	printf("\n--------- conversion C ---------\n\n");
 
 	// printf("\n---> BUG POUR LES RESULT POUR TOUS LES PROCHAINS <----\n");
 	// i = printf("vrai : %C\n", 945);
@@ -550,11 +550,17 @@ printf("--------- conversion o ---------\n\n");
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
-	i = printf("vrai @moulitest: %.10d|\n", -42);
-	j = ft_printf("mien @moulitest: %.10d|\n", -42);
+	i = printf("vrai %.2d|\n", 1);
+	j = ft_printf("mien %.2d|\n", 1);
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
+
+	// i = printf("vrai @moulitest: %.10d|\n", -42);
+	// j = ft_printf("mien @moulitest: %.10d|\n", -42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
 	// i = printf("vrai %5d|\n", -42);
 	// j = ft_printf("mien %5d|\n", -42);

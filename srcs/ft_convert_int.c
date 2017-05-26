@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 01:03:53 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 01:56:36 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,13 @@ int				display_precision(t_option *option, char *tab)
 	negatif = (*tab == '-') ? 1 : 0;
 	result = 0;
 	i = -1;
-	if (*tab == '-' && option->padding != -1)
+	if (*tab != '-')
+		result += display_flag_plusspace(option);
+	else if (*tab == '-' && option->padding != -1)
 		result += ft_putchar_int('-');
 	while (++i < option->precision - (int)ft_strlen(tab) + negatif)
 		result += ft_putchar_int('0');
+
 	return (result);
 }
 
@@ -68,11 +71,10 @@ int				ft_conv_int(t_option *option, char *tab)
 
 	sign = (*tab == '-') ? 1 : 0;
 	result = 0;
-	if (*tab != '-')
-		result += display_flag_plusspace(option);
 	if (*tab == '-' && option->padding == -1)
 		result += ft_putchar_int('-');
-	result += display_flag_zero(tab, option);
+	if (option->precision == -1)
+		result += display_flag_zero(tab, option);
 	if (option->minuszero == '-' && option->padding != -1)
 	{
 		result += display_precision(option, tab);
