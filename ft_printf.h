@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 19:45:16 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 13:50:46 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int				ft_count_bit(wchar_t str);
 int				ft_atoi_base_printf(const char *str, int base);
 int				ft_convert_long_string(va_list lst, t_option *option);
 char			*ft_fill_mask(char *ptr, char *str, int len_str);
-int				display_precision(t_option *option, char *tab);
+int				display_precision(t_option *option, char *tab, int un_sign);
 int				display_padding_and_precision(char *tab, t_option *option,
-	int sign);
+	int sign, int un_sign);
 void			initialize_option(t_option *option);
 int				ft_is_in(char elem, char *src);
 int				get_number(char *str);

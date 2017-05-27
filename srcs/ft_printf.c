@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 01:50:34 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 18:38:47 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static void		flag(char *format, t_option *flag)
 			flag->pluspace = 's';
 		else if (*format == '-')
 			flag->minuszero = '-';
-		else if (*format == '0' && flag->minuszero != '-'
-		&& flag->padding == -1)
+		else if (*format == '0' && flag->minuszero != '-' && flag->padding == -1)
 		{
 			flag->minuszero = '0';
 			if (ft_isdigit(*(format + 1)) && flag->zero_nb == -1)
@@ -33,7 +32,7 @@ static void		flag(char *format, t_option *flag)
 			}
 		}
 		else if (flag->minuszero == '0' && flag->zero_nb == -1 &&
-		ft_isdigit(*format))
+		ft_isdigit(*format) && flag->precision == -1 && flag->padding == -1)
 			flag->zero_nb = get_number(format);
 		else if (*format == '#')
 			flag->hash = '#';
@@ -70,14 +69,18 @@ static void		length_modifier(char *format, t_option *flag)
 static void		padding_and_precision(char *format, t_option *flag)
 {
 	int		zero;
+	int		tmp;
 
 	zero = 0;
+	tmp = -1;
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
 		if (*format == '0' && zero == 0 && flag->padding == -1)
+		{
 			zero = 1;
-		else if (zero == 1 && *format == '.')
-			flag->padding = flag->zero_nb;
+			format++;
+			tmp = get_number(format);
+		}
 		else if (*format == '-')
 			zero = 2;
 		else if (*format >= '1' && *format <= '9' && (zero == 0 || zero == 2)
@@ -85,6 +88,8 @@ static void		padding_and_precision(char *format, t_option *flag)
 			flag->padding = get_number(format);
 		if (*format == '.')
 		{
+			if (flag->padding == -1)
+				flag->padding = tmp;
 			format++;
 			flag->precision = get_number(format);
 		}
@@ -106,8 +111,8 @@ static int		ft_parsing(char *format, va_list lst)
 		if (*format == '%')
 		{
 			format++;
-			flag(format, option);
 			padding_and_precision(format, option);
+			flag(format, option);
 			length_modifier(format, option);
 			while (*format && ft_is_in(*format, STR_CONVERSION) == 0 &&
 			ft_is_in(*format, FLAG_CONVERSION))
