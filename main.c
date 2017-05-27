@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 18:54:50 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 19:20:31 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -259,6 +259,12 @@ int		main(void)
 	// printf("j = %d\n\n", j);
 
 printf("--------- conversion o ---------\n\n");
+
+	// i = printf("vrai %05o|\n", 42);
+	// j = ft_printf("mien %05o|\n", 42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
 	// i = printf("vrai : %jd\n", LLONG_MAX);
 	// j = ft_printf("mien : %jd\n", LLONG_MAX);
@@ -514,21 +520,39 @@ printf("--------- conversion o ---------\n\n");
 
 	printf("--------- conversion d et i ---------\n\n");
 
-	i = printf("vrai % 0d|\n", 42);
-	j = ft_printf("mien % 0d|\n", 42);
+	// i = printf("vrai % 0d|\n", 42);
+	// j = ft_printf("mien % 0d|\n", 42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	//
+	// i = printf("vrai %0+5d|\n", -42);
+	// j = ft_printf("mien %0+5d|\n", -42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-
-	i = printf("vrai %0+5d|\n", -42);
-	j = ft_printf("mien %0+5d|\n", -42);
+	i = printf("vrai @moulitest: %.d|\n", 42);
+	j = ft_printf("mien @moulitest: %.d|\n", 42);
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
 	i = printf("vrai @moulitest: %.d %.0d|\n", 42, 43);
 	j = ft_printf("mien @moulitest: %.d %.0d|\n", 42, 43);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai @moulitest: %5.d %5.0d|\n", 0, 0);
+	j = ft_printf("mien @moulitest: %5.d %5.0d|\n", 0, 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai @moulitest: %-2.d|\n", 0);
+	j = ft_printf("mien @moulitest: %-2.d|\n", 0);
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);

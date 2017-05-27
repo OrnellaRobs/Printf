@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 20:58:53 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:35:57 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/27 19:05:23 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int				ft_convert_octal(t_option *option, char *tab)
 		size_hash = (*tab == '0') ? 0 : size_hash;
 	if (option->minuszero == '-')
 		result += ft_display_octal(option, tab, size_hash);
+	else if (option->minuszero == '0')
+		result += ft_display_flag_zero_str(option, tab);
 	if (option->padding != -1 && option->precision >
 	(len + size_hash))
 		while (++i < option->padding - option->precision)
