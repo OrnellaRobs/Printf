@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 19:23:29 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/28 02:13:45 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ static int		display_flag_plusspace(t_option *option, char *tab)
 	result = 0;
 	if (option->pluspace == '+' && *tab != '-')
 		result += ft_putchar_int('+');
-	else if (option->pluspace == 's' && option->padding == -1)
+	else if (option->pluspace == 's' && option->padding == -1
+	&& *tab != '-')
 		result += ft_putchar_int(' ');
+	if (*tab == '0' && option->padding == -1)
+		result += ft_putstr_int(tab);
 	return (result);
 }
 
@@ -61,7 +64,6 @@ int				display_precision(t_option *option, char *tab, int un_sign)
 		result += ft_putchar_int('-');
 	while (++i < option->precision - (int)ft_strlen(tab) + negatif)
 		result += ft_putchar_int('0');
-
 	return (result);
 }
 
@@ -71,7 +73,8 @@ int				ft_conv_int(t_option *option, char *tab)
 	int sign;
 
 
-	// printf("padd =  %d | prec = %d\n", option->padding, option->precision);
+	printf("\nzero_nb = %d | padding = %d | precision = %d\n", option->zero_nb,
+option->padding, option->precision);
 	sign = (*tab == '-') ? 1 : 0;
 	result = 0;
 	if (*tab == '-' && option->padding == -1)
@@ -93,7 +96,8 @@ int				ft_conv_int(t_option *option, char *tab)
 		if (*tab != '0')
 			result += ft_putstr_int(tab);
 	}
-	else if (option->minuszero != '-')
+	else if ((option->minuszero != '-' && *tab != '0') || (*tab == '0'
+	&& option->padding != -1 && option->precision != 0))
 		result += ft_putstr_int(tab);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 18:38:47 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/28 02:16:47 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ static void		length_modifier(char *format, t_option *flag)
 {
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
-		if (*format == 'h' && *(format + 1) != 'h')
-			flag->modifier = 'h';
+		if (*format == 'h' && *(format + 1) != 'h' && flag->modifier != 'z'
+	&& flag->modifier != 'j')
+		{
+				flag->modifier = 'h';
+		}
 		else if (*format == 'h' && *(format + 1) == 'h')
 		{
 			flag->modifier = 'i';
