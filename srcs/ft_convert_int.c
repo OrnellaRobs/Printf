@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/28 02:13:45 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 01:18:57 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,6 @@ int				ft_conv_int(t_option *option, char *tab)
 	int result;
 	int sign;
 
-
-	printf("\nzero_nb = %d | padding = %d | precision = %d\n", option->zero_nb,
-option->padding, option->precision);
 	sign = (*tab == '-') ? 1 : 0;
 	result = 0;
 	if (*tab == '-' && option->padding == -1)

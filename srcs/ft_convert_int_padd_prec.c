@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:39:00 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 17:53:30 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 01:37:27 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ static int		padding_greater_than_precision(t_option *option, char *tab,
 	i = -1;
 	result = 0;
 
-	if (sign == 1 && option->minuszero != '-' && option->precision == -1)
+	if ((sign == 1 && option->minuszero != '-' && option->precision == -1) ||
+	(option->precision < (int)ft_strlen(tab) && option->precision != -1 &&
+	option->minuszero != '0'))
 		sign = 0;
 	else if (option->pluspace == '+' && un_sign == 0)
 		sign = 1;

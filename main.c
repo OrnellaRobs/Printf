@@ -6,11 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/28 02:12:39 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 01:39:17 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "./ft_printf_2/ft_printf.h"
 #include <locale.h>
 #include <limits.h>
 int		main(void)
@@ -23,9 +23,11 @@ int		main(void)
 
 	// printf("%C\n", °);
 
-	// i = printf("vrai : %S|\n", 0);
-	// j = ft_printf("mien : %S|\n", 0);
-
+	// i = printf("vrai : %S|\n", L"°°°°°");
+	// j = ft_printf("mien : %S|\n", L"°°°°°");
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
 
 	// printf("\nk = %d\n", i);
@@ -68,14 +70,14 @@ int		main(void)
 	printf("\n--------- conversion C ---------\n\n");
 
 	// printf("\n---> BUG POUR LES RESULT POUR TOUS LES PROCHAINS <----\n");
-	// i = printf("vrai : %C\n", 945);
-	// j = ft_printf("mien : %C\n", 945);
+	// i = printf("vrai : %C|\n", 945);
+	// j = ft_printf("mien : %C|\n", 945);
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai : %C\n", 0);
-	// j = ft_printf("mien : %C\n", 0);
+	// //
+	// i = printf("vrai : %C|\n", 0);
+	// j = ft_printf("mien : %C|\n", 0);
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
@@ -466,6 +468,18 @@ printf("--------- conversion o ---------\n\n");
 	//
 	printf("--------- conversion s ---------\n\n");
 	//
+	i = printf("vrai %4.15s|\n", "42");
+	j = ft_printf("mien %4.15s|\n", "42");
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %4.5s|\n", "42");
+	j = ft_printf("mien %4.5s|\n", "42");
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
 	// i = printf("vrai %-s|\n", NULL);
 	// j = ft_printf("mien %-s|\n", NULL);
 	//
@@ -537,13 +551,67 @@ printf("--------- conversion o ---------\n\n");
 
 
 	printf("--------- conversion d et i ---------\n\n");
+	// i = printf("mien %03.2d|\n", -1);
+	// j = ft_printf("mien %03.2d|\n", -1);
 	//
-	i = printf("vrai @main_ftprintf: %####0000 33..1d|\n", 256);
-	j = ft_printf("mien @main_ftprintf: %####0000 33..1d|\n", 256);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("mien %3.2d|\n", -1);
+	// j = ft_printf("mien %3.2d|\n", -1);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %15.4d|\n", -424242);
+	// j = ft_printf("mien %15.4d|\n", -424242);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %0+5d|\n", 42);
+	// j = ft_printf("mien %0+5d|\n", 42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %-05d|\n", -42);
+	// j = ft_printf("mien %-05d|\n", -42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %-5d|\n", -42);
+	// j = ft_printf("mien %-5d|\n", -42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai % 0d|\n", 42);
+	// j = ft_printf("mien % 0d|\n", 42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai %+d|\n", -42);
+	// j = ft_printf("mien %+d|\n", -42);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai : %ld\n", LLONG_MAX);
+	// j = ft_printf("mien : %ld\n", LLONG_MAX);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// printf("\n----> BUG PROCHAIN TEST (UNDEFINED BEHAVIOR NON TRAITÉ)<----\n\n");
+	// i = printf("vrai @main_ftprintf: %####0000 33..1d|\n", 256);
+	// j = ft_printf("mien @main_ftprintf: %####0000 33..1d|\n", 256);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
 	// i = printf("vrai %zhd|\n", "4294967296");
 	// j = ft_printf("mien %zhd|\n", "4294967296");
 	//
@@ -555,7 +623,7 @@ printf("--------- conversion o ---------\n\n");
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
-
+	//
 	// i = printf("vrai % 0d|\n", -42);
 	// j = ft_printf("mien % 0d|\n", -42);
 	//
@@ -612,12 +680,6 @@ printf("--------- conversion o ---------\n\n");
 	//
 	// i = printf("vrai @moulitest: %5.d|\n", 0);
 	// j = ft_printf("mien @moulitest: %5.d|\n", 0);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai % 0d|\n", 42);
-	// j = ft_printf("mien % 0d|\n", 42);
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
@@ -700,12 +762,6 @@ printf("--------- conversion o ---------\n\n");
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
 	//
-	// i = printf("vrai %-5d|\n", -42);
-	// j = ft_printf("mien %-5d|\n", -42);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
 	// i = printf("vrai%8.5d|\n", -12);
 	// j = ft_printf("mien%8.5d|\n", -12);
 	//
@@ -718,12 +774,6 @@ printf("--------- conversion o ---------\n\n");
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
 	//
-	// i = printf("vrai %-05d|\n", -42);
-	// j = ft_printf("mien %-05d|\n", -42);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
 	// i = printf("vrai %-5d|\n", 42);
 	// j = ft_printf("mien %-5d|\n", 42);
 	//
@@ -732,24 +782,6 @@ printf("--------- conversion o ---------\n\n");
 	//
 	// i = printf("vrai %-05d|\n", 42);
 	// j = ft_printf("mien %-05d|\n", 42);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai %0+5d|\n", 42);
-	// j = ft_printf("mien %0+5d|\n", 42);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai %+d|\n", -42);
-	// j = ft_printf("mien %+d|\n", -42);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai : %ld\n", LLONG_MAX);
-	// j = ft_printf("mien : %ld\n", LLONG_MAX);
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);

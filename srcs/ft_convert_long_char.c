@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:35:49 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 00:29:44 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int		ft_binairy_mask(char *str, int len, t_option *option)
 	ptr = ft_fill_mask(ptr, str, len);
 	if (option->minuszero != '-' && option->padding != -1)
 		result += ft_display_padding(option, len_ptr / 8);
-	ft_display_octet(ptr);
+	result += ft_display_octet(ptr);
 	if (option->minuszero == '-' && option->padding != -1)
 		result += ft_display_padding(option, len_ptr / 8);
 	free(ptr);
