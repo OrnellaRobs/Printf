@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 20:15:55 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 20:21:25 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -330,6 +330,29 @@ int		main(void)
 
 printf("--------- conversion o ---------\n\n");
 
+	i = printf("vrai %#.O|\n", 0);
+	j = ft_printf("mien %#.O|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%#.o\n", 0);
+	j = ft_printf("mien%#.o\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%.o|\n", 0);
+	j = ft_printf("mien%.o|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai%.O|\n", 0);
+	j = ft_printf("mien%.O|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 	// i = printf("vrai %05o|\n", 42);
 	// j = ft_printf("mien %05o|\n", 42);
 	//
@@ -352,11 +375,6 @@ printf("--------- conversion o ---------\n\n");
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
 	//
-	// i = printf("vrai%#.o\n", 0);
-	// j = ft_printf("mien%#.o\n", 0);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
 	//
 	// i = printf("vrai%.o|\n", 0);
 	// j = ft_printf("mien%.o|\n", 0);
