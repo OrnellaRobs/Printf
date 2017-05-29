@@ -6,7 +6,7 @@
 #    By: gcollett <gcollett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/15 13:56:15 by gcollett          #+#    #+#              #
-#    Updated: 2017/05/26 22:38:54 by orazafin         ###   ########.fr        #
+#    Updated: 2017/05/29 20:46:05 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ LIBSRC = 	ft_atoi_base.c\
 
 LIBOBJ = $(LIBSRC:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra
 
 LIBDIR = ./Libft/
 OBJDIR	= ./objs/

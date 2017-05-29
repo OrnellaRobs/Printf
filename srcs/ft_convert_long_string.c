@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:35:53 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 20:51:58 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,11 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	result = 0;
 	tab = "";
 	nb = va_arg(lst, unsigned int *);
+	if (nb == 0)
+	{
+		result += ft_putstr_int("(null)");
+		return (result);
+	}
 	while (nb[i])
 	{
 		tab = ft_strjoin(tab, ft_convert_binairy_to_decimal(nb[i]));

@@ -6,7 +6,7 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/21 11:58:30 by orazafin          #+#    #+#              #
-#    Updated: 2017/05/25 16:38:24 by orazafin         ###   ########.fr        #
+#    Updated: 2017/05/29 20:46:17 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memcmp.c\
 	get_next_line.c ft_putchar_int.c ft_putnbr_int.c ft_putstr_int.c\
 	ft_atoi_base.c\
 
-FLAGS += -Wall -Wextra -Werror
+FLAGS += -g -Wall -Wextra -Werror
 
 OBJ = $(SRCS:.c=.o)
 

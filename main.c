@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 20:30:27 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 20:44:21 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int		main(void)
 
 	// printf("%C\n", °);
 
-	// i = printf("vrai : %S|\n", L"°°°°°");
-	// j = ft_printf("mien : %S|\n", L"°°°°°");
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
+	i = printf("vrai : %S|\n", 0);
+	j = ft_printf("mien : %S|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 
 
 	// printf("\nk = %d\n", i);
