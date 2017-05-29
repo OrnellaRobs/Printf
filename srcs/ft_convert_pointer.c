@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:36:01 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 15:00:45 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,25 @@ static int		ft_display_pointer(t_option *option, char *tab)
 {
 	int result;
 	int i;
-
+	int state;
 	i = -1;
 	result = 0;
-	if (option->precision > (int)ft_strlen(tab))
-		while (++i < option->precision - (int)ft_strlen(tab))
+	state = 0;
+	// ft_putchar('A');
+	if (option->padding == -1 && option->precision != -1)
+	{
+		state = 1;
+		result += ft_putstr_int(tab);
+		while (++i < option->precision - 1)
 			result += ft_putchar_int('0');
-	result += ft_putstr_int(tab);
+	}
+	else
+		if (option->precision > (int)ft_strlen(tab) && *tab)
+			while (++i < option->precision - (int)ft_strlen(tab))
+				result += ft_putchar_int('0');
+	if (state == 0)
+		result += ft_putstr_int(tab);
+	// ft_putchar('Z');
 	return (result);
 }
 
@@ -85,9 +97,11 @@ int				ft_conv_pointer(va_list lst, t_option *option)
 
 	i = -1;
 	result = 0;
+// 	printf("padd = %d | prec =  %d | nb_zero = %d\n", option->padding,
+// option->precision, option->zero_nb);
 	nb = (unsigned long)va_arg(lst, void *);
 	tab = ft_itoa_base_printf_pointer(nb, 16, 0);
-	tab = ft_strjoin("0x", tab);
+	tab = (*tab == '0' && option->precision == 0) ? ft_strjoin(tab, "x") : ft_strjoin("0x", tab);
 	if (option->minuszero == '-')
 		result += ft_display_pointer(option, tab);
 	if (option->padding != -1 && option->precision > (int)ft_strlen(tab))
