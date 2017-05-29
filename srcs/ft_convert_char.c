@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:34:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:35:35 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 21:07:47 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,15 @@ int				ft_conv_char(va_list lst, t_option *option)
 	char	c;
 
 	result = 0;
-	c = (char)va_arg(lst, unsigned int);
-	if (option->minuszero != '-' && option->padding != -1)
+	if (!(c = (char)va_arg(lst, unsigned int)))
+	{
+		if (option->padding != -1 && option->precision == 0)
+		{
+			option->zero_nb = option->padding;
+			option->padding = -1;
+		}
+	}
+	if (option->minuszero != '-' && option->padding != -1 && c != '0')
 		result += display_padding(option);
 	if (option->zero_nb != 0)
 		result += display_flag_zero(option);
