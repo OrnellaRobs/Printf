@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 01:39:17 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 14:25:34 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,18 +69,29 @@ int		main(void)
 	//
 	printf("\n--------- conversion C ---------\n\n");
 
-	// printf("\n---> BUG POUR LES RESULT POUR TOUS LES PROCHAINS <----\n");
-	// i = printf("vrai : %C|\n", 945);
-	// j = ft_printf("mien : %C|\n", 945);
+	i = printf("vrai {% C}|\n", 0);
+	j = ft_printf("mien {% C}|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %+C|\n", 0);
+	j = ft_printf("mien %+C|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai : %C|\n", 945);
+	j = ft_printf("mien : %C|\n", 945);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	// //
-	// i = printf("vrai : %C|\n", 0);
-	// j = ft_printf("mien : %C|\n", 0);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
+	i = printf("vrai : %C|\n", 0);
+	j = ft_printf("mien : %C|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 
 	printf("--------- CAS %% ---------\n\n");
 	//

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 00:29:44 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 13:44:34 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ int				ft_convert_long_char(va_list lst, t_option *option)
 	str = ft_itoa_base_printf(va_arg(lst, unsigned int), 2, 0, 0);
 	len = ft_strlen(str);
 	if (len > 0 || len < 22)
-		ft_binairy_mask(str, len, option);
+		result += ft_binairy_mask(str, len, option);
 	return (result);
 }
