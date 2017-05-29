@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 15:00:45 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 20:32:48 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,11 @@ int				ft_conv_pointer(va_list lst, t_option *option)
 // option->precision, option->zero_nb);
 	nb = (unsigned long)va_arg(lst, void *);
 	tab = ft_itoa_base_printf_pointer(nb, 16, 0);
-	tab = (*tab == '0' && option->precision == 0) ? ft_strjoin(tab, "x") : ft_strjoin("0x", tab);
+	if (option->precision < (int)ft_strlen(tab))
+		tab = (*tab == '0' && option->precision == 0) ?
+		ft_strjoin(tab, "x") : ft_strjoin("0x", tab);
+	else
+		result += ft_putstr_int("0x");
 	if (option->minuszero == '-')
 		result += ft_display_pointer(option, tab);
 	if (option->padding != -1 && option->precision > (int)ft_strlen(tab))
