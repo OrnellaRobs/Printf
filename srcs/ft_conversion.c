@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 20:24:27 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 23:28:31 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int		ft_convert_all_int(t_option *option, char *format, long long nb)
 int		conversion(char *format, t_option *option, va_list lst, ...)
 {
 	int	i;
-	int	(*convert[5])(va_list, t_option *);
+	int	(*convert[6])(va_list, t_option *);
 	va_list	get;
 
 	i = 0;
@@ -121,6 +121,7 @@ int		conversion(char *format, t_option *option, va_list lst, ...)
 	convert[2] = &ft_conv_pointer;
 	convert[3] = &ft_conv_char;
 	convert[4] = &ft_convert_long_char;
+	convert[5] = &ft_other_char;
 	while (*format && STR_CONVERSION[i])
 	{
 		if (i < 5 && STR_CONVERSION[i] == *format)
@@ -133,6 +134,6 @@ int		conversion(char *format, t_option *option, va_list lst, ...)
 	}
 	va_start(get, lst);
 	if (*format)
-		return(convert[3](get, option));
+		return(convert[5](get, option));
 	return (0);
 }

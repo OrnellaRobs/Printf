@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 20:09:17 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 23:15:13 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 static void		flag(char *format, t_option *flag)
 {
+	int digit;
+
+	digit = 0;
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
 		if (*format == '+')
@@ -22,10 +25,13 @@ static void		flag(char *format, t_option *flag)
 			flag->pluspace = 's';
 		else if (*format == '-')
 			flag->minuszero = '-';
-		else if (*format == '0' && flag->minuszero != '-' && flag->padding == -1)
+		else if (*format >= '1' && *format <= '9' && flag->minuszero == '\0')
+			digit = 1;
+		else if (*format == '0' && flag->minuszero != '-' && digit == 0)
 		{
 			flag->minuszero = '0';
-			if (ft_isdigit(*(format + 1)) && flag->zero_nb == -1)
+			if (ft_isdigit(*(format + 1)) && flag->zero_nb == -1 &&
+			flag->padding == -1)
 			{
 				format++;
 				flag->zero_nb = get_number(format);

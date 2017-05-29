@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/28 00:28:14 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/29 23:32:42 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void			initialize_option(t_option *option);
 int				ft_is_in(char elem, char *src);
 int				get_number(char *str);
 int				ft_display_flag_zero_str(t_option *option, char *str);
+int				ft_other_char(va_list lst, t_option *option);
 
 #endif
