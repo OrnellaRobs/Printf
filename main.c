@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 14:36:09 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 15:59:28 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,14 @@ int		main(void)
 	// printf("j = %d\n\n", j);
 	printf("\n--------- conversion S ---------\n\n");
 
-	i = printf("vrai : %012S|\n", L"°°°°°");
-	j = ft_printf("mien : %012S|\n", L"°°°°°");
+	i = printf("vrai {%030S}|\n", L"我是一只猫。");
+	j = ft_printf("mien {%030S}|\n", L"我是一只猫。");
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai : %12.3S|\n", L"°°°°°");
+	j = ft_printf("mien : %12.3S|\n", L"°°°°°");
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
@@ -111,17 +117,17 @@ int		main(void)
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
-	// i = printf("vrai : %05.S|\n", 0);
-	// j = ft_printf("mien : %05.S|\n", 0);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai {%05.S}|\n", L"42 c est cool");
-	// j = ft_printf("mien {%05.S}|\n", L"42 c est cool");
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
+	i = printf("vrai : %9.S|\n", 0);
+	j = ft_printf("mien : %9.S|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai {%05.S}|\n", L"42 c est cool");
+	j = ft_printf("mien {%05.S}|\n", L"42 c est cool");
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 
 	printf("\n--------- conversion C ---------\n\n");
 	//
