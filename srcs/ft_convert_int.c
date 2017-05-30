@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 00:21:39 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 00:26:51 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static int		display_flag_plusspace(t_option *option, char *tab)
 		result += ft_putchar_int(' ');
 		option->padding = option->padding - 1;
 	}
-	else if (option->pluspace == 's' && *tab != '-' && option->padding < option->precision)
+	else if (option->pluspace == 's' && *tab != '-' &&
+	option->padding < option->precision)
 		result += ft_putchar_int(' ');
 	if (*tab == '0' && option->padding == -1)
 		result += ft_putstr_int(tab);
