@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 00:07:04 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 14:35:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,55 @@ static int		ft_display_padding(t_option *option, int len)
 	int i;
 	int result;
 
-	i = 0;
+	// ft_putstr("HEU");
+	i = -1;
 	result = 0;
-	while (i < option->padding - len)
+	if (option->precision == -1)
 	{
-		result += ft_putchar_int(' ');
-		i++;
+		if (option->padding != -1)
+			while (++i < option->padding - len)
+				result += ft_putchar_int(' ');
+		else if (option->zero_nb != -1)
+			while (++i < option->zero_nb - len)
+				result += ft_putchar_int('0');
+	}
+	else if (option->precision == 0)
+	{
+		while (++i < option->padding)
+		{
+			if (option->minuszero != '0')
+				result += ft_putchar_int(' ');
+			else if (option->minuszero == '0')
+				result += ft_putchar_int('0');
+		}
+	}
+	else if (option->precision > 1)
+	{
+		while (++i < option->padding - option->precision)
+		{
+			if (option->minuszero != '0')
+				result += ft_putchar_int(' ');
+			else if (option->minuszero == '0')
+				result += ft_putchar_int('0');
+		}
 	}
 	return (result);
 }
 
+int		ft_display_precision_long_string(t_option *option, char *str)
+{
+	int i;
+	int result;
+
+	i = 0;
+	result = 0;
+	while (i < option->precision)
+	{
+		result += ft_putchar_int(str[i]);
+		i++;
+	}
+	return (result);
+}
 
 int		ft_convert_long_string(va_list lst, t_option *option)
 {
@@ -87,6 +126,8 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	i = 0;
 	result = 0;
 	tab = "";
+// 	printf("padding = %d | zero_nb = %d | precision = %d\n",
+// option->padding, option->zero_nb, option->precision);
 	nb = va_arg(lst, unsigned int *);
 	if (nb == 0)
 		tab = "(null)";
@@ -100,17 +141,21 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 			i++;
 		}
 	}
-	if (option->precision != -1 && (int)ft_strlen(tab) < option->precision )
+	if (option->precision != -1 && (int)ft_strlen(tab) < option->precision)
 		len = option->precision;
 	else
 	{
 		len = ft_strlen(tab);
 		str = ft_strdup(tab);
 	}
-	if (option->minuszero != '-' && option->padding != -1 &&
-	option->padding > len)
+	if (option->minuszero != '-' &&
+	(option->padding != -1 || option->zero_nb != -1) &&
+	(option->padding > len || option->zero_nb > len))
 		result += ft_display_padding(option, len);
-	result += ft_putstr_int(str);
+	if (option->precision == -1)
+		result += ft_putstr_int(str);
+	else if (option->precision > 1)
+		result += ft_display_precision_long_string(option, str);
 	if (option->minuszero == '-' && option->padding != -1 &&
 	option->padding > len)
 		result += ft_display_padding(option, len);

@@ -6,11 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 00:10:39 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 14:36:09 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf.h"
+#include "./ft_printf_last/ft_printf.h"
 #include <locale.h>
 #include <limits.h>
 int		main(void)
@@ -99,29 +99,29 @@ int		main(void)
 	// printf("j = %d\n\n", j);
 	printf("\n--------- conversion S ---------\n\n");
 
-	printf("vrai : %5.3S|\n", L"°°°°°");
-	ft_printf("mien : %5.3S|\n", L"°°°°°");
+	i = printf("vrai : %012S|\n", L"°°°°°");
+	j = ft_printf("mien : %012S|\n", L"°°°°°");
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
-	printf("vrai : %7S|\n", L"°°°°°");
-	ft_printf("mien : %7S|\n", L"°°°°°");
+	i = printf("vrai : %7S|\n", L"°°°°°");
+	j = ft_printf("mien : %7S|\n", L"°°°°°");
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
-	i = printf("vrai : %05.S|\n", 0);
-	j = ft_printf("mien : %05.S|\n", 0);
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
-
-	i = printf("vrai {%05.S}|\n", L"42 c est cool");
-	j = ft_printf("mien {%05.S}|\n", L"42 c est cool");
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
+	// i = printf("vrai : %05.S|\n", 0);
+	// j = ft_printf("mien : %05.S|\n", 0);
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
+	//
+	// i = printf("vrai {%05.S}|\n", L"42 c est cool");
+	// j = ft_printf("mien {%05.S}|\n", L"42 c est cool");
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
 	printf("\n--------- conversion C ---------\n\n");
 	//
