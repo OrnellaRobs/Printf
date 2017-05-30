@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 18:41:52 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 19:01:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,33 @@ int		main(void)
 		// ft_printf("%p\n\n", str);
 	//
 	printf("\n--------- undefined behavior Moulitest qui ne passent pas ---------\n\n");
+
+	i = printf("vrai %5.d %5.0d|\n", 0, 0);
+	j = ft_printf("mien %5.d %5.0d|\n", 0, 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai {%0-3d}|\n", 0);
+	j = ft_printf("mien {%0-3d}|\n", 0);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+	
 	i = printf("vrai %####0000 33..1..#00d|\n", 256);
 	j = ft_printf("mien %####0000 33..1..#00d|\n", 256);
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
-	i = printf("vrai ####0000 33..1d|\n", 256);
-	j = ft_printf("mien ####0000 33..1d|\n", 256);
+	i = printf("vrai %####0000 33..1d|\n", 256);
+	j = ft_printf("mien %####0000 33..1d|\n", 256);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %.0d|\n", 0);
+	j = ft_printf("mien %.0d|\n", 0);
 
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 14:33:41 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 19:27:08 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,13 @@ static void		padding_and_precision(char *format, t_option *flag)
 			if (tmp != -1 && flag->padding == -1)
 				flag->padding = tmp;
 			format++;
-			flag->precision = get_number(format);
+			while (*format && !ft_is_in(*format, STR_CONVERSION) && !ft_is_in(*format, "123456789"))
+			{
+				// printf("char = %c\n", *format);
+				format++;
+			}
+			if (flag->precision == -1)
+				flag->precision = get_number(format);
 		}
 		format++;
 	}
