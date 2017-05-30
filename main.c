@@ -6,11 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 21:01:08 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 23:33:02 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ft_printf_last/ft_printf.h"
+#include "./ft_printf_git/ft_printf.h"
 #include <locale.h>
 #include <limits.h>
 int		main(void)
@@ -116,6 +116,17 @@ int		main(void)
 	printf("i = %d\n", i);
 	printf("j = %d\n\n", j);
 
+	i = printf("vrai %+-0 033...12.d|\n", 256);
+	j = ft_printf("mien %+-0 33...12.d|\n", 256);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %+-0 033d|\n", 256);
+	j = ft_printf("mien %+-0 33d|\n", 256);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 	// i = printf("vrai %05d|\n", -42);
 	// j = ft_printf("mien %05d|\n", -42);
 	//
