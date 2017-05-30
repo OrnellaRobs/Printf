@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 17:33:32 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 18:09:05 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int		ft_display_padding(t_option *option, int len, int count)
 				result += ft_putchar_int('0');
 		}
 	}
-	else if (option->precision > 1)
+	else if (option->precision > 0)
 	{
 		while (++i < option->padding - count)
 		{
@@ -142,7 +142,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 		{
 			char *octet = ft_convert_binairy_to_decimal(nb[i], &count, option,
 			&len_octet);
-			if (count <= option->precision && option->precision > 1)
+			if (count <= option->precision && option->precision > 0)
 			{
 				tab = ft_strjoin(tab, octet);
 				len_octet = 0;
@@ -178,7 +178,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 		result += ft_display_padding(option, len, count);
 	if (option->precision == -1)
 		result += ft_putstr_int(str);
-	else if (option->precision > 1)
+	else if (option->precision > 0)
 		result += ft_display_precision_long_string(option, str, count);
 	if (option->minuszero == '-' && option->padding != -1 &&
 	option->padding > len)
