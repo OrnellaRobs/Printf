@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:34:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 23:33:46 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 18:21:24 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int				ft_conv_char(va_list lst, t_option *option)
 	char	c;
 
 	result = 0;
+	if (option->modifier == 'l')
+		return (ft_convert_long_char(lst, option));
 	if (!(c = (char)va_arg(lst, unsigned int)))
 	{
 		if (option->padding != -1 && option->precision == 0)

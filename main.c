@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 10:19:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 18:07:54 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 18:41:52 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,24 @@ int		main(void)
 		// printf("%p\n\n", str);
 		// ft_printf("%p\n\n", str);
 	//
+	printf("\n--------- undefined behavior Moulitest qui ne passent pas ---------\n\n");
+	i = printf("vrai %####0000 33..1..#00d|\n", 256);
+	j = ft_printf("mien %####0000 33..1..#00d|\n", 256);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai ####0000 33..1d|\n", 256);
+	j = ft_printf("mien ####0000 33..1d|\n", 256);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
+
+	i = printf("vrai %###-#0000 33...12..#0+0d|\n", 256);
+	j = ft_printf("mien %###-#0000 33...12..#0+0d|\n", 256);
+
+	printf("i = %d\n", i);
+	printf("j = %d\n\n", j);
 
 	printf("\n--------- conversion p ---------\n\n");
 
@@ -107,11 +125,11 @@ int		main(void)
 	// printf("j = %d\n\n", j);
 	printf("\n--------- conversion S ---------\n\n");
 
-	i = printf("mien %4.1S|\n", L"Jambon ok");
-	j = ft_printf("mien %4.1S|\n", L"Jambon ok");
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
+	// i = printf("mien %4.1S|\n", L"Jambon ok");
+	// j = ft_printf("mien %4.1S|\n", L"Jambon ok");
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
 	// i = printf("vrai %.6S|\n", L"我是一只猫。");
 	// j = ft_printf("vrai %.6S|\n", L"我是一只猫。");
@@ -143,37 +161,42 @@ int		main(void)
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
 	//
-	i = printf("vrai {%5.8S}|\n", L"42 c est cool");
-	j = ft_printf("mien {%5.8S}|\n", L"42 c est cool");
-
-	printf("i = %d\n", i);
-	printf("j = %d\n\n", j);
+	// i = printf("vrai {%5.8S}|\n", L"42 c est cool");
+	// j = ft_printf("mien {%5.8S}|\n", L"42 c est cool");
+	//
+	// printf("i = %d\n", i);
+	// printf("j = %d\n\n", j);
 
 	printf("\n--------- conversion C ---------\n\n");
-	//
-	// i = printf("vrai {% C}|\n", 0);
-	// j = ft_printf("mien {% C}|\n", 0);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai %+C|\n", 0);
-	// j = ft_printf("mien %+C|\n", 0);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
-	//
-	// i = printf("vrai : %C|\n", 945);
-	// j = ft_printf("mien : %C|\n", 945);
+	// i = printf("mien %lc, %lc|\n", L'暖', L'ح');
+	// j = ft_printf("mien %lc, %lc|\n", L'暖', L'ح');
 	//
 	// printf("i = %d\n", i);
 	// printf("j = %d\n\n", j);
 	// //
-	// i = printf("vrai : %C|\n", 0);
-	// j = ft_printf("mien : %C|\n", 0);
-	//
-	// printf("i = %d\n", i);
-	// printf("j = %d\n\n", j);
+	// // i = printf("vrai {% C}|\n", 0);
+	// // j = ft_printf("mien {% C}|\n", 0);
+	// //
+	// // printf("i = %d\n", i);
+	// // printf("j = %d\n\n", j);
+	// //
+	// // i = printf("vrai %+C|\n", 0);
+	// // j = ft_printf("mien %+C|\n", 0);
+	// //
+	// // printf("i = %d\n", i);
+	// // printf("j = %d\n\n", j);
+	// //
+	// // i = printf("vrai : %C|\n", 945);
+	// // j = ft_printf("mien : %C|\n", 945);
+	// //
+	// // printf("i = %d\n", i);
+	// // printf("j = %d\n\n", j);
+	// // //
+	// // i = printf("vrai : %C|\n", 0);
+	// // j = ft_printf("mien : %C|\n", 0);
+	// //
+	// // printf("i = %d\n", i);
+	// // printf("j = %d\n\n", j);
 
 	printf("--------- CAS %% ---------\n\n");
 	//

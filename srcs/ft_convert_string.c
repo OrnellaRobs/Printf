@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 23:15:34 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 18:23:03 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int			ft_conv_string(va_list lst, t_option *option)
 	int		i;
 	int 	flag;
 
-// 	printf("zero = %d | padding = %d | minuzero = |%c| \n",
-// option->zero_nb, option->padding, option->minuszero);
+	if (option->modifier == 'l')
+		return (ft_convert_long_string(lst, option));
 	flag = 0;
 	result = 0;
 	i = -1;
