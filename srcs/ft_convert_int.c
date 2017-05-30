@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 19:28:23 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 20:59:17 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ static int		display_flag_plusspace(t_option *option, char *tab)
 	else if (option->pluspace == 's' && option->padding == -1
 	&& *tab != '-')
 		result += ft_putchar_int(' ');
+	else if (option->pluspace == 's' && *tab != '-' && option->minuszero == '-')
+	{
+		result += ft_putchar_int(' ');
+		option->padding = option->padding - 1;
+	}
 	if (*tab == '0' && option->padding == -1)
 		result += ft_putstr_int(tab);
 	return (result);
