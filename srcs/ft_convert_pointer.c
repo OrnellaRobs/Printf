@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 20:32:48 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 16:36:59 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,16 @@ static int		ft_display_pointer(t_option *option, char *tab)
 	int result;
 	int i;
 	int state;
+
 	i = -1;
 	result = 0;
 	state = 0;
-	// ft_putchar('A');
 	if (option->padding == -1 && option->precision != -1)
 	{
 		state = 1;
 		result += ft_putstr_int(tab);
+		if (option->minuszero == '0')
+			result += ft_display_flag_zero_str(option, tab);
 		while (++i < option->precision - 1)
 			result += ft_putchar_int('0');
 	}
@@ -79,8 +81,11 @@ static int		ft_display_pointer(t_option *option, char *tab)
 			while (++i < option->precision - (int)ft_strlen(tab))
 				result += ft_putchar_int('0');
 	if (state == 0)
+	{
 		result += ft_putstr_int(tab);
-	// ft_putchar('Z');
+		if (option->minuszero == '0')
+			result += ft_display_flag_zero_str(option, tab);
+	}
 	return (result);
 }
 
@@ -108,6 +113,7 @@ int				ft_conv_pointer(va_list lst, t_option *option)
 		result += ft_putstr_int("0x");
 	if (option->minuszero == '-')
 		result += ft_display_pointer(option, tab);
+	// printf("\nstrlen = %d\n", (int)ft_strlen(tab));
 	if (option->padding != -1 && option->precision > (int)ft_strlen(tab))
 		while (++i < option->padding - option->precision)
 			result += ft_putchar_int(' ');

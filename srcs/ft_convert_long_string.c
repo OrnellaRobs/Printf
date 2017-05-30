@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 15:55:13 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:33:32 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static int		ft_display_padding(t_option *option, int len, int count)
 	return (result);
 }
 
-int		ft_display_precision_long_string(t_option *option, char *str)
+int		ft_display_precision_long_string(t_option *option, char *str, int count)
 {
 	int i;
 	int result;
@@ -112,6 +112,8 @@ int		ft_display_precision_long_string(t_option *option, char *str)
 		result += ft_putchar_int(str[i]);
 		i++;
 	}
+	if (option->padding == -1)
+		result += count - option->precision;
 	return (result);
 }
 
@@ -140,7 +142,12 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 		{
 			char *octet = ft_convert_binairy_to_decimal(nb[i], &count, option,
 			&len_octet);
-			if (count <= option->precision)
+			if (count <= option->precision && option->precision > 1)
+			{
+				tab = ft_strjoin(tab, octet);
+				len_octet = 0;
+			}
+			else if (option->precision == -1)
 			{
 				tab = ft_strjoin(tab, octet);
 				len_octet = 0;
@@ -155,7 +162,10 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 			i++;
 		}
 	}
-	if (option->precision != -1 && (int)ft_strlen(tab) < option->precision)
+	// printf("count = %d|\n", count);
+	// printf("\ntab = %s| strlen = %d\n", tab, ft_strlen(tab));
+	// printf("\nstr = %s| strlen = %d\n", str, ft_strlen(str));
+	if (option->padding != -1 && option->precision != -1 && (int)ft_strlen(tab) < option->precision)
 		len = option->precision;
 	else
 	{
@@ -169,7 +179,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	if (option->precision == -1)
 		result += ft_putstr_int(str);
 	else if (option->precision > 1)
-		result += ft_display_precision_long_string(option, str);
+		result += ft_display_precision_long_string(option, str, count);
 	if (option->minuszero == '-' && option->padding != -1 &&
 	option->padding > len)
 		result += ft_display_padding(option, len, count);
