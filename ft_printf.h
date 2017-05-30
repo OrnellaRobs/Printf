@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/29 23:32:42 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/30 23:41:09 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct	s_option
 	int			precision;
 }				t_option;
 
-int				main(void);
 int				ft_printf(const char *format, ...);
 int				ft_conv_int(t_option *option, char *tab);
 int				conversion(char *format, t_option *option, va_list lst, ...);
