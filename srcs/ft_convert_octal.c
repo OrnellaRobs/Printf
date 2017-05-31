@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 20:58:53 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 19:05:23 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:14:41 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int		ft_display_octal(t_option *option, char *tab, int len_hash)
 {
-	int result;
 	int i;
+	int result;
 
 	i = -1;
 	result = 0;
@@ -33,11 +33,11 @@ static int		ft_display_octal(t_option *option, char *tab, int len_hash)
 
 int				ft_convert_octal(t_option *option, char *tab)
 {
-	int result;
-	int size_hash;
 	int i;
 	int len;
-
+	int result;
+	int size_hash;
+	
 	i = -1;
 	result = 0;
 	len = (*tab == '0') ? 0 : (int)ft_strlen(tab);

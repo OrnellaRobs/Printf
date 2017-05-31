@@ -6,16 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 16:36:59 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:21:32 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-/*
-** precision pour la conversion de p (undefined behavior)
-** flag 0 (undefined behavior)
-*/
 
 static int		ft_get_size_for_malloc(unsigned long value, int base)
 {
@@ -60,13 +55,13 @@ char			*ft_itoa_base_printf_pointer(unsigned long value, int base,
 
 static int		ft_display_pointer(t_option *option, char *tab)
 {
-	int result;
 	int i;
 	int state;
+	int result;
 
 	i = -1;
-	result = 0;
 	state = 0;
+	result = 0;
 	if (option->padding == -1 && option->precision != -1)
 	{
 		state = 1;
@@ -89,10 +84,6 @@ static int		ft_display_pointer(t_option *option, char *tab)
 	return (result);
 }
 
-/*
-** void * car ca pointe directement sur la zone mémoire
-*/
-
 int				ft_conv_pointer(va_list lst, t_option *option)
 {
 	int				result;
@@ -102,8 +93,6 @@ int				ft_conv_pointer(va_list lst, t_option *option)
 
 	i = -1;
 	result = 0;
-// 	printf("padd = %d | prec =  %d | nb_zero = %d\n", option->padding,
-// option->precision, option->zero_nb);
 	nb = (unsigned long)va_arg(lst, void *);
 	tab = ft_itoa_base_printf_pointer(nb, 16, 0);
 	if (option->precision < (int)ft_strlen(tab))
@@ -113,7 +102,6 @@ int				ft_conv_pointer(va_list lst, t_option *option)
 		result += ft_putstr_int("0x");
 	if (option->minuszero == '-')
 		result += ft_display_pointer(option, tab);
-	// printf("\nstrlen = %d\n", (int)ft_strlen(tab));
 	if (option->padding != -1 && option->precision > (int)ft_strlen(tab))
 		while (++i < option->padding - option->precision)
 			result += ft_putchar_int(' ');

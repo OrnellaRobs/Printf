@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:29:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/27 23:03:35 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:09:47 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static int		ft_display_flag_zero_hexa(t_option *option, char *str, int hash)
 static int		ft_display_hexa(t_option *option, char *tab, int upper_case,
 int len)
 {
-	int result;
 	int i;
 	int hash;
+	int result;
 
 	i = -1;
-	result = 0;
 	hash = 0;
+	result = 0;
 	if (option->hash == '#' && *tab != '0')
 	{
 		result += (upper_case == 0) ? ft_putstr_int("0x") : ft_putstr_int("0X");
@@ -47,19 +47,19 @@ int len)
 	if (option->precision > len)
 		while (++i < option->precision - len)
 			result += ft_putchar_int('0');
-	if (*tab != '0' || option->zero_nb == 0 || (*tab == '0' && option->padding == -1 &&
-	option->precision == -1))
+	if (*tab != '0' || option->zero_nb == 0 || (*tab == '0' &&
+	option->padding == -1 && option->precision == -1))
 		result += ft_putstr_int(tab);
 	return (result);
 }
 
 int				ft_convert_hexa(t_option *option, char *tab, char *format)
 {
-	int		result;
 	int		i;
+	int 	len;
+	int		result;
 	int		size_hash;
 	int		upper_case;
-	int 	len;
 
 	i = -1;
 	result = 0;

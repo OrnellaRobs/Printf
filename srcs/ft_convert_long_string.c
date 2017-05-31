@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 18:09:05 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:22:46 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,25 @@ static char		*ft_binairy_mask(char *str, int len)
 static	char	*ft_convert_binairy_to_decimal(unsigned int value, int *count,
 t_option *option, int *i)
 {
-	char *str;
-	int len;
-	char **tab;
-	char *ptr;
+	int		len;
+	char	*str;
+	char	**tab;
+	char	*ptr;
 
 	str = ft_itoa_base_printf(value, 2, 0, 0);
 	len = ft_strlen(str);
 	if (len > 0 || len < 22)
 		ptr = ft_binairy_mask(str, len);
 	tab = ft_strsplit(ptr, ' ');
-	str = malloc(sizeof(char) * ft_strlen(ptr) / 8);
+	if (!(str = malloc(sizeof(char) * ft_strlen(ptr) / 8)))
+		return (NULL);
 	while (tab[(*i)])
 	{
 		str[(*i)] = ft_atoi_base(tab[*i], 2);
 		(*i)++;
 	}
 	*count += *i;
-	free(ptr);
+	free(tab);
 	return (str);
 }
 
@@ -119,14 +120,15 @@ int		ft_display_precision_long_string(t_option *option, char *str, int count)
 
 int		ft_convert_long_string(va_list lst, t_option *option)
 {
-	unsigned int *nb;
-	int		i;
-	char 	*tab;
-	char	*str;
-	int		result;
-	int		len;
-	int count;
-	int len_octet;
+	unsigned int	*nb;
+	int				i;
+	char 			*tab;
+	char			*str;
+	char 			*tmp;
+	int				result;
+	int				len;
+	int				count;
+	int				len_octet;
 
 	len_octet = 0;
 	count = 0;
@@ -162,10 +164,8 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 			i++;
 		}
 	}
-	// printf("count = %d|\n", count);
-	// printf("\ntab = %s| strlen = %d\n", tab, ft_strlen(tab));
-	// printf("\nstr = %s| strlen = %d\n", str, ft_strlen(str));
-	if (option->padding != -1 && option->precision != -1 && (int)ft_strlen(tab) < option->precision)
+	if (option->padding != -1 && option->precision != -1 &&
+	(int)ft_strlen(tab) < option->precision)
 		len = option->precision;
 	else
 	{
@@ -183,5 +183,6 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	if (option->minuszero == '-' && option->padding != -1 &&
 	option->padding > len)
 		result += ft_display_padding(option, len, count);
+	free(str);
 	return (result);
 }

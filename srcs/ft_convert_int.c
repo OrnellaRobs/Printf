@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 00:27:26 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:12:22 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static int		display_flag_plusspace(t_option *option, char *tab)
 
 static int		display_flag_zero(char *tab, t_option *option, int un_sign)
 {
-	int result;
 	int i;
 	int plus;
+	int result;
 
 	i = 0;
 	result = 0;
@@ -63,9 +63,9 @@ int				display_precision(t_option *option, char *tab, int un_sign)
 	int result;
 	int negatif;
 
-	negatif = (*tab == '-') ? 1 : 0;
-	result = 0;
 	i = -1;
+	result = 0;
+	negatif = (*tab == '-') ? 1 : 0;
 	if (*tab != '-' && un_sign == 0 && option->minuszero != '0')
 		result += display_flag_plusspace(option, tab);
 	else if (*tab == '-' && option->padding != -1)
@@ -77,8 +77,8 @@ int				display_precision(t_option *option, char *tab, int un_sign)
 
 int				ft_conv_int(t_option *option, char *tab)
 {
-	int result;
 	int sign;
+	int result;
 
 	sign = (*tab == '-') ? 1 : 0;
 	result = 0;
@@ -108,17 +108,16 @@ int				ft_conv_int(t_option *option, char *tab)
 
 int				ft_conv_unsigned_int(t_option *option, char *tab)
 {
-	int result;
 	int sign;
+	int result;
 	int un_sign;
 
-	un_sign = 1;
 	sign = 0;
 	result = 0;
+	un_sign = 1;
 	result += display_flag_zero(tab, option, un_sign);
 	if (option->minuszero == '-' && option->padding != -1)
 	{
-		// sign = 1;
 		result += display_precision(option, tab, un_sign);
 		result += ft_putstr_int(tab);
 	}

@@ -6,16 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 18:20:37 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:30:58 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-/*
-** FLAG 0 à gérer pour la conversion de CHAR (undefined behavior)
-** FLAG space à gérer pour la conversion des HEXA (undefined behavior)
-*/
 
 int		ft_select_base(char *format)
 {
@@ -96,7 +91,8 @@ int		ft_convert_all_int(t_option *option, char *format, long long nb)
 	tab = ft_get_tab_int(option, format, nb, tab);
 	if (option->precision == 0 && option->padding == -1 && *tab == '0' && *format != 'o' && *format != 'O')
 		return (0);
-	if ((*format == 'o' || *format == 'O') && *tab == '0' && option->precision == 0 && option->hash != '#' && option->padding == -1)
+	if ((*format == 'o' || *format == 'O') && *tab == '0' &&
+	option->precision == 0 && option->hash != '#' && option->padding == -1)
 		return (0);
 	if (*format == 'x' || *format == 'X')
 		result += ft_convert_hexa(option, tab, format);

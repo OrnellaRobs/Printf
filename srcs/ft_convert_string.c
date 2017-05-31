@@ -6,15 +6,11 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 18:23:03 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:15:23 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-/*
-** FLAG 0 à gérer (undefined behavior)
-*/
 
 static int	display_space(t_option *option, char *res)
 {

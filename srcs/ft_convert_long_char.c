@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 18:21:37 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 14:03:52 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int		ft_display_octet(char *ptr)
 		write(1, &nb, 1);
 		i++;
 	}
+	free(tab);
 	return (i);
 }
 

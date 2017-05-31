@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 23:36:21 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:16:25 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void		flag(char *format, t_option *flag)
+static void		flag(char *format, t_option *option)
 {
 	int digit;
 
@@ -20,62 +20,62 @@ static void		flag(char *format, t_option *flag)
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
 		if (*format == '+')
-			flag->pluspace = '+';
-		else if (*format == ' ' && flag->pluspace != '+')
-			flag->pluspace = 's';
+			option->pluspace = '+';
+		else if (*format == ' ' && option->pluspace != '+')
+			option->pluspace = 's';
 		else if (*format == '-')
-			flag->minuszero = '-';
-		else if (*format >= '1' && *format <= '9' && flag->minuszero == '\0')
+			option->minuszero = '-';
+		else if (*format >= '1' && *format <= '9' && option->minuszero == '\0')
 			digit = 1;
-		else if (*format == '0' && flag->minuszero != '-' && digit == 0)
+		else if (*format == '0' && option->minuszero != '-' && digit == 0)
 		{
-			flag->minuszero = '0';
-			if (ft_isdigit(*(format + 1)) && flag->zero_nb == -1 &&
-			flag->padding == -1)
+			option->minuszero = '0';
+			if (ft_isdigit(*(format + 1)) && option->zero_nb == -1 &&
+			option->padding == -1)
 			{
 				format++;
-				flag->zero_nb = get_number(format);
+				option->zero_nb = get_number(format);
 			}
 		}
-		else if (flag->minuszero == '0' && flag->zero_nb == -1 &&
-		ft_isdigit(*format) && flag->precision == -1 && flag->padding == -1)
-			flag->zero_nb = get_number(format);
+		else if (option->minuszero == '0' && option->zero_nb == -1 &&
+		ft_isdigit(*format) && option->precision == -1 && option->padding == -1)
+			option->zero_nb = get_number(format);
 		else if (*format == '#')
-			flag->hash = '#';
+			option->hash = '#';
 		format++;
 	}
 }
 
-static void		length_modifier(char *format, t_option *flag)
+static void		length_modifier(char *format, t_option *option)
 {
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
-		if (*format == 'h' && *(format + 1) != 'h' && flag->modifier != 'z'
-	&& flag->modifier != 'j')
+		if (*format == 'h' && *(format + 1) != 'h' && option->modifier != 'z'
+	&& option->modifier != 'j')
 		{
-				flag->modifier = 'h';
+				option->modifier = 'h';
 		}
 		else if (*format == 'h' && *(format + 1) == 'h')
 		{
-			flag->modifier = 'i';
+			option->modifier = 'i';
 			format++;
 		}
 		else if (*format == 'j')
-			flag->modifier = 'j';
+			option->modifier = 'j';
 		else if (*format == 'z')
-			flag->modifier = 'z';
+			option->modifier = 'z';
 		else if (*format == 'l' && *(format + 1) != 'l')
-			flag->modifier = 'l';
+			option->modifier = 'l';
 		else if (*format == 'l' && *(format + 1) == 'l')
 		{
-			flag->modifier = 'm';
+			option->modifier = 'm';
 			format++;
 		}
 		format++;
 	}
 }
 
-static void		padding_and_precision(char *format, t_option *flag)
+static void		padding_and_precision(char *format, t_option *option)
 {
 	int		zero;
 	int		tmp;
@@ -84,46 +84,43 @@ static void		padding_and_precision(char *format, t_option *flag)
 	tmp = -1;
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
-		if (*format == '0' && zero == 0 && flag->padding == -1)
+		if (*format == '0' && zero == 0 && option->padding == -1)
 			zero = 1;
 		else if (*format == '-')
 			zero = 2;
 		else if (*format >= '1' && *format <= '9' && (zero == 0 || zero == 2)
-		&& flag->padding == -1)
-			flag->padding = get_number(format);
+		&& option->padding == -1)
+			option->padding = get_number(format);
 		else if ((*format >= '1' && *format <= '9' && zero == 1
-		&& flag->padding == -1) && tmp == -1)
+		&& option->padding == -1) && tmp == -1)
 			tmp = get_number(format);
 		if (*format == '.')
 		{
-			if (flag->precision != -1)
+			if (option->precision != -1)
 			{
 				zero = 3;
-				flag->precision = -1;
+				option->precision = -1;
 			}
 			else if (zero != 3)
 			{
-				if (tmp != -1 && flag->padding == -1)
-					flag->padding = tmp;
+				if (tmp != -1 && option->padding == -1)
+					option->padding = tmp;
 				format++;
 				while (*format && !ft_is_in(*format, STR_CONVERSION) && !ft_is_in(*format, "123456789"))
 					format++;
-			if (flag->precision == -1)
-				flag->precision = get_number(format);
+			if (option->precision == -1)
+				option->precision = get_number(format);
 			}
 		}
 		format++;
 	}
 }
 
-static int		ft_parsing(char *format, va_list lst)
+static int		ft_parsing(char *format, va_list lst, t_option *option)
 {
-	t_option	*option;
 	int			result;
 
 	result = 0;
-	if (!(option = malloc(sizeof(t_option))))
-		return (-1);
 	while (*format)
 	{
 		initialize_option(option);
@@ -150,9 +147,12 @@ int				ft_printf(const char *format, ...)
 {
 	int		value;
 	va_list	lst;
+	t_option	*option;
 
+	if (!(option = malloc(sizeof(t_option))))
+		return (-1);
 	va_start(lst, format);
-	value = ft_parsing((char *)format, lst);
+	value = ft_parsing((char *)format, lst, option);
 	va_end(lst);
 	return (value);
 }

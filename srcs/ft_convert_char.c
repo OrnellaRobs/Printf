@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:34:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/30 18:21:24 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 16:20:33 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int		display_flag_zero(t_option *option)
 {
-	int result;
 	int i;
+	int result;
 
 	i = 0;
 	result = 0;
@@ -60,13 +60,13 @@ static int		display_padding_other_char(t_option *option)
 	return (result);
 }
 
-int				ft_other_char(va_list lst, t_option *option)
+int				ft_other_char(va_list get, t_option *option)
 {
 	int		result;
 	char	c;
 
 	result = 0;
-	if (!(c = (char)va_arg(lst, unsigned int)))
+	if (!(c = (char)va_arg(get, unsigned int)))
 	{
 		if (option->padding != -1 && option->precision == 0)
 		{
@@ -81,6 +81,7 @@ int				ft_other_char(va_list lst, t_option *option)
 	result += ft_putchar_int(c);
 	if (option->minuszero == '-' && option->padding != -1)
 		result += display_padding_other_char(option);
+	va_end(get);
 	return (result);
 }
 
