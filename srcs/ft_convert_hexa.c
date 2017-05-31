@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:29:33 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 16:09:47 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 17:35:16 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int len)
 int				ft_convert_hexa(t_option *option, char *tab, char *format)
 {
 	int		i;
-	int 	len;
+	int		len;
 	int		result;
 	int		size_hash;
 	int		upper_case;
