@@ -6,11 +6,22 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 16:16:25 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 17:03:31 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+static void 	ft_get_flag_zero(char *format, t_option *option)
+{
+	option->minuszero = '0';
+	if (ft_isdigit(*(format + 1)) && option->zero_nb == -1 &&
+	option->padding == -1)
+	{
+		format++;
+		option->zero_nb = get_number(format);
+	}
+}
 
 static void		flag(char *format, t_option *option)
 {
@@ -28,15 +39,7 @@ static void		flag(char *format, t_option *option)
 		else if (*format >= '1' && *format <= '9' && option->minuszero == '\0')
 			digit = 1;
 		else if (*format == '0' && option->minuszero != '-' && digit == 0)
-		{
-			option->minuszero = '0';
-			if (ft_isdigit(*(format + 1)) && option->zero_nb == -1 &&
-			option->padding == -1)
-			{
-				format++;
-				option->zero_nb = get_number(format);
-			}
-		}
+			ft_get_flag_zero(format, option);
 		else if (option->minuszero == '0' && option->zero_nb == -1 &&
 		ft_isdigit(*format) && option->precision == -1 && option->padding == -1)
 			option->zero_nb = get_number(format);
@@ -51,10 +54,8 @@ static void		length_modifier(char *format, t_option *option)
 	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
 	{
 		if (*format == 'h' && *(format + 1) != 'h' && option->modifier != 'z'
-	&& option->modifier != 'j')
-		{
-				option->modifier = 'h';
-		}
+		&& option->modifier != 'j')
+			option->modifier = 'h';
 		else if (*format == 'h' && *(format + 1) == 'h')
 		{
 			option->modifier = 'i';
@@ -106,10 +107,11 @@ static void		padding_and_precision(char *format, t_option *option)
 				if (tmp != -1 && option->padding == -1)
 					option->padding = tmp;
 				format++;
-				while (*format && !ft_is_in(*format, STR_CONVERSION) && !ft_is_in(*format, "123456789"))
+				while (*format && !ft_is_in(*format, STR_CONVERSION) &&
+				!ft_is_in(*format, "123456789"))
 					format++;
-			if (option->precision == -1)
-				option->precision = get_number(format);
+				if (option->precision == -1)
+					option->precision = get_number(format);
 			}
 		}
 		format++;
