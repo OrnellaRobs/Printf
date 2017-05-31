@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:29:01 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:36:34 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:00:59 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int		ft_get_size_for_malloc(long long value, int base)
 	return (total_number);
 }
 
-static int		get_last_number(int number)
+static int		turn_negative_to_positive(int number)
 {
 	if (number < 0)
 		return (0 - number);
@@ -51,7 +51,7 @@ char			*ft_lltoa_base_sign(long long value, int base, int sign)
 	tab[total_number--] = '\0';
 	while (total_number >= negatif)
 	{
-		tab[total_number] = (char)(get_last_number(value % 10) + '0');
+		tab[total_number] = (char)(turn_negative_to_positive(value % 10) + '0');
 		total_number--;
 		value = value / base;
 	}
