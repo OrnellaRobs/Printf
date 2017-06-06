@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 19:29:01 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 18:00:59 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/06 19:39:39 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char			*ft_lltoa_base_sign(long long value, int base, int sign)
 	else if (base == 10 && sign == 0)
 		return (ft_itoa((int)value));
 	if (value == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	negatif = (value < 0) ? 1 : 0;
 	total_number = ft_get_size_for_malloc(value, base) + negatif;
 	if (!(tab = malloc(sizeof(char) * (total_number + 1))))

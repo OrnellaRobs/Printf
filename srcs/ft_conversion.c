@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/06 16:58:41 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/06 19:43:31 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int		ft_convert_all_int(t_option *option, char *format, long long nb)
 	char	*tab;
 
 	result = 0;
-	tab = NULL;
 	tab = ft_get_tab_int(option, format, nb, tab);
 	if (option->precision == 0 && option->padding == -1 && *tab == '0' && *format != 'o' && *format != 'O')
 		return (0);
@@ -102,6 +101,7 @@ int		ft_convert_all_int(t_option *option, char *format, long long nb)
 		result += ft_conv_int(option, tab);
 	else if (*format == 'u' || *format == 'U')
 		result += ft_conv_unsigned_int(option, tab);
+	free(tab);
 	return (result);
 }
 

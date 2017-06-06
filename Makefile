@@ -6,7 +6,7 @@
 #    By: gcollett <gcollett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/15 13:56:15 by gcollett          #+#    #+#              #
-#    Updated: 2017/06/06 15:30:06 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/06 19:30:20 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ LIBSRC = 	ft_atoi_base.c\
 			ft_count_word.c\
 			ft_itoa.c\
 			ft_intlen.c\
+			ft_strcmp.c\
 
 LIBOBJ = $(LIBSRC:.c=.o)
 
