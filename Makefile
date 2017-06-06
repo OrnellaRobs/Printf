@@ -6,7 +6,7 @@
 #    By: gcollett <gcollett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/15 13:56:15 by gcollett          #+#    #+#              #
-#    Updated: 2017/05/29 20:46:05 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/06 15:30:06 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SRCDIR = ./srcs/
 OBJ = $(SRC:.c=.o)
 
 LIBSRC = 	ft_atoi_base.c\
+			ft_memalloc.c\
+			ft_memset.c\
 			ft_isdigit.c\
 			ft_is_space.c\
  			ft_putstr_int.c\

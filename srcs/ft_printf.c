@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 18:09:00 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/06 15:29:49 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ int				ft_printf(const char *format, ...)
 	va_list	lst;
 	t_option	*option;
 
-	if (!(option = malloc(sizeof(t_option))))
+	if (!(option = ft_memalloc(sizeof(t_option))))
 		return (-1);
 	va_start(lst, format);
 	value = ft_parsing((char *)format, lst, option);

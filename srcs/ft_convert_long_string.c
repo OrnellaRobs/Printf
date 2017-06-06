@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 19:10:31 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/06 15:39:59 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_option *option, int *i)
 	}
 	*count += *i;
 	free(tab);
+	free(ptr);
 	return (str);
 }
 
@@ -162,6 +163,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 			if (option->precision != -1 && (int)ft_strlen(tab) <= option->precision)
 				str = ft_strdup(tab);
 			i++;
+			free(octet);
 		}
 	}
 	if (option->padding != -1 && option->precision != -1 &&
