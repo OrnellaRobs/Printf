@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/06 17:07:54 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/07 16:24:34 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int				ft_convert_long_char(va_list lst, t_option *option)
 	len = ft_strlen(str);
 	if (len > 0 || len < 22)
 		result += ft_binairy_mask(str, len, option);
+	free(str);
 	return (result);
 }

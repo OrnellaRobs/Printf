@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/06 15:29:49 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/07 16:07:59 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ int				ft_printf(const char *format, ...)
 		return (-1);
 	va_start(lst, format);
 	value = ft_parsing((char *)format, lst, option);
+	free(option);
 	va_end(lst);
 	return (value);
 }
