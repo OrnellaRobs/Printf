@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/06 15:39:59 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/07 15:02:30 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,12 +145,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 		{
 			char *octet = ft_convert_binairy_to_decimal(nb[i], &count, option,
 			&len_octet);
-			if (count <= option->precision && option->precision > 0)
-			{
-				tab = ft_strjoin(tab, octet);
-				len_octet = 0;
-			}
-			else if (option->precision == -1)
+			if (option->precision == -1 || count <= option->precision && option->precision > 0)
 			{
 				tab = ft_strjoin(tab, octet);
 				len_octet = 0;
