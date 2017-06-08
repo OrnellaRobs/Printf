@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/08 23:33:09 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/09 00:56:27 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	count = 0;
 	i = 0;
 	result = 0;
-	tab = "";
+	tab = ft_strnew(0);
 	nb = va_arg(lst, unsigned int *);
 	if (nb == 0)
 		tab = "(null)";
@@ -165,7 +165,9 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 			&len_octet);
 			if (option->precision == -1 || count <= option->precision && option->precision > 0)
 			{
-				tab = ft_strjoin(tab, octet);
+				tmp = tab;
+				tab = ft_strjoin(tmp, octet);
+				free(tmp);
 				len_octet = 0;
 				state = 1;
 			}
