@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/07 17:01:08 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/08 23:33:09 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,19 @@ static char		*ft_binairy_mask(char *str, int len)
 	return (ptr);
 }
 
+void 			free_array(char **tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
 static	char	*ft_convert_binairy_to_decimal(unsigned int value, int *count,
 t_option *option, int *i)
 {
@@ -49,14 +62,14 @@ t_option *option, int *i)
 	tab = ft_strsplit(ptr, ' ');
 	if (!(str = malloc(sizeof(char) * ft_strlen(ptr) / 8)))
 		return (NULL);
+	free(ptr);
 	while (tab[(*i)])
 	{
 		str[(*i)] = ft_atoi_base(tab[*i], 2);
 		(*i)++;
 	}
 	*count += *i;
-	free(tab);
-	free(ptr);
+	free_array(tab);
 	return (str);
 }
 
@@ -159,6 +172,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 			else
 			{
 				count -= len_octet;
+				free(octet);
 				break ;
 			}
 			if (option->precision != -1 &&
