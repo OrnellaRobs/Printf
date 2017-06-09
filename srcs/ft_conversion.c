@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/07 17:16:03 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/09 18:05:55 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_select_base(char *format)
+static int		ft_select_base(char *format)
 {
 	int base;
 
@@ -25,8 +25,8 @@ int		ft_select_base(char *format)
 	return (base);
 }
 
-char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb,
-	char *tab)
+static char		*ft_get_tab_unsigned(t_option *option, char *format,
+	long long nb, char *tab)
 {
 	int		base;
 	int		upper_case;
@@ -55,7 +55,8 @@ char	*ft_get_tab_unsigned(t_option *option, char *format, long long nb,
 	return (tab);
 }
 
-char	*ft_get_tab_int(t_option *option, char *format, long long nb, char *tab)
+static char		*ft_get_tab_int(t_option *option, char *format, long long nb,
+	char *tab)
 {
 	int base;
 
@@ -81,14 +82,15 @@ char	*ft_get_tab_int(t_option *option, char *format, long long nb, char *tab)
 	return (tab);
 }
 
-int		ft_convert_all_int(t_option *option, char *format, long long nb)
+static int		ft_convert_all_int(t_option *option, char *format, long long nb)
 {
 	int		result;
 	char	*tab;
 
 	result = 0;
 	tab = ft_get_tab_int(option, format, nb, tab);
-	if (option->precision == 0 && option->padding == -1 && *tab == '0' && *format != 'o' && *format != 'O')
+	if (option->precision == 0 && option->padding == -1 && *tab == '0' &&
+	*format != 'o' && *format != 'O')
 		return (0);
 	if ((*format == 'o' || *format == 'O') && *tab == '0' &&
 	option->precision == 0 && option->hash != '#' && option->padding == -1)
@@ -105,10 +107,10 @@ int		ft_convert_all_int(t_option *option, char *format, long long nb)
 	return (result);
 }
 
-int		conversion(char *format, t_option *option, va_list lst, ...)
+int				conversion(char *format, t_option *option, va_list lst, ...)
 {
-	int	i;
-	int	(*convert[6])(va_list, t_option *);
+	int		i;
+	int		(*convert[6])(va_list, t_option *);
 	va_list	get;
 
 	i = 0;
@@ -130,6 +132,6 @@ int		conversion(char *format, t_option *option, va_list lst, ...)
 	}
 	va_start(get, lst);
 	if (*format)
-		return(convert[5](get, option));
+		return (convert[5](get, option));
 	return (0);
 }

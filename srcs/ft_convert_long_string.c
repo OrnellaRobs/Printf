@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/09 00:56:27 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/09 18:54:31 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,33 +73,50 @@ t_option *option, int *i)
 	return (str);
 }
 
+static int		ft_is_precision_equal_minus_one(t_option *option, int len)
+{
+	int result;
+	int i;
+
+	i = -1;
+	result = 0;
+	if (option->padding != -1)
+		while (++i < option->padding - len)
+			result += ft_putchar_int(' ');
+	else if (option->zero_nb != -1)
+		while (++i < option->zero_nb - len)
+			result += ft_putchar_int('0');
+	return (result);
+}
+
+static int		ft_is_precision_equal_zero(t_option *option, int len)
+{
+	int result;
+	int i;
+
+	i = -1;
+	result = 0;
+	while (++i < option->padding)
+	{
+		if (option->minuszero != '0')
+			result += ft_putchar_int(' ');
+		else if (option->minuszero == '0')
+			result += ft_putchar_int('0');
+	}
+	return (result);
+}
 
 static int		ft_display_padding(t_option *option, int len, int count)
 {
-	int i;
 	int result;
+	int i;
 
 	i = -1;
 	result = 0;
 	if (option->precision == -1)
-	{
-		if (option->padding != -1)
-			while (++i < option->padding - len)
-				result += ft_putchar_int(' ');
-		else if (option->zero_nb != -1)
-			while (++i < option->zero_nb - len)
-				result += ft_putchar_int('0');
-	}
+		result += ft_is_precision_equal_minus_one(option, len);
 	else if (option->precision == 0)
-	{
-		while (++i < option->padding)
-		{
-			if (option->minuszero != '0')
-				result += ft_putchar_int(' ');
-			else if (option->minuszero == '0')
-				result += ft_putchar_int('0');
-		}
-	}
+		result += ft_is_precision_equal_zero(option, len);
 	else if (option->precision > 0)
 	{
 		while (++i < option->padding - count)

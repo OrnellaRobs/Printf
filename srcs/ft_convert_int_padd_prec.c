@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:39:00 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 16:11:22 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/09 18:23:58 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int				display_padding_and_precision(char *tab, t_option *option,
 {
 	int	i;
 	int result;
-	
+
 	i = -1;
 	result = 0;
 	if (option->padding > option->precision)
