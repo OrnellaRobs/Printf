@@ -6,7 +6,7 @@
 #    By: gcollett <gcollett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/15 13:56:15 by gcollett          #+#    #+#              #
-#    Updated: 2017/06/07 15:36:45 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/10 01:30:37 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = 	ft_convert_int.c\
 		ft_lltoa_base_unsigned.c\
 		ft_percent.c\
 		ft_printf.c\
+		ft_display_padding_long_string.c\
 		ft_display_flag_zero_str.c\
 
 SRCDIR = ./srcs/
@@ -88,12 +89,12 @@ clean :
 	@echo "\t\033[1;31m'CLEAN' ->\tDestruction\033[0m:\tfiles .o for the library \033[1;34m$(NAME)\033[0m"
 	@rm -rf objs
 	@echo "\t\033[1;31m'CLEAN' ->\tDestruction\033[0m:\tfiles .o for the library \033[1;34m$(NAME)\033[0m completed successfully !"
-	@make -C libft/ clean
+	@make -C Libft/ clean
 
 fclean : clean
 	@$(RM) $(NAME)
 	@echo "\t\033[1;31m'FCLEAN' ->\tDestruction\033[0m of library \033[1;34m$(NAME)\033[0m completed successfully !"
-	@make -C libft/ fclean
+	@make -C Libft/ fclean
 
 re : fclean all
 

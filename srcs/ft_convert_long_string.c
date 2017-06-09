@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/09 19:29:01 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 01:19:17 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,69 +69,10 @@ t_option *option, int *i)
 		str[(*i)] = ft_atoi_base(tab[*i], 2);
 		(*i)++;
 	}
-	str[(*i)] = NULL;
+	str[(*i)] = '\0';
 	*count += *i;
 	free_array(tab);
 	return (str);
-}
-
-static int		ft_is_precision_equal_minus_one(t_option *option, int len)
-{
-	int result;
-	int i;
-
-	i = -1;
-	result = 0;
-	if (option->padding != -1)
-		while (++i < option->padding - len)
-			result += ft_putchar_int(' ');
-	else if (option->zero_nb != -1)
-		while (++i < option->zero_nb - len)
-			result += ft_putchar_int('0');
-	return (result);
-}
-
-static int		ft_is_precision_equal_zero(t_option *option, int len)
-{
-	int result;
-	int i;
-
-	i = -1;
-	result = 0;
-	while (++i < option->padding)
-	{
-		if (option->minuszero != '0')
-			result += ft_putchar_int(' ');
-		else if (option->minuszero == '0')
-			result += ft_putchar_int('0');
-	}
-	return (result);
-}
-
-static int		ft_display_padding(t_option *option, int len, int count)
-{
-	int result;
-	int i;
-
-	i = -1;
-	result = 0;
-	if (option->precision == -1)
-		result += ft_is_precision_equal_minus_one(option, len);
-	else if (option->precision == 0)
-		result += ft_is_precision_equal_zero(option, len);
-	else if (option->precision > 0)
-	{
-		while (++i < option->padding - count)
-		{
-			if (option->minuszero != '0')
-				result += ft_putchar_int(' ');
-			else if (option->minuszero == '0')
-				result += ft_putchar_int('0');
-		}
-		if (option->minuszero != '0')
-			result += count - option->precision;
-	}
-	return (result);
 }
 
 int		ft_display_precision_long_string(t_option *option, char *str, int count)
@@ -214,14 +155,14 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	if (option->minuszero != '-' &&
 	(option->padding != -1 || option->zero_nb != -1) &&
 	(option->padding > len || option->zero_nb > len))
-		result += ft_display_padding(option, len, count);
+		result += ft_display_padding_long_string(option, len, count);
 	if (option->precision == -1)
 		result += ft_putstr_int(str);
 	else if (option->precision > 0)
 		result += ft_display_precision_long_string(option, str, count);
 	if (option->minuszero == '-' && option->padding != -1 &&
 	option->padding > len)
-		result += ft_display_padding(option, len, count);
+		result += ft_display_padding_long_string(option, len, count);
 	if (state == 1)
 		free(tab);
 	free(str);

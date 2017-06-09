@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/09 18:26:09 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 01:18:21 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ int				get_number(char *str);
 int				ft_display_flag_zero_str(t_option *option, char *str);
 int				ft_other_char(va_list lst, t_option *option);
 void 			free_array(char **tab);
+int				ft_display_padding_long_string(t_option *option, int len,
+	int count);
 
 #endif

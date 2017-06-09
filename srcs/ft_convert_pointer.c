@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/07 15:11:52 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 01:43:34 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,12 @@ char			*ft_itoa_base_printf_pointer(unsigned long value, int base,
 static int		ft_display_pointer(t_option *option, char *tab)
 {
 	int i;
-	int state;
 	int result;
 
 	i = -1;
-	state = 0;
 	result = 0;
 	if (option->padding == -1 && option->precision != -1)
 	{
-		state = 1;
 		result += ft_putstr_int(tab);
 		if (option->minuszero == '0')
 			result += ft_display_flag_zero_str(option, tab);
@@ -72,11 +69,10 @@ static int		ft_display_pointer(t_option *option, char *tab)
 			result += ft_putchar_int('0');
 	}
 	else
+	{
 		if (option->precision > (int)ft_strlen(tab) && *tab)
 			while (++i < option->precision - (int)ft_strlen(tab))
 				result += ft_putchar_int('0');
-	if (state == 0)
-	{
 		result += ft_putstr_int(tab);
 		if (option->minuszero == '0')
 			result += ft_display_flag_zero_str(option, tab);
@@ -84,32 +80,43 @@ static int		ft_display_pointer(t_option *option, char *tab)
 	return (result);
 }
 
-int				ft_conv_pointer(va_list lst, t_option *option)
+int				ft_display_padding_pointer(t_option *option, char *tab)
 {
-	int				result;
-	int				i;
-	char			*tab;
-	unsigned long	nb;
-	char			*tmp;
+	int i;
+	int result;
 
 	i = -1;
 	result = 0;
-	nb = (unsigned long)va_arg(lst, void *);
-	tab = ft_itoa_base_printf_pointer(nb, 16, 0);
-	tmp = tab;
-	if (option->precision < (int)ft_strlen(tab))
-		tab = (*tab == '0' && option->precision == 0) ?
-		ft_strjoin(tab, "x") : ft_strjoin("0x", tab);
-	else
-		result += ft_putstr_int("0x");
-	if (option->minuszero == '-')
-		result += ft_display_pointer(option, tab);
 	if (option->padding != -1 && option->precision > (int)ft_strlen(tab))
 		while (++i < option->padding - option->precision)
 			result += ft_putchar_int(' ');
 	else if (option->padding != -1 && option->precision <= (int)ft_strlen(tab))
 		while (++i < option->padding - (int)ft_strlen(tab))
 			result += ft_putchar_int(' ');
+	return (result);
+}
+
+int				ft_conv_pointer(va_list lst, t_option *option)
+{
+	int				result;
+	char			*tab;
+	unsigned long	nb;
+	char			*tmp;
+
+	result = 0;
+	nb = (unsigned long)va_arg(lst, void *);
+	tab = ft_itoa_base_printf_pointer(nb, 16, 0);
+	tmp = tab;
+	if (option->precision < (int)ft_strlen(tab))
+	{
+		tab = (*tab == '0' && option->precision == 0) ?
+		ft_strjoin(tab, "x") : ft_strjoin("0x", tab);
+	}
+	else
+		result += ft_putstr_int("0x");
+	if (option->minuszero == '-')
+		result += ft_display_pointer(option, tab);
+	result += ft_display_padding_pointer(option, tab);
 	if (option->minuszero != '-')
 		result += ft_display_pointer(option, tab);
 	free(tmp);
