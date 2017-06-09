@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/09 18:37:08 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/09 19:25:41 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,18 @@ int				display_precision(t_option *option, char *tab, int un_sign)
 	return (result);
 }
 
+int				ft_is_flag_minus(t_option *option, char *tab, int unsign)
+{
+	int result;
+
+	result = 0;
+	result += display_precision(option, tab, unsign);
+	if (*tab == '-' && unsign == 0)
+		tab++;
+	result += ft_putstr_int(tab);
+	return (result);
+}
+
 int				ft_conv_int(t_option *option, char *tab)
 {
 	int sign;
@@ -87,12 +99,9 @@ int				ft_conv_int(t_option *option, char *tab)
 	if (option->precision == -1)
 		result += display_flag_zero(tab, option, 0);
 	if (option->minuszero == '-')
-	{
-		result = display_precision(option, tab, 0);
-		if (*tab == '-')
-			tab++;
-		result += ft_putstr_int(tab);
-	}
+		result += ft_is_flag_minus(option, tab, 0);
+	if (*tab == '-' && option->minuszero == '-')
+		tab++;
 	result += display_padding_and_precision(tab, option, sign, 0);
 	if (*tab == '-' && option->minuszero != '-')
 	{
@@ -118,10 +127,7 @@ int				ft_conv_unsigned_int(t_option *option, char *tab)
 	un_sign = 1;
 	result += display_flag_zero(tab, option, un_sign);
 	if (option->minuszero == '-' && option->padding != -1)
-	{
-		result = display_precision(option, tab, un_sign);
-		result += ft_putstr_int(tab);
-	}
+		result += ft_is_flag_minus(option, tab, un_sign);
 	result += display_padding_and_precision(tab, option, sign, un_sign);
 	if (option->minuszero != '-')
 		result += ft_putstr_int(tab);

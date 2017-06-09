@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 15:38:48 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/06 16:45:39 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/09 19:30:58 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 int	ft_putstr_int(char const *s)
 {
-	int i;
 	int result;
 
-	i = 0;
-	result = 0;
-	while (s[i])
-	{
-		result += ft_putchar_int(s[i]);
-		i++;
-	}
+	result = (int)ft_strlen(s);
+	write(1, s, result);
 	return (result);
 }
