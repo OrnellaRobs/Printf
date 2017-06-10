@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/09 18:08:06 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 02:05:13 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,11 +118,9 @@ static void		padding_and_precision(char *format, t_option *option)
 	}
 }
 
-static int		ft_parsing(char *format, va_list lst, t_option *option)
+static int		ft_parsing(char *format, va_list lst, t_option *option,
+int result)
 {
-	int			result;
-
-	result = 0;
 	while (*format)
 	{
 		initialize_option(option);
@@ -147,14 +145,16 @@ static int		ft_parsing(char *format, va_list lst, t_option *option)
 
 int				ft_printf(const char *format, ...)
 {
-	int		value;
-	va_list	lst;
+	int			value;
+	int 		result;
+	va_list		lst;
 	t_option	*option;
 
+	result = 0;
 	if (!(option = ft_memalloc(sizeof(t_option))))
 		return (-1);
 	va_start(lst, format);
-	value = ft_parsing((char *)format, lst, option);
+	value = ft_parsing((char *)format, lst, option, result);
 	free(option);
 	va_end(lst);
 	return (value);
