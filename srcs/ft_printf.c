@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 02:05:13 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 13:15:22 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,48 +71,6 @@ static void		length_modifier(char *format, t_option *option)
 		{
 			option->modifier = 'm';
 			format++;
-		}
-		format++;
-	}
-}
-
-static void		padding_and_precision(char *format, t_option *option)
-{
-	int		zero;
-	int		tmp;
-
-	zero = 0;
-	tmp = -1;
-	while (*format && ft_is_in(*format, STR_CONVERSION) == 0)
-	{
-		if (*format == '0' && zero == 0 && option->padding == -1)
-			zero = 1;
-		else if (*format == '-')
-			zero = 2;
-		else if (*format >= '1' && *format <= '9' && (zero == 0 || zero == 2)
-		&& option->padding == -1)
-			option->padding = get_number(format);
-		else if ((*format >= '1' && *format <= '9' && zero == 1
-		&& option->padding == -1) && tmp == -1)
-			tmp = get_number(format);
-		if (*format == '.')
-		{
-			if (option->precision != -1)
-			{
-				zero = 3;
-				option->precision = -1;
-			}
-			else if (zero != 3)
-			{
-				if (tmp != -1 && option->padding == -1)
-					option->padding = tmp;
-				format++;
-				while (*format && !ft_is_in(*format, STR_CONVERSION) &&
-				!ft_is_in(*format, "123456789"))
-					format++;
-				if (option->precision == -1)
-					option->precision = get_number(format);
-			}
 		}
 		format++;
 	}

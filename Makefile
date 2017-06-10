@@ -6,7 +6,7 @@
 #    By: gcollett <gcollett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/15 13:56:15 by gcollett          #+#    #+#              #
-#    Updated: 2017/06/10 01:30:37 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/10 13:16:19 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = 	ft_convert_int.c\
 		ft_printf.c\
 		ft_display_padding_long_string.c\
 		ft_display_flag_zero_str.c\
+		get_padding_and_precision_into_struct.c\
 
 SRCDIR = ./srcs/
 
