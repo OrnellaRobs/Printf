@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/09 18:05:55 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 22:26:09 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ static int		ft_convert_all_int(t_option *option, char *format, long long nb)
 	char	*tab;
 
 	result = 0;
+	tab = NULL;
 	tab = ft_get_tab_int(option, format, nb, tab);
 	if (option->precision == 0 && option->padding == -1 && *tab == '0' &&
 	*format != 'o' && *format != 'O')

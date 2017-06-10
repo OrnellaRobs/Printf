@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gcollett <gcollett@student.42.fr>          +#+  +:+       +#+         #
+#    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/04/15 13:56:15 by gcollett          #+#    #+#              #
-#    Updated: 2017/06/10 13:16:19 by orazafin         ###   ########.fr        #
+#    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
+#    Updated: 2017/06/10 22:28:26 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,42 +71,29 @@ OBJS	= $(addprefix $(OBJDIR), $(OBJ))
 
 LIBS = Libft/libft.a
 
-RM = rm -f
-
 all : $(NAME)
 
 $(NAME) :
+	@echo "Compiling library libft..."
 	@make -C Libft/ re
-	@echo "\t\033[33;32m'MAKE' ->\t\033[1;34m$(NAME)\033[0m :\tLibrary compilation in progress..."
-	@gcc $(GCC_FLAGS) -I ./Libft/libft.h -I ft_printf.h -c $(SRCS)
+	@gcc $(CFLAGS) -I ./Libft/libft.h -I ft_printf.h -c $(SRCS)
 	@ar rc $(NAME) $(OBJ) $(addprefix $(LIBDIR), $(LIBOBJ))
 	@ranlib $(NAME)
 	@mkdir -p $(OBJDIR)
 	@mv $(OBJ) $(OBJDIR)
 	@ranlib $(NAME)
-	@echo "\t\033[33;32m'MAKE' ->\t\033[1;34m$(NAME)\033[0m :\tLibrary compilation completed sucessfully !"
+	@echo "Library libft compilation completed"
 
 clean :
-	@echo "\t\033[1;31m'CLEAN' ->\tDestruction\033[0m:\tfiles .o for the library \033[1;34m$(NAME)\033[0m"
+	@echo "Deleting objects..."
 	@rm -rf objs
-	@echo "\t\033[1;31m'CLEAN' ->\tDestruction\033[0m:\tfiles .o for the library \033[1;34m$(NAME)\033[0m completed successfully !"
+	@echo "Deleting done!"
 	@make -C Libft/ clean
 
 fclean : clean
-	@$(RM) $(NAME)
-	@echo "\t\033[1;31m'FCLEAN' ->\tDestruction\033[0m of library \033[1;34m$(NAME)\033[0m completed successfully !"
+	@rm -rf $(NAME)
+	@echo "Deleting library"
 	@make -C Libft/ fclean
+	@echo "Deleting library done"
 
 re : fclean all
-
-compile :
-	@gcc $(CFLAGS) $(addprefix $(SRCDIR), $(SRC)) main.c Libft/libft.a -g
-
-cc:
-	@gcc -o test $(addprefix $(SRCDIR), $(SRC)) main.c Libft/libft.a -g
-
-compexec : compile
-	@./a.out
-
-cexec : cc
-	@./a.out

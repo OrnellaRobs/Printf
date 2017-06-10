@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 01:19:17 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 22:26:52 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void 			free_array(char **tab)
 }
 
 static	char	*ft_convert_binairy_to_decimal(unsigned int value, int *count,
-t_option *option, int *i)
+	int *i)
 {
 	int		len;
 	char	*str;
@@ -121,8 +121,7 @@ int		ft_convert_long_string(va_list lst, t_option *option)
 	{
 		while (nb[i])
 		{
-			octet = ft_convert_binairy_to_decimal(nb[i], &count, option,
-			&len_octet);
+			octet = ft_convert_binairy_to_decimal(nb[i], &count, &len_octet);
 			if (option->precision == -1 || (count <= option->precision && option->precision > 0))
 			{
 				tmp = tab;

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/10 01:07:31 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 01:18:08 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/10 22:27:33 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_is_precision_equal_minus_one(t_option *option, int len)
 	return (result);
 }
 
-static int	ft_is_precision_equal_zero(t_option *option, int len)
+static int	ft_is_precision_equal_zero(t_option *option)
 {
 	int result;
 	int i;
@@ -55,7 +55,7 @@ int			ft_display_padding_long_string(t_option *option, int len, int count)
 	if (option->precision == -1)
 		result += ft_is_precision_equal_minus_one(option, len);
 	else if (option->precision == 0)
-		result += ft_is_precision_equal_zero(option, len);
+		result += ft_is_precision_equal_zero(option);
 	else if (option->precision > 0)
 	{
 		while (++i < option->padding - count)
