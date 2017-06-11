@@ -6,11 +6,23 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:39:00 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/09 18:23:58 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 13:36:52 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+int				ft_is_flag_minus(t_option *option, char *tab, int unsign)
+{
+	int result;
+
+	result = 0;
+	result += display_precision(option, tab, unsign);
+	if (*tab == '-' && unsign == 0)
+		tab++;
+	result += ft_putstr_int(tab);
+	return (result);
+}
 
 static int		padding_greater_than_precision(t_option *option, char *tab,
 	int sign, int un_sign)

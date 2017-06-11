@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:38:49 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 13:15:22 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 13:40:15 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void 	ft_get_flag_zero(char *format, t_option *option)
+static void		ft_get_flag_zero(char *format, t_option *option)
 {
 	option->minuszero = '0';
 	if (ft_isdigit(*(format + 1)) && option->zero_nb == -1 &&
@@ -104,7 +104,7 @@ int result)
 int				ft_printf(const char *format, ...)
 {
 	int			value;
-	int 		result;
+	int			result;
 	va_list		lst;
 	t_option	*option;
 

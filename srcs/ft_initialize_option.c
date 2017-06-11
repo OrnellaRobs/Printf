@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:56:40 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:36:20 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 13:38:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void 	initialize_option(t_option *option)
+void	initialize_option(t_option *option)
 {
 	option->pluspace = '\0';
 	option->minuszero = '\0';

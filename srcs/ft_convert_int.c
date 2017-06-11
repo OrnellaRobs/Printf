@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/06 00:15:55 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 21:35:12 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 13:32:37 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,6 @@ int				display_precision(t_option *option, char *tab, int un_sign)
 		result += ft_putchar_int('-');
 	while (++i < option->precision - (int)ft_strlen(tab) + negatif)
 		result += ft_putchar_int('0');
-	return (result);
-}
-
-int				ft_is_flag_minus(t_option *option, char *tab, int unsign)
-{
-	int result;
-
-	result = 0;
-	result += display_precision(option, tab, unsign);
-	if (*tab == '-' && unsign == 0)
-		tab++;
-	result += ft_putstr_int(tab);
 	return (result);
 }
 

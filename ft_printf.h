@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 13:17:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 13:32:54 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ int				ft_other_char(va_list lst, t_option *option);
 void 			free_array(char **tab);
 int				ft_display_padding_long_string(t_option *option, int len,
 	int count);
+int				ft_is_flag_minus(t_option *option, char *tab, int unsign);
 #endif

@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 02:01:30 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 13:38:00 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	display_space(t_option *option, char *res)
+static int		display_space(t_option *option, char *res)
 {
 	int i;
 	int result;
@@ -40,9 +40,9 @@ static int	display_space(t_option *option, char *res)
 
 static int		ft_precision_different_from_zero(t_option *option, char *res)
 {
-	int i;
-	int result;
-	int flag;
+	int	i;
+	int	result;
+	int	flag;
 
 	flag = 0;
 	i = -1;
@@ -63,7 +63,7 @@ static int		ft_precision_different_from_zero(t_option *option, char *res)
 	return (result);
 }
 
-int			ft_conv_string(va_list lst, t_option *option)
+int				ft_conv_string(va_list lst, t_option *option)
 {
 	char	*res;
 	int		result;
