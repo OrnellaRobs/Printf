@@ -6,14 +6,15 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 14:47:30 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 16:06:20 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:34:57 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_octet_less_than_precision(t_option *option, char *tab, char *octet,
-	 int *len_octet)
+static char		*ft_octet_less_than_precision(t_option *option, char *tab,
+	char *octet,
+	int *len_octet)
 {
 	char *tmp;
 
@@ -25,7 +26,7 @@ char	*ft_octet_less_than_precision(t_option *option, char *tab, char *octet,
 	return (tab);
 }
 
-char 	*ft_get_len(t_option *option, char *tab, char *str, int *len)
+static char		*ft_get_len(t_option *option, char *tab, char *str, int *len)
 {
 	if (option->padding != -1 && option->precision != -1 &&
 		(int)ft_strlen(tab) < option->precision)
@@ -40,9 +41,9 @@ char 	*ft_get_len(t_option *option, char *tab, char *str, int *len)
 	return (str);
 }
 
-char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count, int *len)
+char			*ft_get_octet_each_long_char(t_option *option, char *tab,
+	int *count, int *len)
 {
-	char	*tab;
 	char	*octet;
 	int		len_octet;
 	int		i;
@@ -50,10 +51,9 @@ char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count
 
 	i = -1;
 	len_octet = 0;
-	tab = (nb == 0) ? "(null)" : ft_strnew(0);
-	while (nb != 0 && nb[++i])
+	while (option->nb != 0 && option->nb[++i])
 	{
-		octet = ft_convert_binairy_to_decimal(nb[i], count, &len_octet);
+		octet = ft_convert_binairy_to_decimal(option->nb[i], count, &len_octet);
 		if (option->precision == -1 || (*count <= option->precision &&
 			option->precision > 0))
 			tab = ft_octet_less_than_precision(option, tab, octet, &len_octet);

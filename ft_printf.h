@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 16:01:20 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:31:12 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@
 
 typedef struct	s_option
 {
-	char		pluspace;
-	char		minuszero;
-	int			zero_nb;
-	char		hash;
-	char		modifier;
-	int			padding;
-	int			precision;
-	int			state;
+	char			pluspace;
+	char			minuszero;
+	int				zero_nb;
+	char			hash;
+	char			modifier;
+	int				padding;
+	int				precision;
+	int				state;
+	unsigned int	*nb;
 }				t_option;
 
 void			padding_and_precision(char *format, t_option *option);
@@ -63,6 +64,6 @@ int				ft_display_padding_long_string(t_option *option, int len,
 int				ft_is_flag_minus(t_option *option, char *tab, int unsign);
 char			*ft_convert_binairy_to_decimal(unsigned int value, int *count,
 	int *i);
-char			*ft_get_octet_each_long_char(t_option *option, unsigned int *nb,
-	int *count, int *len);
+char	*ft_get_octet_each_long_char(t_option *option, char *tab, int *count,
+	int *len);
 #endif

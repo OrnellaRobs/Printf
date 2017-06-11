@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 15:51:14 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:35:13 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,21 @@ int		ft_display_padding_and_precision_long_str(t_option *option, char *str,
 	if (option->minuszero == '-' && option->padding != -1 &&
 	option->padding > len)
 		result += ft_display_padding_long_string(option, len, count);
+	free(str);
 	return (result);
 }
 
 int		ft_convert_long_string(va_list lst, t_option *option)
 {
 	char	*str;
-	int		result;
+	char	*tab;
 	int		len;
 	int		count;
 
 	count = 0;
-	result = 0;
 	len = 0;
-	str = ft_get_octet_each_long_char(option, va_arg(lst, unsigned int *),
-	&count, &len);
-	result += ft_display_padding_and_precision_long_str(option, str, len,
-		count);
-	free(str);
-	return (result);
+	option->nb = va_arg(lst, unsigned int *);
+	tab = (option->nb == 0) ? "(null)" : ft_strnew(0);
+	str = ft_get_octet_each_long_char(option, tab, &count, &len);
+	return (ft_display_padding_and_precision_long_str(option, str, len, count));
 }
