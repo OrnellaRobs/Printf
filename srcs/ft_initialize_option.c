@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:56:40 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 13:38:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:01:28 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	initialize_option(t_option *option)
 	option->modifier = '\0';
 	option->padding = -1;
 	option->precision = -1;
+	option->state = 0;
 }

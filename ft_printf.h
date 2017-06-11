@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 15:00:08 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:01:20 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_option
 	char		modifier;
 	int			padding;
 	int			precision;
+	int			state;
 }				t_option;
 
 void			padding_and_precision(char *format, t_option *option);

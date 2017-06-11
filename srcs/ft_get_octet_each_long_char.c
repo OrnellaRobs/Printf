@@ -6,13 +6,14 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 14:47:30 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 15:53:40 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:06:20 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_octet_less_than_precision(char *tab, char *octet, int *len_octet, int *state)
+char	*ft_octet_less_than_precision(t_option *option, char *tab, char *octet,
+	 int *len_octet)
 {
 	char *tmp;
 
@@ -20,7 +21,7 @@ char	*ft_octet_less_than_precision(char *tab, char *octet, int *len_octet, int *
 	tab = ft_strjoin(tmp, octet);
 	free(tmp);
 	*len_octet = 0;
-	*state = 1;
+	option->state = 1;
 	return (tab);
 }
 
@@ -34,6 +35,8 @@ char 	*ft_get_len(t_option *option, char *tab, char *str, int *len)
 		*len = ft_strlen(tab);
 		str = ft_strdup(tab);
 	}
+	if (option->state == 1)
+		free(tab);
 	return (str);
 }
 
@@ -41,23 +44,19 @@ char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count
 {
 	char	*tab;
 	char	*octet;
-	int		state;
 	int		len_octet;
 	int		i;
 	char	*str;
 
-	i = 0;
+	i = -1;
 	len_octet = 0;
-	tab = ft_strnew(0);
-	state = 0;
-	if (nb == 0)
-		tab = "(null)";
-	while (nb != 0 && nb[i])
+	tab = (nb == 0) ? "(null)" : ft_strnew(0);
+	while (nb != 0 && nb[++i])
 	{
 		octet = ft_convert_binairy_to_decimal(nb[i], count, &len_octet);
 		if (option->precision == -1 || (*count <= option->precision &&
 			option->precision > 0))
-			tab = ft_octet_less_than_precision(tab, octet, &len_octet, &state);
+			tab = ft_octet_less_than_precision(option, tab, octet, &len_octet);
 		else
 		{
 			*count -= len_octet;
@@ -66,11 +65,8 @@ char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count
 		}
 		if (option->precision != -1 && (int)ft_strlen(tab) < option->precision)
 			str = ft_strdup(tab);
-		i++;
 		free(octet);
 	}
 	str = ft_get_len(option, tab, str, len);
-	if (state == 1)
-		free(tab);
 	return (str);
 }
