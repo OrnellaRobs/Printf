@@ -6,7 +6,7 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
-#    Updated: 2017/06/11 21:04:11 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/11 21:21:34 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,8 +76,16 @@ LIBS = Libft/libft.a
 
 all : $(NAME)
 
+BLUE = \x1b[34m
+GREEN = \x1b[32m
+RED = \x1b[31m
+YELLOW = \x1b[33m
+CYAN = \x1b[36m
+B = \x1b[1m
+EOC = \x1b[0m
+
 $(NAME) :
-	@echo "\x1b[1m\x1b[36mCompiling library libft...\x1b[0m"
+	@echo "$(B)$(CYAN)Compiling library libft...$(EOC)"
 	@make -C Libft/ re
 	@gcc $(CFLAGS) -I ./Libft/libft.h -I ft_printf.h -c $(SRCS)
 	@ar rc $(NAME) $(OBJ) $(addprefix $(LIBDIR), $(LIBOBJ))
@@ -85,18 +93,18 @@ $(NAME) :
 	@mkdir -p $(OBJDIR)
 	@mv $(OBJ) $(OBJDIR)
 	@ranlib $(NAME)
-	@echo "\x1b[1m\x1b[34mLibrary libft compilation completed \x1b[1m\x1b[32m✔\x1b[0m"
+	@echo "$(B)$(BLUE)Library libft compilation completed $(B)$(GREEN)✔$(EOC)"
 
 clean :
-	@echo "\x1b[1m\x1b[33mDeleting objects...\x1b[0m"
+	@echo "$(B)$(YELLOW)Deleting objects...$(EOC)"
 	@rm -rf objs
-	@echo "\x1b[1m\x1b[32mDeleting done\x1b[0m"
+	@echo "$(B)$(GREEN)Deleting done$(EOC)"
 	@make -C Libft/ clean
 
 fclean : clean
 	@rm -rf $(NAME)
-	@echo "\x1b[1m\x1b[31mDeleting library...\x1b[0m"
+	@echo "$(B)$(RED)Deleting library...$(EOC)"
 	@make -C Libft/ fclean
-	@echo "\x1b[1m\x1b[32mDeleting library done\x1b[0m"
+	@echo "$(B)$(GREEN)Deleting library done$(EOC)"
 
 re : fclean all
