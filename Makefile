@@ -6,7 +6,7 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
-#    Updated: 2017/06/11 20:05:49 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/11 21:04:11 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ LIBS = Libft/libft.a
 all : $(NAME)
 
 $(NAME) :
-	@echo "Compiling library libft..."
+	@echo "\x1b[1m\x1b[36mCompiling library libft...\x1b[0m"
 	@make -C Libft/ re
 	@gcc $(CFLAGS) -I ./Libft/libft.h -I ft_printf.h -c $(SRCS)
 	@ar rc $(NAME) $(OBJ) $(addprefix $(LIBDIR), $(LIBOBJ))
@@ -85,18 +85,18 @@ $(NAME) :
 	@mkdir -p $(OBJDIR)
 	@mv $(OBJ) $(OBJDIR)
 	@ranlib $(NAME)
-	@echo "Library libft compilation completed"
+	@echo "\x1b[1m\x1b[34mLibrary libft compilation completed \x1b[1m\x1b[32m✔\x1b[0m"
 
 clean :
-	@echo "Deleting objects..."
+	@echo "\x1b[1m\x1b[33mDeleting objects...\x1b[0m"
 	@rm -rf objs
-	@echo "Deleting done!"
+	@echo "\x1b[1m\x1b[32mDeleting done\x1b[0m"
 	@make -C Libft/ clean
 
 fclean : clean
 	@rm -rf $(NAME)
-	@echo "Deleting library"
+	@echo "\x1b[1m\x1b[31mDeleting library...\x1b[0m"
 	@make -C Libft/ fclean
-	@echo "Deleting library done"
+	@echo "\x1b[1m\x1b[32mDeleting library done\x1b[0m"
 
 re : fclean all
