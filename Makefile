@@ -6,7 +6,7 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
-#    Updated: 2017/06/11 14:58:47 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/11 16:45:16 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,13 @@ SRC = 	ft_convert_int.c\
 		ft_convert_string.c\
 		ft_fill_mask.c\
 		ft_get_number.c\
-		ft_initialize_option.c\
+		ft_initialize_struct.c\
 		ft_is_in.c\
 		ft_itoa_base_printf.c\
 		ft_lltoa_base_sign.c\
 		ft_lltoa_base_unsigned.c\
 		ft_percent.c\
-		ft_printf.c\
+		ft_parsing.c\
 		ft_display_padding_long_string.c\
 		ft_display_flag_zero_str.c\
 		get_padding_and_precision_into_struct.c\
