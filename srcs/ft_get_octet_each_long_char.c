@@ -6,17 +6,28 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 14:47:30 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 15:00:38 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:19:29 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+char	*ft_octet_less_than_precision(char *tab, char *octet, int *len_octet, int *state)
+{
+	char *tmp;
+
+	tmp = tab;
+	tab = ft_strjoin(tmp, octet);
+	free(tmp);
+	*len_octet = 0;
+	*state = 1;
+	return (tab);
+}
+
 char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count, int *len)
 {
 	char	*tab;
 	char	*octet;
-	char	*tmp;
 	int		state;
 	int		len_octet;
 	int		i;
@@ -33,13 +44,7 @@ char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count
 		octet = ft_convert_binairy_to_decimal(nb[i], count, &len_octet);
 		if (option->precision == -1 || (*count <= option->precision &&
 			option->precision > 0))
-		{
-			tmp = tab;
-			tab = ft_strjoin(tmp, octet);
-			free(tmp);
-			len_octet = 0;
-			state = 1;
-		}
+			tab = ft_octet_less_than_precision(tab, octet, &len_octet, &state);
 		else
 		{
 			*count -= len_octet;
