@@ -6,7 +6,7 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
-#    Updated: 2017/06/11 13:48:59 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/11 14:58:47 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC = 	ft_convert_int.c\
 		get_padding_and_precision_into_struct.c\
 		ft_convert_binairy_to_decimal_long_str.c\
 		ft_free_array.c\
+		ft_get_octet_each_long_char.c\
 
 SRCDIR = ./srcs/
 

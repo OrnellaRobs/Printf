@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 14:01:49 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:00:21 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,61 +51,16 @@ int		ft_display_padding_and_precision_long_str(t_option *option, char *str,
 
 int		ft_convert_long_string(va_list lst, t_option *option)
 {
-	unsigned int	*nb;
-	int				i;
-	char 			*tab;
 	char			*str;
-	char 			*tmp;
 	int				result;
 	int				len;
 	int				count;
-	int				len_octet;
-	int 			state;
-	char			*octet;
 
-	state = 0;
-	len_octet = 0;
 	count = 0;
-	i = 0;
 	result = 0;
-	tab = ft_strnew(0);
-	nb = va_arg(lst, unsigned int *);
-	if (nb == 0)
-		tab = "(null)";
-	while (nb != 0 && nb[i])
-	{
-		octet = ft_convert_binairy_to_decimal(nb[i], &count, &len_octet);
-		if (option->precision == -1 || (count <= option->precision && option->precision > 0))
-		{
-			tmp = tab;
-			tab = ft_strjoin(tmp, octet);
-			free(tmp);
-			len_octet = 0;
-			state = 1;
-		}
-		else
-		{
-			count -= len_octet;
-			free(octet);
-			break ;
-		}
-		if (option->precision != -1 &&
-		(int)ft_strlen(tab) <= option->precision)
-			str = ft_strdup(tab);
-		i++;
-		free(octet);
-	}
-	if (option->padding != -1 && option->precision != -1 &&
-	(int)ft_strlen(tab) < option->precision)
-		len = option->precision;
-	else
-	{
-		len = ft_strlen(tab);
-		str = ft_strdup(tab);
-	}
+	len = 0;
+	str = ft_get_octet_each_long_char(option, va_arg(lst, unsigned int *), &count, &len);
 	result += ft_display_padding_and_precision_long_str(option, str, len, count);
-	if (state == 1)
-		free(tab);
 	free(str);
 	return (result);
 }
