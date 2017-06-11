@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 13:38:00 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 13:43:01 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int		display_space(t_option *option, char *res)
 {
-	int i;
-	int result;
+	int	i;
+	int	result;
 
 	result = 0;
 	i = -1;
