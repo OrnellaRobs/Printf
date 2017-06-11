@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 16:27:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/08 23:33:15 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:53:36 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		ft_display_octet(char *ptr)
 		write(1, &nb, 1);
 		i++;
 	}
-	free_array(tab);
+	ft_free_double_array(tab);
 	return (i);
 }
 
@@ -62,7 +62,7 @@ static int		ft_binairy_mask(char *str, int len, t_option *option)
 	else if (len > 16)
 		ptr = ft_strdup("11110xxx 10xxxxxx 10xxxxxx 10xxxxxx");
 	len_ptr = ft_strlen(ptr);
-	ptr = ft_fill_mask(ptr, str, len);
+	ptr = ft_fill_binairy_mask(ptr, str, len);
 	if (option->minuszero != '-' && option->padding != -1)
 		result += ft_display_padding(option, len_ptr / 8);
 	result += ft_display_octet(ptr);

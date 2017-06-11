@@ -6,18 +6,18 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:39:00 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 13:36:52 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 19:53:47 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int				ft_is_flag_minus(t_option *option, char *tab, int unsign)
+int				ft_is_flag_minus_int(t_option *option, char *tab, int unsign)
 {
 	int result;
 
 	result = 0;
-	result += display_precision(option, tab, unsign);
+	result += display_precision_int(option, tab, unsign);
 	if (*tab == '-' && unsign == 0)
 		tab++;
 	result += ft_putstr_int(tab);
@@ -47,11 +47,11 @@ static int		padding_greater_than_precision(t_option *option, char *tab,
 			result += ft_putchar_int(' ');
 	}
 	if (option->minuszero != '-')
-		result += display_precision(option, tab, un_sign);
+		result += display_precision_int(option, tab, un_sign);
 	return (result);
 }
 
-int				display_padding_and_precision(char *tab, t_option *option,
+int				display_padding_and_precision_int(char *tab, t_option *option,
 	int sign, int un_sign)
 {
 	int	i;
@@ -62,6 +62,6 @@ int				display_padding_and_precision(char *tab, t_option *option,
 	if (option->padding > option->precision)
 		result += padding_greater_than_precision(option, tab, sign, un_sign);
 	else if (option->padding <= option->precision && option->minuszero != '-')
-		result += display_precision(option, tab, un_sign);
+		result += display_precision_int(option, tab, un_sign);
 	return (result);
 }

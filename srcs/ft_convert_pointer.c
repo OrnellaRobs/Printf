@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/11 16:50:19 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 01:43:34 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:40:50 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int				ft_display_padding_pointer(t_option *option, char *tab)
 	return (result);
 }
 
-int				ft_conv_pointer(va_list lst, t_option *option)
+int				ft_convert_pointer(va_list lst, t_option *option)
 {
 	int				result;
 	char			*tab;

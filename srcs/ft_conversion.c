@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 18:46:22 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/10 22:26:09 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:43:23 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,9 @@ static int		ft_convert_all_int(t_option *option, char *format, long long nb)
 	else if (*format == 'o' || *format == 'O')
 		result += ft_convert_octal(option, tab);
 	else if (*format == 'd' || *format == 'i' || *format == 'D')
-		result += ft_conv_int(option, tab);
+		result += ft_convert_int(option, tab);
 	else if (*format == 'u' || *format == 'U')
-		result += ft_conv_unsigned_int(option, tab);
+		result += ft_convert_unsigned_int(option, tab);
 	free(tab);
 	return (result);
 }
@@ -115,10 +115,10 @@ int				conversion(char *format, t_option *option, va_list lst, ...)
 	va_list	get;
 
 	i = 0;
-	convert[0] = &ft_conv_string;
+	convert[0] = &ft_convert_string;
 	convert[1] = &ft_convert_long_string;
-	convert[2] = &ft_conv_pointer;
-	convert[3] = &ft_conv_char;
+	convert[2] = &ft_convert_pointer;
+	convert[3] = &ft_convert_char;
 	convert[4] = &ft_convert_long_char;
 	convert[5] = &ft_other_char;
 	while (*format && STR_CONVERSION[i])

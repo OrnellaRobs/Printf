@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 13:46:23 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 13:43:01 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:39:45 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int		ft_precision_different_from_zero(t_option *option, char *res)
 	return (result);
 }
 
-int				ft_conv_string(va_list lst, t_option *option)
+int				ft_convert_string(va_list lst, t_option *option)
 {
 	char	*res;
 	int		result;

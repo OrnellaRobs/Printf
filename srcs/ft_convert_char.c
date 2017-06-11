@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:34:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/31 16:20:33 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:41:11 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int				ft_other_char(va_list get, t_option *option)
 	return (result);
 }
 
-int				ft_conv_char(va_list lst, t_option *option)
+int				ft_convert_char(va_list lst, t_option *option)
 {
 	int		result;
 	char	c;

@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 13:44:47 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 13:45:07 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:53:45 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char		*ft_binairy_mask(char *str, int len)
 	if (len <= 21)
 	{
 		len_ptr = ft_strlen(ptr);
-		ptr = ft_fill_mask(ptr, str, len);
+		ptr = ft_fill_binairy_mask(ptr, str, len);
 	}
 	return (ptr);
 }
@@ -58,6 +58,6 @@ char			*ft_convert_binairy_to_decimal(unsigned int value, int *count,
 	}
 	str[(*i)] = '\0';
 	*count += *i;
-	free_array(tab);
+	ft_free_double_array(tab);
 	return (str);
 }

@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 14:20:48 by orazafin          #+#    #+#             */
-/*   Updated: 2017/05/26 15:36:11 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:48:11 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_fill_mask(char *ptr, char *str, int len_str)
+char	*ft_fill_binairy_mask(char *ptr, char *str, int len_str)
 {
 	int len_ptr;
 

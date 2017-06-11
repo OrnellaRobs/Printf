@@ -6,13 +6,13 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 13:48:26 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 13:48:42 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 18:53:28 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	free_array(char **tab)
+void	ft_free_double_array(char **tab)
 {
 	int i;
 

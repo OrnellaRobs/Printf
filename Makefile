@@ -6,7 +6,7 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
-#    Updated: 2017/06/11 16:45:16 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/11 19:55:01 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ SRC = 	ft_convert_int.c\
 		ft_convert_hexa.c\
 		ft_conversion.c\
 		ft_convert_char.c\
-		ft_convert_int_padd_prec.c\
+		ft_display_minus_padding_precision_int.c\
 		ft_convert_long_char.c\
 		ft_convert_long_string.c\
 		ft_convert_octal.c\
 		ft_convert_pointer.c\
 		ft_convert_string.c\
-		ft_fill_mask.c\
+		ft_fill_binairy_mask.c\
 		ft_get_number.c\
 		ft_initialize_struct.c\
 		ft_is_in.c\
@@ -33,9 +33,9 @@ SRC = 	ft_convert_int.c\
 		ft_parsing.c\
 		ft_display_padding_long_string.c\
 		ft_display_flag_zero_str.c\
-		get_padding_and_precision_into_struct.c\
+		ft_get_padding_precision_into_struct.c\
 		ft_convert_binairy_to_decimal_long_str.c\
-		ft_free_array.c\
+		ft_free_double_array.c\
 		ft_get_octet_each_long_char.c\
 
 SRCDIR = ./srcs/
