@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 21:54:20 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 22:13:55 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 /*
 ** COLOR
 */
-# define BLUE "\x1b[34m"
-# define GREEN "\x1b[32m"
-# define RED "\x1b[31m"
-# define YELLOW "\x1b[33m"
-# define CYAN "\x1b[36m"
-# define EOC "\x1b[0m"
+# define blue "\x1b[34m"
+# define green "\x1b[32m"
+# define red "\x1b[31m"
+# define yellow "\x1b[33m"
+# define cyan "\x1b[36m"
+# define eoc "\x1b[0m"
 
 typedef struct		s_option
 {
