@@ -6,13 +6,14 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 16:35:13 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:36:23 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_display_precision_long_string(t_option *option, char *str, int count)
+static int		ft_display_precision_long_string(t_option *option, char *str,
+	int count)
 {
 	int i;
 	int result;
@@ -29,8 +30,8 @@ int		ft_display_precision_long_string(t_option *option, char *str, int count)
 	return (result);
 }
 
-int		ft_display_padding_and_precision_long_str(t_option *option, char *str,
-	int len, int count)
+static int		ft_display_padding_and_precision_long_str(t_option *option,
+	char *str, int len, int count)
 {
 	int result;
 
@@ -50,7 +51,7 @@ int		ft_display_padding_and_precision_long_str(t_option *option, char *str,
 	return (result);
 }
 
-int		ft_convert_long_string(va_list lst, t_option *option)
+int				ft_convert_long_string(va_list lst, t_option *option)
 {
 	char	*str;
 	char	*tab;
