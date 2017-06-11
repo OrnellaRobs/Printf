@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 19:53:16 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 20:46:11 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,21 @@ int					ft_is_in(char elem, char *src);
 int					get_number(char *str);
 
 /*
+** FONCTION CONVERTION
+*/
+int					conversion(char *format, t_option *option, va_list lst,
+	...);
+
+/*
 ** CONVERT STRING
 */
 int					ft_convert_string(va_list lst, t_option *option);
 int					ft_display_flag_zero_str(t_option *option, char *str);
+
+/*
+** CONVERT POINTER
+*/
+int					ft_convert_pointer(va_list lst, t_option *option);
 
 /*
 ** CONVERT CHAR (except UNICODE)
@@ -59,17 +70,17 @@ int					ft_convert_hexa(t_option *option, char *tab, char *format);
 int					ft_convert_octal(t_option *option, char *tab);
 int					ft_convert_int(t_option *option, char *tab);
 int					ft_convert_unsigned_int(t_option *option, char *tab);
-char				*ft_lltoa_base_sign(long long value, int base, int sign);
-char				*ft_lltoa_base_unsigned(unsigned long long value, int base,
-	int upper_case, int sign);
-char				*ft_itoa_base_printf(unsigned int value, int base,
-	int upper_case, int sign);
 int					ft_is_flag_minus_int(t_option *option, char *tab,
 	int unsign);
 int					display_precision_int(t_option *option, char *tab,
 	int un_sign);
 int					display_padding_and_precision_int(char *tab,
 	t_option *option, int sign, int un_sign);
+char				*ft_lltoa_base_sign(long long value, int base, int sign);
+char				*ft_lltoa_base_unsigned(unsigned long long value, int base,
+	int upper_case, int sign);
+char				*ft_itoa_base_printf(unsigned int value, int base,
+	int upper_case, int sign);
 
 /*
 ** UNICODE
@@ -84,12 +95,10 @@ char				*ft_convert_binairy_to_decimal(unsigned int value,
 	int *count, int *i);
 char				*ft_get_octet_each_long_char(t_option *option, char *tab,
 	int *count, int *len);
-
-
-int					conversion(char *format, t_option *option, va_list lst,
-	...);
-
+	
+/*
+** Case %%
+*/
 int					ft_percent(t_option *option);
-int					ft_convert_pointer(va_list lst, t_option *option);
 
 #endif

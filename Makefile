@@ -6,17 +6,16 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
-#    Updated: 2017/06/11 19:55:01 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/11 20:05:49 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = 	ft_convert_int.c\
+SRC = 	ft_conversion.c\
+		ft_convert_int.c\
 		ft_convert_hexa.c\
-		ft_conversion.c\
 		ft_convert_char.c\
-		ft_display_minus_padding_precision_int.c\
 		ft_convert_long_char.c\
 		ft_convert_long_string.c\
 		ft_convert_octal.c\
@@ -33,6 +32,7 @@ SRC = 	ft_convert_int.c\
 		ft_parsing.c\
 		ft_display_padding_long_string.c\
 		ft_display_flag_zero_str.c\
+		ft_display_minus_padding_precision_int.c\
 		ft_get_padding_precision_into_struct.c\
 		ft_convert_binairy_to_decimal_long_str.c\
 		ft_free_double_array.c\
