@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 14:47:30 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 15:29:18 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:53:40 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char 	*ft_get_len(t_option *option, char *tab, char *str, int *len)
 	}
 	return (str);
 }
+
 char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count, int *len)
 {
 	char	*tab;
