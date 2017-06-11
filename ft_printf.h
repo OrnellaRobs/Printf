@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 14:42:08 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 20:46:11 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 21:54:20 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "Libft/libft.h"
+
+/*
+** COLOR
+*/
+# define BLUE "\x1b[34m"
+# define GREEN "\x1b[32m"
+# define RED "\x1b[31m"
+# define YELLOW "\x1b[33m"
+# define CYAN "\x1b[36m"
+# define EOC "\x1b[0m"
 
 typedef struct		s_option
 {
@@ -95,7 +105,7 @@ char				*ft_convert_binairy_to_decimal(unsigned int value,
 	int *count, int *i);
 char				*ft_get_octet_each_long_char(t_option *option, char *tab,
 	int *count, int *len);
-	
+
 /*
 ** Case %%
 */
