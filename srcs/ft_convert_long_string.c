@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 13:10:32 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 15:00:21 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:22:01 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ int		ft_display_padding_and_precision_long_str(t_option *option, char *str,
 
 int		ft_convert_long_string(va_list lst, t_option *option)
 {
-	char			*str;
-	int				result;
-	int				len;
-	int				count;
+	char	*str;
+	int		result;
+	int		len;
+	int		count;
 
 	count = 0;
 	result = 0;

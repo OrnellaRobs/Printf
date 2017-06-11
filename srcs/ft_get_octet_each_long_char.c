@@ -6,7 +6,7 @@
 /*   By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 14:47:30 by orazafin          #+#    #+#             */
-/*   Updated: 2017/06/11 15:19:29 by orazafin         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:29:18 by orazafin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,18 @@ char	*ft_octet_less_than_precision(char *tab, char *octet, int *len_octet, int *
 	return (tab);
 }
 
+char 	*ft_get_len(t_option *option, char *tab, char *str, int *len)
+{
+	if (option->padding != -1 && option->precision != -1 &&
+		(int)ft_strlen(tab) < option->precision)
+		*len = option->precision;
+	else
+	{
+		*len = ft_strlen(tab);
+		str = ft_strdup(tab);
+	}
+	return (str);
+}
 char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count, int *len)
 {
 	char	*tab;
@@ -56,14 +68,7 @@ char	*ft_get_octet_each_long_char(t_option *option, unsigned int *nb, int *count
 		i++;
 		free(octet);
 	}
-	if (option->padding != -1 && option->precision != -1 &&
-		(int)ft_strlen(tab) < option->precision)
-		*len = option->precision;
-	else
-	{
-		*len = ft_strlen(tab);
-		str = ft_strdup(tab);
-	}
+	str = ft_get_len(option, tab, str, len);
 	if (state == 1)
 		free(tab);
 	return (str);
