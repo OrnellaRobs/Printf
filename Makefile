@@ -6,7 +6,7 @@
 #    By: orazafin <orazafin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 21:49:20 by orazafin          #+#    #+#              #
-#    Updated: 2017/06/11 21:21:34 by orazafin         ###   ########.fr        #
+#    Updated: 2017/06/12 16:29:09 by orazafin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,26 +85,26 @@ B = \x1b[1m
 EOC = \x1b[0m
 
 $(NAME) :
-	@echo "$(B)$(CYAN)Compiling library libft...$(EOC)"
-	@make -C Libft/ re
-	@gcc $(CFLAGS) -I ./Libft/libft.h -I ft_printf.h -c $(SRCS)
-	@ar rc $(NAME) $(OBJ) $(addprefix $(LIBDIR), $(LIBOBJ))
-	@ranlib $(NAME)
-	@mkdir -p $(OBJDIR)
-	@mv $(OBJ) $(OBJDIR)
-	@ranlib $(NAME)
-	@echo "$(B)$(BLUE)Library libft compilation completed $(B)$(GREEN)✔$(EOC)"
+	@ echo "$(B)$(CYAN)Compiling library libft...$(EOC)"
+	@ make -C Libft/ re
+	@ gcc $(CFLAGS) -I ./Libft/libft.h -I ft_printf.h -c $(SRCS)
+	@ ar rc $(NAME) $(OBJ) $(addprefix $(LIBDIR), $(LIBOBJ))
+	@ ranlib $(NAME)
+	@ mkdir -p $(OBJDIR)
+	@ mv $(OBJ) $(OBJDIR)
+	@ ranlib $(NAME)
+	@ echo "$(B)$(BLUE)Library libft compilation completed $(B)$(GREEN)✔$(EOC)"
 
 clean :
-	@echo "$(B)$(YELLOW)Deleting objects...$(EOC)"
-	@rm -rf objs
-	@echo "$(B)$(GREEN)Deleting done$(EOC)"
-	@make -C Libft/ clean
+	@ echo "$(B)$(YELLOW)Deleting objects...$(EOC)"
+	@ rm -rf objs
+	@ echo "$(B)$(GREEN)Deleting done$(EOC)"
+	@ make -C Libft/ clean
 
 fclean : clean
-	@rm -rf $(NAME)
-	@echo "$(B)$(RED)Deleting library...$(EOC)"
-	@make -C Libft/ fclean
-	@echo "$(B)$(GREEN)Deleting library done$(EOC)"
+	@ rm -rf $(NAME)
+	@ echo "$(B)$(RED)Deleting library...$(EOC)"
+	@ make -C Libft/ fclean
+	@ echo "$(B)$(GREEN)Deleting library done$(EOC)"
 
 re : fclean all
